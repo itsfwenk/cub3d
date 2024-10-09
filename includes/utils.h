@@ -6,7 +6,7 @@
 /*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 14:05:19 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/09 15:28:32 by mel-habi         ###   ########.fr       */
+/*   Updated: 2024/10/09 15:55:18 by mel-habi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,9 @@ typedef struct s_img		t_img;
 typedef struct s_map		t_map;
 typedef struct s_player		t_player;
 typedef struct s_cub3d		t_cub3d;
+
+// char_utils.c
+bool	in_charset(char c, char *charset);
 
 // free_utils.c
 char	**free_str_tab(char	**tab);

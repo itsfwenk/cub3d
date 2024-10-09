@@ -1,18 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_utils.c                                      :+:      :+:    :+:   */
+/*   char_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/09 15:06:24 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/09 15:41:44 by mel-habi         ###   ########.fr       */
+/*   Created: 2024/10/09 15:54:43 by mel-habi          #+#    #+#             */
+/*   Updated: 2024/10/09 15:54:57 by mel-habi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
 
-void	ft_print_error(char *msg)
+bool	in_charset(char c, char *charset)
 {
-	ft_dprintf(2, "Error\n%s\n", msg);
+	size_t	i;
+
+	i = 0;
+	if (!charset)
+		return (false);
+	while (charset[i])
+	{
+		if (c == charset[i])
+			return (true);
+		i++;
+	}
+	return (false);
 }
