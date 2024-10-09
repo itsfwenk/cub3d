@@ -6,7 +6,7 @@
 /*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 13:31:05 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/09 21:38:06 by mel-habi         ###   ########.fr       */
+/*   Updated: 2024/10/09 23:16:45 by mel-habi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,13 @@ bool			parse_simple_line(t_cub3d *cub3d, char **splitted, int fd,
 					t_direction direction);
 bool			parse_color_line(t_cub3d *cub3d, char **splitted, int fd,
 					t_position position);
+
+// map_checkers.c
+void			check_map(t_cub3d *cub3d);
+
+// map_utils.c
+t_direction		get_direction(char c);
+void			normalize_map(t_cub3d *cub3d);
 
 // parser.c
 void			cub3d_parser(t_cub3d *cub3d, char *mappath);

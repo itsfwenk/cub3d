@@ -6,7 +6,7 @@
 /*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 13:03:22 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/09 21:07:14 by mel-habi         ###   ########.fr       */
+/*   Updated: 2024/10/09 23:13:20 by mel-habi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,14 @@
 # include <stdbool.h>
 # include <fcntl.h>
 # include <limits.h>
+# include <math.h>
 
 # include "libft.h"
 
 # include "parser.h"
 # include "utils.h"
+
+# define PI 3.14159265358979323846
 
 // Enums
 typedef enum e_direction	t_direction;
@@ -28,10 +31,10 @@ typedef enum e_position		t_position;
 
 typedef enum e_direction
 {
-	NORTH,
-	SOUTH,
 	EAST,
-	WEST
+	NORTH,
+	WEST,
+	SOUTH
 }	t_direction;
 
 typedef enum e_position

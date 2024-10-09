@@ -6,7 +6,7 @@
 /*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 15:46:29 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/09 21:32:14 by mel-habi         ###   ########.fr       */
+/*   Updated: 2024/10/09 23:12:36 by mel-habi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,14 @@ static bool	parse_line(t_cub3d *cub3d, char *line, int fd)
 		return (free(line), close(fd), exit_cub3d(cub3d, EXIT_FAILURE), false);
 	else if (splitted[0] && splitted[1] && !splitted[2])
 	{
-		if (!ft_strcmp(splitted[0], "NO"))
+		if (!ft_strcmp(splitted[0], "EA"))
+			return (parse_simple_line(cub3d, splitted, fd, EAST));
+		else if (!ft_strcmp(splitted[0], "NO"))
 			return (parse_simple_line(cub3d, splitted, fd, NORTH));
-		else if (!ft_strcmp(splitted[0], "SO"))
-			return (parse_simple_line(cub3d, splitted, fd, SOUTH));
 		else if (!ft_strcmp(splitted[0], "WE"))
 			return (parse_simple_line(cub3d, splitted, fd, WEST));
-		else if (!ft_strcmp(splitted[0], "EA"))
-			return (parse_simple_line(cub3d, splitted, fd, EAST));
+		else if (!ft_strcmp(splitted[0], "SO"))
+			return (parse_simple_line(cub3d, splitted, fd, SOUTH));
 		else if (!ft_strcmp(splitted[0], "F"))
 			return (parse_color_line(cub3d, splitted, fd, FLOOR));
 		else if (!ft_strcmp(splitted[0], "C"))
@@ -113,4 +113,6 @@ void	cub3d_parser(t_cub3d *cub3d, char *mappath)
 	parse_parameters(cub3d, fd);
 	parse_map(cub3d, fd);
 	close(fd);
+	normalize_map(cub3d);
+	check_map(cub3d);
 }
