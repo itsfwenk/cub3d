@@ -6,7 +6,7 @@
 /*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 17:28:48 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/09 19:26:16 by mel-habi         ###   ########.fr       */
+/*   Updated: 2024/10/09 19:50:07 by mel-habi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,20 @@
 
 static unsigned long	get_color(char **splitted_color)
 {
-	(void)splitted_color;
-	return (LONG_MAX);
+	unsigned long	r;
+	unsigned long	g;
+	unsigned long	b;
+
+	r = ft_atoc(splitted_color[0]);
+	if (r == LONG_MAX)
+		return (LONG_MAX);
+	g = ft_atoc(splitted_color[1]);
+	if (g == LONG_MAX)
+		return (LONG_MAX);
+	b = ft_atoc(splitted_color[2]);
+	if (b == LONG_MAX)
+		return (LONG_MAX);
+	return (r << 16 | g << 8 | b);
 }
 
 bool	parse_simple_line(t_cub3d *cub3d, char **splitted, int fd,
@@ -60,7 +72,7 @@ bool	parse_color_line(t_cub3d *cub3d, char **splitted, int fd,
 		if (cub3d->map->colors[position] == LONG_MAX)
 			return (free_str_tab(splitted_color), free_str_tab(splitted),
 				false);
-		return (true);
+		return (free_str_tab(splitted_color), free_str_tab(splitted), true);
 	}
 	free_str_tab(splitted_color);
 	free_str_tab(splitted);
