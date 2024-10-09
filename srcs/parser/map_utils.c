@@ -6,7 +6,7 @@
 /*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 22:01:08 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/10 01:45:56 by mel-habi         ###   ########.fr       */
+/*   Updated: 2024/10/10 01:48:06 by mel-habi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ void	lines_to_array(t_cub3d *cub3d)
 	while (i < cub3d->map->height)
 	{
 		array[i] = line->line;
+		line = line->next;
 		i++;
 	}
 	cub3d->map->array = array;
