@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3D.c                                            :+:      :+:    :+:   */
+/*   free_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/09 13:04:02 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/09 15:14:12 by mel-habi         ###   ########.fr       */
+/*   Created: 2024/10/09 15:11:49 by mel-habi          #+#    #+#             */
+/*   Updated: 2024/10/09 15:13:25 by mel-habi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
 
-int	main(int argc, char **argv)
+char	**free_str_tab(char	**tab)
 {
-	t_gc	*gc;
-	t_cub3d	*cub3d;
+	size_t	i;
 
-	gc = NULL;
-	cub3d = add_gc(&gc, 1, sizeof(t_cub3d));
-	cub3d->gc = gc;
-	clear_gc(cub3d->gc);
-	return (EXIT_SUCCESS);
+	i = 0;
+	if (!tab)
+		return (NULL);
+	while (tab[i])
+	{
+		free(tab[i]);
+		i++;
+	}
+	free(tab);
+	return (NULL);
 }
