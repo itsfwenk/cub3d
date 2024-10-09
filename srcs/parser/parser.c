@@ -6,7 +6,7 @@
 /*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 15:46:29 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/09 19:40:54 by mel-habi         ###   ########.fr       */
+/*   Updated: 2024/10/09 21:32:14 by mel-habi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,28 +41,13 @@ static bool	parse_line(t_cub3d *cub3d, char *line, int fd)
 	return (false);
 }
 
-static void	check_param_nb(t_cub3d *cub3d, int set_param, int fd)
-{
-	if (set_param != 6)
-	{
-		close(fd);
-		if (set_param < 6)
-			ft_print_error("There are less than 6 valid parameters \
-in this file");
-		else
-			ft_print_error("There are more than 6 valid parameters \
-in this file");
-		exit_cub3d(cub3d, EXIT_FAILURE);
-	}
-}
-
 static void	parse_parameters(t_cub3d *cub3d, int fd)
 {
 	int		set_param;
 	char	*line;
 
 	set_param = 0;
-	while (1)
+	while (set_param != 6)
 	{
 		line = get_next_line(fd);
 		if (!line)
@@ -71,13 +56,42 @@ static void	parse_parameters(t_cub3d *cub3d, int fd)
 			set_param++;
 		free(line);
 	}
-	check_param_nb(cub3d, set_param, fd);
+	if (set_param != 6)
+	{
+		ft_print_error("There are less than 6 valid parameters \
+in this file");
+		close(fd);
+		exit_cub3d(cub3d, EXIT_FAILURE);
+	}
 }
 
 static void	parse_map(t_cub3d *cub3d, int fd)
 {
-	(void)cub3d;
-	(void)fd;
+	char	*line;
+
+	line = get_next_line(fd);
+	while (line && !ft_strcmp(line, "\n"))
+	{
+		free(line);
+		line = get_next_line(fd);
+	}
+	if (!line)
+	{
+		ft_print_error("This map is empty");
+		close(fd);
+		exit_cub3d(cub3d, EXIT_FAILURE);
+	}
+	while (line && ft_strcmp(line, "\n"))
+	{
+		if (!add_line(cub3d->map, line))
+		{
+			close(fd);
+			exit_cub3d(cub3d, EXIT_FAILURE);
+		}
+		line = get_next_line(fd);
+	}
+	if (line)
+		free(line);
 }
 
 void	cub3d_parser(t_cub3d *cub3d, char *mappath)

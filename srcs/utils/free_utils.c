@@ -6,7 +6,7 @@
 /*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 15:11:49 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/09 19:05:20 by mel-habi         ###   ########.fr       */
+/*   Updated: 2024/10/09 21:15:28 by mel-habi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ int	exit_cub3d(t_cub3d *cub3d, int exit_code)
 			free(cub3d->map->textures[i]);
 		i++;
 	}
+	clear_lines(cub3d->map->lines);
 	clear_gc(cub3d->gc);
 	exit(exit_code);
 	return (exit_code);
