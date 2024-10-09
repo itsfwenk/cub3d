@@ -6,7 +6,7 @@
 /*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 22:01:08 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/09 23:16:29 by mel-habi         ###   ########.fr       */
+/*   Updated: 2024/10/10 01:45:56 by mel-habi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,23 @@ void	normalize_map(t_cub3d *cub3d)
 		line->line = normalized;
 		line = line->next;
 	}
+}
+
+void	lines_to_array(t_cub3d *cub3d)
+{
+	char			**array;
+	t_line			*line;
+	unsigned long	i;
+
+	array = ft_calloc(cub3d->map->height + 1, sizeof(char *));
+	if (!array)
+		exit_cub3d(cub3d, EXIT_FAILURE);
+	i = 0;
+	line = cub3d->map->lines;
+	while (i < cub3d->map->height)
+	{
+		array[i] = line->line;
+		i++;
+	}
+	cub3d->map->array = array;
 }

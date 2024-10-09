@@ -6,7 +6,7 @@
 /*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 13:03:22 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/09 23:13:20 by mel-habi         ###   ########.fr       */
+/*   Updated: 2024/10/10 01:38:39 by mel-habi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ typedef struct s_line
 typedef struct s_map
 {
 	t_line				*lines;
+	char				**array;
 	unsigned long		height;
 	unsigned long		width;
 	char				*textures[4];
