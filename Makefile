@@ -6,7 +6,7 @@
 #    By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/09 12:46:00 by mel-habi          #+#    #+#              #
-#    Updated: 2024/10/09 12:56:26 by mel-habi         ###   ########.fr        #
+#    Updated: 2024/10/09 13:08:41 by mel-habi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,10 +14,12 @@ NAME 			= cub3D
 LIBFT			= libft
 MLX				= mlx_linux
 
-SOURCES			= 
+MAIN_SRCS		= cub3D.c
+
+SOURCES			= $(addprefix srcs/, $(MAIN_SRCS))
 OBJECTS			= $(SOURCES:.c=.o)
 
-HEADERS_FILES	= 
+HEADERS_FILES	= cub3D.h
 HEADERS			= $(addprefix includes/, $(HEADERS_FILES))
 FLAGS 			= -Wall -Wextra -Werror -g3
 LIBS			= -L$(LIBFT) -lft -I$(LIBFT) -L$(MLX) -l$(MLX) -L/usr/lib -I$(MLX) -lXext -lX11 -lm -lz
