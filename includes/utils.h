@@ -6,7 +6,7 @@
 /*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 14:05:19 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/09 15:15:27 by mel-habi         ###   ########.fr       */
+/*   Updated: 2024/10/09 15:28:32 by mel-habi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ typedef struct s_cub3d		t_cub3d;
 
 // free_utils.c
 char	**free_str_tab(char	**tab);
+int		exit_cub3d(t_cub3d *cub3d, int exit_code);
 
 // gc.c
 void	clear_gc(t_gc *gc);

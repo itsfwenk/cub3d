@@ -6,7 +6,7 @@
 /*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 15:11:49 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/09 15:13:25 by mel-habi         ###   ########.fr       */
+/*   Updated: 2024/10/09 15:30:33 by mel-habi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,11 @@ char	**free_str_tab(char	**tab)
 	}
 	free(tab);
 	return (NULL);
+}
+
+int	exit_cub3d(t_cub3d *cub3d, int exit_code)
+{
+	clear_gc(cub3d->gc);
+	exit(exit_code);
+	return (exit_code);
 }
