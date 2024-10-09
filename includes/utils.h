@@ -6,7 +6,7 @@
 /*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 14:05:19 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/09 14:47:59 by mel-habi         ###   ########.fr       */
+/*   Updated: 2024/10/09 15:08:48 by mel-habi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,8 @@ typedef struct s_cub3d		t_cub3d;
 // gc.c
 void	clear_gc(t_gc *gc);
 void	*add_gc(t_gc **gc, size_t nmemb, size_t size);
+
+// print_utils.c
+void	ft_print_error(char *msg);
 
 #endif
