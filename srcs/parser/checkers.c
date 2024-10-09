@@ -6,7 +6,7 @@
 /*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 15:48:45 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/09 19:50:56 by mel-habi         ###   ########.fr       */
+/*   Updated: 2024/10/09 19:56:29 by mel-habi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static bool	check_color_number(char *str)
 	i = 0;
 	while (str[i])
 	{
-		if ((str[i] < '0' || str[i] > '9') && str[i] != '\n' && str[i] != ' ')
+		if ((str[i] < '0' || str[i] > '9') && str[i] != '\n')
 			return (false);
 		i++;
 	}
