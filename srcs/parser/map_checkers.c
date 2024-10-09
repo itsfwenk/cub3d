@@ -6,7 +6,7 @@
 /*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 21:39:19 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/09 23:23:49 by mel-habi         ###   ########.fr       */
+/*   Updated: 2024/10/09 23:30:23 by mel-habi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ static bool	check_line(t_cub3d *cub3d, t_line *line, unsigned long x,
 			cub3d->player->x = x;
 			cub3d->player->y = y;
 			cub3d->player->angle = get_direction(line->line[y]) * PI / 2;
+			line->line[y] = 'P';
 		}
 		y++;
 	}
