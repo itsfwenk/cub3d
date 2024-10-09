@@ -6,11 +6,11 @@
 #    By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/09 12:46:00 by mel-habi          #+#    #+#              #
-#    Updated: 2024/10/09 12:46:01 by mel-habi         ###   ########.fr        #
+#    Updated: 2024/10/09 12:56:26 by mel-habi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME 			= cub3d
+NAME 			= cub3D
 LIBFT			= libft
 MLX				= mlx_linux
 
