@@ -6,7 +6,7 @@
 /*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 13:03:22 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/09 16:01:18 by mel-habi         ###   ########.fr       */
+/*   Updated: 2024/10/09 18:56:54 by mel-habi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stdbool.h>
 # include <fcntl.h>
+# include <limits.h>
 
 # include "libft.h"
 
@@ -65,7 +66,7 @@ typedef struct s_map
 {
 	char				**array;
 	char				*textures[4];
-	unsigned int		colors[2];
+	unsigned long		colors[2];
 }	t_map;
 
 typedef struct s_player

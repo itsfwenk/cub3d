@@ -6,7 +6,7 @@
 #    By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/09 12:46:00 by mel-habi          #+#    #+#              #
-#    Updated: 2024/10/09 15:55:41 by mel-habi         ###   ########.fr        #
+#    Updated: 2024/10/09 18:11:12 by mel-habi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,8 +14,8 @@ NAME 			= cub3D
 LIBFT			= libft
 MLX				= mlx_linux
 
-PARSER_SRCS		= checkers.c parser.c
-UTILS_SRCS		= char_utils.c free_utils.c gc.c print_utils.c
+PARSER_SRCS		= checkers.c line_utils.c parser.c
+UTILS_SRCS		= char_utils.c free_utils.c gc.c init_utils.c print_utils.c
 MAIN_SRCS		= cub3D.c
 				  
 SOURCES			= $(addprefix srcs/parser/, $(PARSER_SRCS)) \

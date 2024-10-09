@@ -6,7 +6,7 @@
 /*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 15:11:49 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/09 15:30:33 by mel-habi         ###   ########.fr       */
+/*   Updated: 2024/10/09 19:05:20 by mel-habi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,24 @@ char	**free_str_tab(char	**tab)
 	return (NULL);
 }
 
+bool	unexpected_line_error(t_cub3d *cub3d)
+{
+	ft_print_error("Found unexpected line while parsing the map");
+	exit_cub3d(cub3d, EXIT_FAILURE);
+	return (false);
+}
+
 int	exit_cub3d(t_cub3d *cub3d, int exit_code)
 {
+	int	i;
+
+	i = 0;
+	while (i < 4)
+	{
+		if (cub3d->map->textures[i])
+			free(cub3d->map->textures[i]);
+		i++;
+	}
 	clear_gc(cub3d->gc);
 	exit(exit_code);
 	return (exit_code);
