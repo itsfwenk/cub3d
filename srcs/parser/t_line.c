@@ -6,7 +6,7 @@
 /*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 21:03:08 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/09 21:37:53 by mel-habi         ###   ########.fr       */
+/*   Updated: 2024/10/10 01:51:55 by mel-habi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ t_line	*add_line(t_map *map, char *val)
 	new_line = ft_calloc(1, sizeof(t_line));
 	if (!new_line)
 		return (free(val), NULL);
-	new_line->line = ft_strtrim(val, " \n");
+	new_line->line = ft_strtrim(val, "\n");
 	if (!new_line->line)
 	{
 		free(new_line);
