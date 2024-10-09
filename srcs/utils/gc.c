@@ -6,7 +6,7 @@
 /*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 14:32:44 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/09 14:45:34 by mel-habi         ###   ########.fr       */
+/*   Updated: 2024/10/09 14:54:35 by mel-habi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@ void	clear_gc(t_gc *gc)
 void	*add_gc(t_gc **gc, size_t nmemb, size_t size)
 {
 	t_gc	*new_gc;
-	void	*ptr;
 
 	new_gc = ft_calloc(1, sizeof(t_gc));
 	if (!new_gc)
