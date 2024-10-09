@@ -6,7 +6,7 @@
 /*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 13:04:02 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/09 14:04:33 by mel-habi         ###   ########.fr       */
+/*   Updated: 2024/10/09 14:43:45 by mel-habi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,5 @@
 
 int	main(int argc, char **argv)
 {
-	
-	return (0);
+	return (EXIT_SUCCESS);
 }
