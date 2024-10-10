@@ -6,7 +6,7 @@
 #    By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/09 12:46:00 by mel-habi          #+#    #+#              #
-#    Updated: 2024/10/10 17:14:22 by mel-habi         ###   ########.fr        #
+#    Updated: 2024/10/10 17:43:52 by mel-habi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ LIBFT			= libft
 MLX				= mlx_linux
 
 PARSER_SRCS		= checkers.c line_utils.c map_checkers.c map_utils.c parser.c t_line.c
-UTILS_SRCS		= char_utils.c free_utils.c gc.c init_utils.c print_utils.c str_utils.c
+UTILS_SRCS		= char_utils.c free_utils.c gc.c init_utils.c print_utils.c
 RAYCASTING_SRCS	= init_window.c raycasting.c
 MAIN_SRCS		= cub3D.c
 

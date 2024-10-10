@@ -6,7 +6,7 @@
 /*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 13:03:22 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/10 17:11:55 by mel-habi         ###   ########.fr       */
+/*   Updated: 2024/10/10 17:44:17 by mel-habi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@
 
 # define EMPTY '0'
 # define WALL '1'
-# define MARKED '#'
+# define FLOOD_FILL_MARKED '#'
 # define PLAYER 'P'
 # define SPACE ' '
 

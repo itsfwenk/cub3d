@@ -6,7 +6,7 @@
 /*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 14:05:19 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/10 16:24:59 by mel-habi         ###   ########.fr       */
+/*   Updated: 2024/10/10 17:43:06 by mel-habi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,5 @@ t_cub3d	*init_cub3d(void);
 
 // print_utils.c
 void	ft_print_error(char *msg);
-
-// str_utils.c
-bool	only_in(char *str, char c);
 
 #endif

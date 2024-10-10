@@ -6,7 +6,7 @@
 /*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 21:39:19 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/10 17:32:28 by mel-habi         ###   ########.fr       */
+/*   Updated: 2024/10/10 17:44:17 by mel-habi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ static bool	flood_fill(t_cub3d *cub3d, unsigned long x, unsigned long y)
 	if (!in_charset(array[x][y], "P0"))
 		return (true);
 	else if (array[x][y] == EMPTY)
-		array[x][y] = MARKED;
+		array[x][y] = FLOOD_FILL_MARKED;
 	if (!x || x == map->height - 1 || !y || y == map->width - 1)
 		return (false);
 	return (flood_fill(cub3d, x - 1, y)
@@ -93,7 +93,7 @@ static void	remove_flood_fill_markers(char **array, unsigned long height,
 		y = 0;
 		while (y < width)
 		{
-			if (array[x][y] == MARKED)
+			if (array[x][y] == FLOOD_FILL_MARKED)
 				array[x][y] = EMPTY;
 			y++;
 		}
