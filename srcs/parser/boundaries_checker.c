@@ -6,116 +6,78 @@
 /*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 02:20:07 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/10 03:39:46 by mel-habi         ###   ########.fr       */
+/*   Updated: 2024/10/10 04:23:14 by mel-habi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
 
-static bool	**init_visited(unsigned long height, unsigned long width)
+static bool	check_bounds(char **map, unsigned long height, unsigned long width)
 {
-	bool			**visited;
-	unsigned long	i;
-
-	visited = ft_calloc(height, sizeof(bool *));
-	if (!visited)
-		return (NULL);
-	i = 0;
-	while (i < height)
-	{
-		visited[i] = ft_calloc(width, sizeof(bool));
-		if (!visited[i])
-			return (free_visited(visited, height));
-		i++;
-	}
-	return (visited);
-}
-
-static void	flood_fill(t_cub3d *cub3d, unsigned long x, unsigned long y,
-	bool **visited)
-{
-	t_map	*map;
-	char	**array;
-
-	map = cub3d->map;
-	array = map->array;
-	if (x >= map->height || y >= map->width
-		|| visited[x][y] || in_charset(array[x][y], "1#"))
-		return ;
-	visited[x][y] = true;
-	if (x > 0)
-		flood_fill(cub3d, x - 1, y, visited);
-	if (x < map->height - 1)
-		flood_fill(cub3d, x + 1, y, visited);
-	if (y > 0)
-		flood_fill(cub3d, x, y - 1, visited);
-	if (y < map->width - 1)
-		flood_fill(cub3d, x, y + 1, visited);
-}
-
-static void	height_fill(t_cub3d *cub3d, bool **visited)
-{
-	unsigned long	x;
-	t_map			*map;
-	char			**array;
+	unsigned int	x;
+	unsigned int	y;
 
 	x = 0;
-	map = cub3d->map;
-	array = map->array;
-	while (x < map->height)
+	while (x < height)
 	{
-		if (array[x][0] == EMPTY && !visited[x][0])
-			flood_fill(cub3d, x, 0, visited);
-		if (array[x][map->width - 1] == EMPTY && !visited[x][map->width - 1])
-			flood_fill(cub3d, x, map->width - 1, visited);
+		if (!x || x == height - 1)
+		{
+			y = 0;
+			while (map[x][y])
+			{
+				if (!in_charset(map[x][y], "1#"))
+					return (false);
+				y++;
+			}
+		}
+		if (!in_charset(map[x][0], "1#")
+			|| !in_charset(map[x][width - 1], "1#"))
+			return (false);
 		x++;
 	}
+	return (true);
 }
 
-static void	width_fill(t_cub3d *cub3d, bool **visited)
+static bool	near_zero(t_cub3d *cub3d, unsigned long x, unsigned long y)
 {
-	unsigned long	y;
 	t_map			*map;
 	char			**array;
 
-	y = 0;
 	map = cub3d->map;
 	array = map->array;
-	while (y < map->width)
-	{
-		if (array[0][y] == EMPTY && !visited[0][y])
-			flood_fill(cub3d, 0, y, visited);
-		if (array[map->height - 1][y] == EMPTY && !visited[map->height - 1][y])
-			flood_fill(cub3d, map->height - 1, y, visited);
-		y++;
-	}
+	if (x > 0 && array[x - 1][y] == EMPTY)
+		return (true);
+	else if (x < map->height - 1 && array[x + 1][y] == EMPTY)
+		return (true);
+	else if (y > 0 && array[x][y - 1] == EMPTY)
+		return (true);
+	else if (y < map->width - 1 && array[x][y + 1] == EMPTY)
+		return (true);
+	return (false);
 }
 
 bool	is_map_closed(t_cub3d *cub3d)
 {
-	bool			**visited;
 	t_map			*map;
+	char			**array;
 	unsigned long	x;
 	unsigned long	y;
 
 	map = cub3d->map;
-	visited = init_visited(map->height, map->width);
-	if (!visited)
-		return (exit_cub3d(cub3d, EXIT_FAILURE), false);
-	height_fill(cub3d, visited);
-	width_fill(cub3d, visited);
+	array = map->array;
+	if (!check_bounds(array, map->height, map->width))
+		return (false);
 	x = 0;
 	while (x < map->height)
 	{
 		y = 0;
 		while (y < map->width)
 		{
-			if (map->array[x][y] == EMPTY && !visited[x][y])
-				return (free_visited(visited, map->height), false);
+			if (array[x][y] == '#' && near_zero(cub3d, x, y))
+				return (false);
 			y++;
 		}
 		x++;
 	}
-	free_visited(visited, map->height);
 	return (true);
 }
