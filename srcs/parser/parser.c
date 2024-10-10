@@ -6,7 +6,7 @@
 /*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 15:46:29 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/10 18:34:47 by mel-habi         ###   ########.fr       */
+/*   Updated: 2024/10/10 20:40:02 by mel-habi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,26 +19,26 @@ static bool	parse_line(t_cub3d *cub3d, char *line, int fd)
 	splitted = ft_split(line, SPACE);
 	if (!splitted)
 		return (free(line), close(fd), exit_cub3d(cub3d, EXIT_FAILURE), false);
-	else if (splitted[0] && splitted[1] && !splitted[2])
-	{
-		if (!ft_strcmp(splitted[0], "EA"))
-			return (parse_simple_line(cub3d, splitted, fd, EAST));
-		else if (!ft_strcmp(splitted[0], "NO"))
-			return (parse_simple_line(cub3d, splitted, fd, NORTH));
-		else if (!ft_strcmp(splitted[0], "WE"))
-			return (parse_simple_line(cub3d, splitted, fd, WEST));
-		else if (!ft_strcmp(splitted[0], "SO"))
-			return (parse_simple_line(cub3d, splitted, fd, SOUTH));
-		else if (!ft_strcmp(splitted[0], "F"))
-			return (parse_color_line(cub3d, splitted, fd, FLOOR));
-		else if (!ft_strcmp(splitted[0], "C"))
-			return (parse_color_line(cub3d, splitted, fd, CEIL));
-		else
-			return (close(fd), free(line), free_str_tab(splitted),
-				unexpected_line_error(cub3d));
-	}
+	else if (!splitted[0] || !splitted[1] || splitted[2])
+		return (free_str_tab(splitted), false);
+	if (!ft_strcmp(splitted[0], "EA") && !cub3d->map->textures[EAST])
+		return (parse_simple_line(cub3d, splitted, fd, EAST));
+	else if (!ft_strcmp(splitted[0], "NO") && !cub3d->map->textures[NORTH])
+		return (parse_simple_line(cub3d, splitted, fd, NORTH));
+	else if (!ft_strcmp(splitted[0], "WE") && !cub3d->map->textures[WEST])
+		return (parse_simple_line(cub3d, splitted, fd, WEST));
+	else if (!ft_strcmp(splitted[0], "SO") && !cub3d->map->textures[SOUTH])
+		return (parse_simple_line(cub3d, splitted, fd, SOUTH));
+	else if (!ft_strcmp(splitted[0], "F")
+		&& cub3d->map->colors[FLOOR] == LONG_MAX)
+		return (parse_color_line(cub3d, splitted, fd, FLOOR));
+	else if (!ft_strcmp(splitted[0], "C")
+		&& cub3d->map->colors[CEIL] == LONG_MAX)
+		return (parse_color_line(cub3d, splitted, fd, CEIL));
+	close(fd);
+	free(line);
 	free_str_tab(splitted);
-	return (false);
+	return (unexpected_line_error(cub3d));
 }
 
 static void	parse_parameters(t_cub3d *cub3d, int fd)
