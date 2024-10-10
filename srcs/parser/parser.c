@@ -6,7 +6,7 @@
 /*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 15:46:29 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/10 17:44:30 by mel-habi         ###   ########.fr       */
+/*   Updated: 2024/10/10 18:34:47 by mel-habi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ static void	parse_map(t_cub3d *cub3d, int fd)
 	char	*line;
 
 	line = get_next_line(fd);
-	while (line && (!ft_strcmp(line, "\n")))
+	while (line && !ft_strcmp(line, "\n"))
 	{
 		free(line);
 		line = get_next_line(fd);
@@ -94,6 +94,25 @@ static void	parse_map(t_cub3d *cub3d, int fd)
 		free(line);
 }
 
+static void	parse_end(t_cub3d *cub3d, int fd)
+{
+	char	*line;
+
+	line = get_next_line(fd);
+	while (line)
+	{
+		if (ft_strcmp(line, "\n"))
+		{
+			free(line);
+			close(fd);
+			ft_print_error("Not empty EOF");
+			exit_cub3d(cub3d, EXIT_FAILURE);
+		}
+		free(line);
+		line = get_next_line(fd);
+	}
+}
+
 void	cub3d_parser(t_cub3d *cub3d, char *mappath)
 {
 	int	fd;
@@ -112,6 +131,7 @@ void	cub3d_parser(t_cub3d *cub3d, char *mappath)
 	}
 	parse_parameters(cub3d, fd);
 	parse_map(cub3d, fd);
+	parse_end(cub3d, fd);
 	close(fd);
 	normalize_map(cub3d);
 	lines_to_array(cub3d);
