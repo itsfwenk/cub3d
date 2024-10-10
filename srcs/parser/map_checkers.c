@@ -6,7 +6,7 @@
 /*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 21:39:19 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/10 02:14:35 by mel-habi         ###   ########.fr       */
+/*   Updated: 2024/10/10 02:54:03 by mel-habi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,13 +64,6 @@ static void	put_player(t_cub3d *cub3d)
 
 void	check_map(t_cub3d *cub3d)
 {
-	unsigned int	i;
-
 	put_player(cub3d);
-	i = 0;
-	while (cub3d->map->array[i])
-	{
-		ft_dprintf(1, "%s\n", cub3d->map->array[i]);
-		i++;
-	}
+	dprintf(1, "%d\n", is_map_closed(cub3d));
 }

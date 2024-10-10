@@ -6,7 +6,7 @@
 /*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 14:05:19 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/09 21:12:48 by mel-habi         ###   ########.fr       */
+/*   Updated: 2024/10/10 02:49:48 by mel-habi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ bool	in_charset(char c, char *charset);
 
 // free_utils.c
 char	**free_str_tab(char	**tab);
+bool	**free_visited(bool **visited, unsigned long height);
 bool	unexpected_line_error(t_cub3d *cub3d);
 int		exit_cub3d(t_cub3d *cub3d, int exit_code);
 

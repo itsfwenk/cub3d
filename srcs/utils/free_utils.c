@@ -6,7 +6,7 @@
 /*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 15:11:49 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/10 01:40:29 by mel-habi         ###   ########.fr       */
+/*   Updated: 2024/10/10 02:50:47 by mel-habi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,20 @@ char	**free_str_tab(char	**tab)
 		i++;
 	}
 	free(tab);
+	return (NULL);
+}
+
+bool	**free_visited(bool **visited, unsigned long height)
+{
+	unsigned long	i;
+
+	i = 0;
+	while (i < height)
+	{
+		free(visited[i]);
+		i++;
+	}
+	free(visited);
 	return (NULL);
 }
 

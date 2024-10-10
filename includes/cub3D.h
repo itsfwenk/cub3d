@@ -6,13 +6,14 @@
 /*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 13:03:22 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/10 02:15:10 by mel-habi         ###   ########.fr       */
+/*   Updated: 2024/10/10 02:54:11 by mel-habi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_H
 # define CUB3D_H
 
+# include <stdio.h>
 # include <stdbool.h>
 # include <fcntl.h>
 # include <limits.h>
