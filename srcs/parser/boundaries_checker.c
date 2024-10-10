@@ -6,7 +6,7 @@
 /*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 02:20:07 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/10 10:45:23 by mel-habi         ###   ########.fr       */
+/*   Updated: 2024/10/10 11:48:10 by mel-habi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,22 +38,25 @@ static bool	check_bounds(char **map, unsigned long height, unsigned long width)
 	return (true);
 }
 
-static bool	near_zero(t_cub3d *cub3d, unsigned long x, unsigned long y)
+static bool	near_zero(t_cub3d *cub3d, unsigned long x, unsigned long y,
+	bool essential)
 {
 	t_map			*map;
 	char			**array;
 
 	map = cub3d->map;
 	array = map->array;
-	if (x > 0 && array[x - 1][y] == EMPTY)
-		return (true);
-	else if (x < map->height - 1 && array[x + 1][y] == EMPTY)
-		return (true);
-	else if (y > 0 && array[x][y - 1] == EMPTY)
-		return (true);
-	else if (y < map->width - 1 && array[x][y + 1] == EMPTY)
-		return (true);
 	array[x][y] = WALL;
+	if (!essential)
+		return (false);
+	else if (x > 0 && in_charset(array[x - 1][y], "0P"))
+		return (true);
+	else if (x < map->height - 1 && in_charset(array[x + 1][y], "0P"))
+		return (true);
+	else if (y > 0 && in_charset(array[x][y - 1], "0P"))
+		return (true);
+	else if (y < map->width - 1 && in_charset(array[x][y + 1], "0P"))
+		return (true);
 	return (false);
 }
 
@@ -74,7 +77,8 @@ bool	is_map_closed(t_cub3d *cub3d)
 		y = 0;
 		while (y < map->width)
 		{
-			if (array[x][y] == '#' && near_zero(cub3d, x, y))
+			if (array[x][y] == IGNORE && near_zero(cub3d, x, y,
+				(!x || x == map->height - 1 || !y || y == map->width - 1)))
 				return (false);
 			y++;
 		}
