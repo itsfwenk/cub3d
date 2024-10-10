@@ -6,35 +6,31 @@
 /*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 02:20:07 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/10 11:57:55 by mel-habi         ###   ########.fr       */
+/*   Updated: 2024/10/10 16:43:14 by mel-habi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
 
-static bool	check_bounds(char **map, unsigned long height, unsigned long width)
+static bool	check_zero(char **map, unsigned long x, unsigned long y)
 {
-	unsigned int	x;
-	unsigned int	y;
+	unsigned long	height;
+	unsigned long	width;
+	char			tmp;
 
-	x = 0;
-	while (x < height)
-	{
-		if (!x || x == height - 1)
-		{
-			y = 0;
-			while (map[x][y])
-			{
-				if (!in_charset(map[x][y], "1#"))
-					return (false);
-				y++;
-			}
-		}
-		if (!in_charset(map[x][0], "1#")
-			|| !in_charset(map[x][width - 1], "1#"))
-			return (false);
-		x++;
-	}
+	if (map[x][y] != EMPTY)
+		return (true);
+	height = 0;
+	while (map[height])
+		height++;
+	width = (unsigned long)ft_strlen(map[x]);
+	if (y && y != width - 1)
+		return (false);
+	tmp = map[x][y];
+	map[x][y] = WALL;
+	if (!check_bounds(map, height, width))
+		return (false);
+	map[x][y] = tmp;
 	return (true);
 }
 
@@ -58,6 +54,32 @@ static bool	near_zero_or_player(t_cub3d *cub3d, unsigned long x,
 	else if (y < map->width - 1 && in_charset(array[x][y + 1], "0P"))
 		return (true);
 	return (false);
+}
+
+bool	check_bounds(char **map, unsigned long height, unsigned long width)
+{
+	unsigned int	x;
+	unsigned int	y;
+
+	x = 0;
+	while (x < height)
+	{
+		if (!x || x == height - 1)
+		{
+			y = 0;
+			while (map[x][y])
+			{
+				if (!in_charset(map[x][y], "1#") && !check_zero(map, x, y))
+					return (false);
+				y++;
+			}
+		}
+		else if (!in_charset(map[x][0], "1#")
+			|| !in_charset(map[x][width - 1], "1#"))
+			return (false);
+		x++;
+	}
+	return (true);
 }
 
 bool	is_map_closed(t_cub3d *cub3d)

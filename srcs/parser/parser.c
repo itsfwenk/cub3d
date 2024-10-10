@@ -6,7 +6,7 @@
 /*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 15:46:29 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/10 02:17:17 by mel-habi         ###   ########.fr       */
+/*   Updated: 2024/10/10 16:26:53 by mel-habi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ static void	parse_map(t_cub3d *cub3d, int fd)
 	char	*line;
 
 	line = get_next_line(fd);
-	while (line && !ft_strcmp(line, "\n"))
+	while (line && (!ft_strcmp(line, "\n") || only_in(line, SPACE)))
 	{
 		free(line);
 		line = get_next_line(fd);
@@ -81,7 +81,7 @@ static void	parse_map(t_cub3d *cub3d, int fd)
 		close(fd);
 		exit_cub3d(cub3d, EXIT_FAILURE);
 	}
-	while (line && ft_strcmp(line, "\n"))
+	while (line && ft_strcmp(line, "\n") && !only_in(line, SPACE))
 	{
 		if (!add_line(cub3d->map, line))
 		{
