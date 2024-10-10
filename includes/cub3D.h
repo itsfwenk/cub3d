@@ -6,7 +6,7 @@
 /*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 13:03:22 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/10 17:44:17 by mel-habi         ###   ########.fr       */
+/*   Updated: 2024/10/10 20:42:56 by mel-habi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@
 
 # define EMPTY '0'
 # define WALL '1'
-# define FLOOD_FILL_MARKED '#'
 # define PLAYER 'P'
 # define SPACE ' '
+# define FLOOD_FILL_MARKED '#'
 
 // Enums
 typedef enum e_direction	t_direction;
