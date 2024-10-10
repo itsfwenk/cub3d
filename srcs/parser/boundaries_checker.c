@@ -6,7 +6,7 @@
 /*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 02:20:07 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/10 03:05:37 by mel-habi         ###   ########.fr       */
+/*   Updated: 2024/10/10 03:30:16 by mel-habi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,14 @@ static void	flood_fill(t_cub3d *cub3d, unsigned long x, unsigned long y,
 		|| visited[x][y] || in_charset(array[x][y], "1#"))
 		return ;
 	visited[x][y] = true;
-	if (x)
+	if (x > 0)
 		flood_fill(cub3d, x - 1, y, visited);
-	flood_fill(cub3d, x + 1, y, visited);
-	if (y)
+	if (x < map->height - 1)
+		flood_fill(cub3d, x + 1, y, visited);
+	if (y > 0)
 		flood_fill(cub3d, x, y - 1, visited);
-	flood_fill(cub3d, x, y + 1, visited);
+	if (y < map->width - 1)
+		flood_fill(cub3d, x, y + 1, visited);
 }
 
 static void	height_fill(t_cub3d *cub3d, bool **visited)

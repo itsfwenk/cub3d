@@ -6,7 +6,7 @@
 /*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 21:39:19 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/10 02:54:03 by mel-habi         ###   ########.fr       */
+/*   Updated: 2024/10/10 03:33:11 by mel-habi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,5 +65,9 @@ static void	put_player(t_cub3d *cub3d)
 void	check_map(t_cub3d *cub3d)
 {
 	put_player(cub3d);
-	dprintf(1, "%d\n", is_map_closed(cub3d));
+	if (!is_map_closed(cub3d))
+	{
+		ft_print_error("Map must be closed");
+		exit_cub3d(cub3d, EXIT_FAILURE);
+	}
 }
