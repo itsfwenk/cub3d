@@ -6,7 +6,7 @@
 /*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 02:20:07 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/10 02:56:46 by mel-habi         ###   ########.fr       */
+/*   Updated: 2024/10/10 03:05:37 by mel-habi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static void	flood_fill(t_cub3d *cub3d, unsigned long x, unsigned long y,
 
 	map = cub3d->map;
 	array = map->array;
-	if (x > map->height || y >= map->width
+	if (x >= map->height || y >= map->width
 		|| visited[x][y] || in_charset(array[x][y], "1#"))
 		return ;
 	visited[x][y] = true;
@@ -103,9 +103,9 @@ bool	is_map_closed(t_cub3d *cub3d)
 	height_fill(cub3d, visited);
 	width_fill(cub3d, visited);
 	x = 0;
-	y = 0;
 	while (x < map->height)
 	{
+		y = 0;
 		while (y < map->width)
 		{
 			if (map->array[x][y] == '0' && !visited[x][y])
