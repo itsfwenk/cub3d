@@ -6,7 +6,7 @@
 /*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 21:39:19 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/10 17:44:17 by mel-habi         ###   ########.fr       */
+/*   Updated: 2024/10/10 21:03:39 by mel-habi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,8 @@ void	check_map(t_cub3d *cub3d)
 	player = cub3d->player;
 	if (!flood_fill(cub3d, player->x, player->y))
 	{
-		ft_print_error("Map must be closed");
+		ft_print_error("Map must be closed/\
+the player can't go out of the map");
 		exit_cub3d(cub3d, EXIT_FAILURE);
 	}
 	map = cub3d->map;
