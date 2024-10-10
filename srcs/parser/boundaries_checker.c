@@ -6,7 +6,7 @@
 /*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 02:20:07 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/10 03:30:16 by mel-habi         ###   ########.fr       */
+/*   Updated: 2024/10/10 03:39:46 by mel-habi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,9 +64,9 @@ static void	height_fill(t_cub3d *cub3d, bool **visited)
 	array = map->array;
 	while (x < map->height)
 	{
-		if (array[x][0] == '0' && !visited[x][0])
+		if (array[x][0] == EMPTY && !visited[x][0])
 			flood_fill(cub3d, x, 0, visited);
-		if (array[x][map->width - 1] == '0' && !visited[x][map->width - 1])
+		if (array[x][map->width - 1] == EMPTY && !visited[x][map->width - 1])
 			flood_fill(cub3d, x, map->width - 1, visited);
 		x++;
 	}
@@ -83,9 +83,9 @@ static void	width_fill(t_cub3d *cub3d, bool **visited)
 	array = map->array;
 	while (y < map->width)
 	{
-		if (array[0][y] == '0' && !visited[0][y])
+		if (array[0][y] == EMPTY && !visited[0][y])
 			flood_fill(cub3d, 0, y, visited);
-		if (array[map->height - 1][y] == '0' && !visited[map->height - 1][y])
+		if (array[map->height - 1][y] == EMPTY && !visited[map->height - 1][y])
 			flood_fill(cub3d, map->height - 1, y, visited);
 		y++;
 	}
@@ -110,7 +110,7 @@ bool	is_map_closed(t_cub3d *cub3d)
 		y = 0;
 		while (y < map->width)
 		{
-			if (map->array[x][y] == '0' && !visited[x][y])
+			if (map->array[x][y] == EMPTY && !visited[x][y])
 				return (free_visited(visited, map->height), false);
 			y++;
 		}
