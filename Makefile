@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+         #
+#    By: fli <fli@student.42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/09 12:46:00 by mel-habi          #+#    #+#              #
-#    Updated: 2024/10/10 02:51:05 by mel-habi         ###   ########.fr        #
+#    Updated: 2024/10/10 10:41:35 by fli              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,8 +16,9 @@ MLX				= mlx_linux
 
 PARSER_SRCS		= boundaries_checker.c checkers.c line_utils.c map_checkers.c map_utils.c parser.c t_line.c
 UTILS_SRCS		= char_utils.c free_utils.c gc.c init_utils.c print_utils.c
+RAYCASTING_SRCS	= init_window.c raycasting.c
 MAIN_SRCS		= cub3D.c
-				  
+
 SOURCES			= $(addprefix srcs/parser/, $(PARSER_SRCS)) \
 				  $(addprefix srcs/utils/, $(UTILS_SRCS)) \
  				  $(addprefix srcs/, $(MAIN_SRCS))
@@ -67,10 +68,10 @@ $(LIBFT)/$(LIBFT).a:
 	@make -C $(LIBFT)
 	@echo $(PURPLE)✅ $@ compiled! $(NC)
 
-$(MLX): 
+$(MLX):
 	@git clone https://github.com/42Paris/minilibx-linux.git $@
 	@make -C $@
-	@cp $(MLX)/libmlx_Linux.a $(MLX)/lib$(MLX).a 
+	@cp $(MLX)/libmlx_Linux.a $(MLX)/lib$(MLX).a
 	@echo $(PURPLE)✅ $@ compiled! $(NC)
 
 .PHONY: all clean fclean re

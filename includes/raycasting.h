@@ -1,19 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.h                                            :+:      :+:    :+:   */
+/*   raycasting.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/09 14:05:19 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/10 10:45:30 by fli              ###   ########.fr       */
+/*   Created: 2024/10/09 16:48:22 by fli               #+#    #+#             */
+/*   Updated: 2024/10/10 10:46:22 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef UTILS_H
-# define UTILS_H
-
-# include <stdlib.h>
+#ifndef RAYCASTING_H
+# define RAYCASTING_H
 
 // Enums
 typedef enum e_direction	t_direction;
@@ -27,22 +25,17 @@ typedef struct s_map		t_map;
 typedef struct s_player		t_player;
 typedef struct s_cub3d		t_cub3d;
 
-// char_utils.c
-bool	in_charset(char c, char *charset);
+# ifndef WIDTH
+#  define WIDTH 1200
 
-// free_utils.c
-char	**free_str_tab(char	**tab);
-bool	unexpected_line_error(t_cub3d *cub3d);
-int		exit_cub3d(t_cub3d *cub3d, int exit_code);
+# endif
 
-// gc.c
-void	clear_gc(t_gc *gc);
-void	*add_gc(t_gc **gc, size_t nmemb, size_t size);
+# ifndef HEIGHT
+#  define HEIGHT 900
 
-// init_utils.c
-t_cub3d	*init_cub3d(void);
-
-// print_utils.c
-void	ft_print_error(char *msg);
+// init_window.c
+void	create_img(t_cub3d *cub3d);
+void	init_window(t_cub3d *cub3d);
+# endif
 
 #endif

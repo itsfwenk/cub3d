@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 13:03:22 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/10 02:54:11 by mel-habi         ###   ########.fr       */
+/*   Updated: 2024/10/10 10:45:03 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # include "libft.h"
 
 # include "parser.h"
+# include "raycasting.h"
 # include "utils.h"
 
 # define PI 3.14159265358979323846
