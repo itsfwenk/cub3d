@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_window.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 16:41:03 by fli               #+#    #+#             */
-/*   Updated: 2024/10/10 10:45:53 by fli              ###   ########.fr       */
+/*   Updated: 2024/10/10 10:48:14 by mel-habi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	create_img(t_cub3d *cub3d)
 	if (cub3d->img.img_ptr == NULL)
 		clear_gc(cub3d->gc);
 	cub3d->img.addr = mlx_get_data_addr(cub3d->img.img_ptr,
-		&cub3d->img.bits_per_pixel, &cub3d->img.line_len, &cub3d->img.endian);
+			&cub3d->img.bits_per_pixel, &cub3d->img.line_len, &cub3d->img.endian);
 }
 
 void	init_window(t_cub3d *cub3d)

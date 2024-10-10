@@ -6,7 +6,7 @@
 /*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 02:20:07 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/10 04:23:14 by mel-habi         ###   ########.fr       */
+/*   Updated: 2024/10/10 10:45:23 by mel-habi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ static bool	near_zero(t_cub3d *cub3d, unsigned long x, unsigned long y)
 		return (true);
 	else if (y < map->width - 1 && array[x][y + 1] == EMPTY)
 		return (true);
+	array[x][y] = WALL;
 	return (false);
 }
 
