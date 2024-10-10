@@ -6,7 +6,7 @@
 /*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 15:46:29 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/10 01:43:15 by mel-habi         ###   ########.fr       */
+/*   Updated: 2024/10/10 02:17:17 by mel-habi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static bool	parse_line(t_cub3d *cub3d, char *line, int fd)
 {
 	char	**splitted;
 
-	splitted = ft_split(line, ' ');
+	splitted = ft_split(line, SPACE);
 	if (!splitted)
 		return (free(line), close(fd), exit_cub3d(cub3d, EXIT_FAILURE), false);
 	else if (splitted[0] && splitted[1] && !splitted[2])
