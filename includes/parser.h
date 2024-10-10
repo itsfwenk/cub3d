@@ -6,7 +6,7 @@
 /*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 13:31:05 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/10 16:34:46 by mel-habi         ###   ########.fr       */
+/*   Updated: 2024/10/10 17:06:58 by mel-habi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,6 @@ typedef struct s_line		t_line;
 typedef struct s_map		t_map;
 typedef struct s_player		t_player;
 typedef struct s_cub3d		t_cub3d;
-
-// boundaries_checker.c
-bool			check_bounds(char **map, unsigned long height,
-					unsigned long width);
-bool			is_map_closed(t_cub3d *cub3d);
 
 // checker.c
 bool			is_correct_filename(char *filename, char *extension);

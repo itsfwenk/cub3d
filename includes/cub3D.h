@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 13:03:22 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/10 10:45:03 by fli              ###   ########.fr       */
+/*   Updated: 2024/10/10 17:11:55 by mel-habi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@
 
 # define EMPTY '0'
 # define WALL '1'
-# define IGNORE '#'
+# define MARKED '#'
 # define PLAYER 'P'
 # define SPACE ' '
 
