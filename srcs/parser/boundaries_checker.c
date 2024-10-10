@@ -6,7 +6,7 @@
 /*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 02:20:07 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/10 11:48:10 by mel-habi         ###   ########.fr       */
+/*   Updated: 2024/10/10 11:57:55 by mel-habi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ static bool	check_bounds(char **map, unsigned long height, unsigned long width)
 	return (true);
 }
 
-static bool	near_zero(t_cub3d *cub3d, unsigned long x, unsigned long y,
-	bool essential)
+static bool	near_zero_or_player(t_cub3d *cub3d, unsigned long x,
+	unsigned long y, bool essential)
 {
 	t_map			*map;
 	char			**array;
@@ -77,7 +77,7 @@ bool	is_map_closed(t_cub3d *cub3d)
 		y = 0;
 		while (y < map->width)
 		{
-			if (array[x][y] == IGNORE && near_zero(cub3d, x, y,
+			if (array[x][y] == IGNORE && near_zero_or_player(cub3d, x, y,
 				(!x || x == map->height - 1 || !y || y == map->width - 1)))
 				return (false);
 			y++;
