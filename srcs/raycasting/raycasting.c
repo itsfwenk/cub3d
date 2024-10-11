@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 15:05:17 by fli               #+#    #+#             */
-/*   Updated: 2024/10/11 19:18:31 by fli              ###   ########.fr       */
+/*   Updated: 2024/10/11 19:44:28 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,23 +69,25 @@ double	normalize_angle(double angle)
 		return (angle);
 }
 
-double	hypotenuse_len(double position, double angle)
+double	hypotenuse_len(t_cub3d *cub3d, double rayAngle)
 {
 	double	vertHypo;
 	double	horizHypo;
 	double	normAngle;
 
-	normAngle = normalize_angle(angle);
-	vertHypo = side_dist(position, angle, VERTICAL) / sin(normAngle);
-	horizHypo = side_dist(position, angle, HORIZONTAL) / cos(normAngle);
+	normAngle = normalize_angle(rayAngle);
+	vertHypo = side_dist(cub3d->player->inTileX, rayAngle, VERTICAL) / sin(normAngle);
+	horizHypo = side_dist(cub3d->player->inTileY, rayAngle, HORIZONTAL) / cos(normAngle);
+	if (vertHypo < horizHypo)
+		return (vertHypo);
+	else
+		return (horizHypo);
 }
 
 void	draw_img(t_cub3d *cub3d)
 {
 	int		i;
 	double	rayAngle;
-	double	distVert;
-	double	distHoriz;
 	double	distToSide;
 	int		xMap;
 	int		yMap;
@@ -94,8 +96,7 @@ void	draw_img(t_cub3d *cub3d)
 	while (i < WIDTH)
 	{
 		rayAngle = cub3d->player->angle + (FOV / 2) - (i * (FOV / WIDTH));
-		distVert = side_dist(cub3d->player->inTileX, rayAngle, VERTICAL);
-		distHoriz = side_dist(cub3d->player->inTileY, rayAngle, HORIZONTAL);
+		distToSide =
 
 		i++;
 	}
