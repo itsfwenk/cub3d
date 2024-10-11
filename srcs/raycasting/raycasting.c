@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 15:05:17 by fli               #+#    #+#             */
-/*   Updated: 2024/10/11 19:44:28 by fli              ###   ########.fr       */
+/*   Updated: 2024/10/11 19:58:05 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,27 @@ double	hypotenuse_len(t_cub3d *cub3d, double rayAngle)
 		return (horizHypo);
 }
 
+bool	is_wall(t_cub3d *cub3d, int mapX, int mapY)
+{
+	if (cub3d->map->array[mapY][mapX] == '1')
+		return (true);
+	else
+		return (false);
+}
+
+double	wall_dist(t_cub3d *cub3d)
+{
+	int	mapX;
+	int	mapY;
+
+	mapX = cub3d->player->x;
+	mapY = cub3d->player->y;
+	while (cub3d->map->array[mapY][mapX] != '1')
+	{
+
+	}
+}
+
 void	draw_img(t_cub3d *cub3d)
 {
 	int		i;
@@ -96,7 +117,7 @@ void	draw_img(t_cub3d *cub3d)
 	while (i < WIDTH)
 	{
 		rayAngle = cub3d->player->angle + (FOV / 2) - (i * (FOV / WIDTH));
-		distToSide =
+		distToSide = hypotenuse_len(cub3d, rayAngle);
 
 		i++;
 	}
