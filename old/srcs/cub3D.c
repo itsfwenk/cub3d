@@ -3,28 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 13:04:02 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/09 21:37:46 by mel-habi         ###   ########.fr       */
+/*   Updated: 2024/10/10 10:33:53 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
 
-int	main(int argc, char **argv)
-{
-	t_cub3d	*cub3d;
+// int	main(int argc, char **argv)
+// {
+// 	return (EXIT_SUCCESS);
+// }
 
-	cub3d = init_cub3d();
-	if (argc == 1 || argc > 2)
-	{
-		if (argc == 1)
-			ft_print_error("Please provide a path to a .cub map");
-		else
-			ft_print_error("Too many arguments");
-		exit_cub3d(cub3d, EXIT_FAILURE);
-	}
-	cub3d_parser(cub3d, argv[1]);
-	return (exit_cub3d(cub3d, EXIT_SUCCESS));
+int	main(int ac, char **av)
+{
+	t_cub3d	cub3d;
+
+	(void)ac;
+	(void)av;
+	init_cub3d(&cub3d);
+	// draw_fract(&f);
+	// mlx_hook(f.win, 17, 0, clean_exit, &f);
+	// mlx_key_hook(f.win, key_event, &f);
+	// mlx_mouse_hook(f.win, mouse_event, &f);
+	mlx_loop(cub3d.connection);
 }

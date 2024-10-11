@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3D.c                                            :+:      :+:    :+:   */
+/*   init_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/09 13:04:02 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/09 21:37:46 by mel-habi         ###   ########.fr       */
+/*   Created: 2024/10/09 18:07:53 by mel-habi          #+#    #+#             */
+/*   Updated: 2024/10/09 18:57:16 by mel-habi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
 
-int	main(int argc, char **argv)
+t_cub3d	*init_cub3d(void)
 {
+	t_gc	*gc;
 	t_cub3d	*cub3d;
 
-	cub3d = init_cub3d();
-	if (argc == 1 || argc > 2)
-	{
-		if (argc == 1)
-			ft_print_error("Please provide a path to a .cub map");
-		else
-			ft_print_error("Too many arguments");
-		exit_cub3d(cub3d, EXIT_FAILURE);
-	}
-	cub3d_parser(cub3d, argv[1]);
-	return (exit_cub3d(cub3d, EXIT_SUCCESS));
+	gc = NULL;
+	cub3d = add_gc(&gc, 1, sizeof(t_cub3d));
+	cub3d->player = add_gc(&gc, 1, sizeof(t_player));
+	cub3d->map = add_gc(&gc, 1, sizeof(t_map));
+	cub3d->map->colors[0] = LONG_MAX;
+	cub3d->map->colors[1] = LONG_MAX;
+	cub3d->gc = gc;
+	return (cub3d);
 }

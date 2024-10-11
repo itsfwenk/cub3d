@@ -1,30 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3D.c                                            :+:      :+:    :+:   */
+/*   ft_lstadd_front_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/09 13:04:02 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/09 21:37:46 by mel-habi         ###   ########.fr       */
+/*   Created: 2024/05/21 18:12:58 by mel-habi          #+#    #+#             */
+/*   Updated: 2024/05/21 18:16:30 by mel-habi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3D.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	t_cub3d	*cub3d;
-
-	cub3d = init_cub3d();
-	if (argc == 1 || argc > 2)
+	if (lst && new)
 	{
-		if (argc == 1)
-			ft_print_error("Please provide a path to a .cub map");
-		else
-			ft_print_error("Too many arguments");
-		exit_cub3d(cub3d, EXIT_FAILURE);
+		new->next = *lst;
+		*lst = new;
 	}
-	cub3d_parser(cub3d, argv[1]);
-	return (exit_cub3d(cub3d, EXIT_SUCCESS));
 }

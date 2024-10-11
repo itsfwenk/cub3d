@@ -1,30 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3D.c                                            :+:      :+:    :+:   */
+/*   utils.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/09 13:04:02 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/09 21:37:46 by mel-habi         ###   ########.fr       */
+/*   Created: 2024/10/09 14:05:19 by mel-habi          #+#    #+#             */
+/*   Updated: 2024/10/09 14:47:59 by mel-habi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3D.h"
+#ifndef UTILS_H
+# define UTILS_H
 
-int	main(int argc, char **argv)
-{
-	t_cub3d	*cub3d;
+# include <stdlib.h>
 
-	cub3d = init_cub3d();
-	if (argc == 1 || argc > 2)
-	{
-		if (argc == 1)
-			ft_print_error("Please provide a path to a .cub map");
-		else
-			ft_print_error("Too many arguments");
-		exit_cub3d(cub3d, EXIT_FAILURE);
-	}
-	cub3d_parser(cub3d, argv[1]);
-	return (exit_cub3d(cub3d, EXIT_SUCCESS));
-}
+// Enums
+typedef enum e_direction	t_direction;
+typedef enum e_position		t_position;
+
+// Structures
+typedef struct s_gc			t_gc;
+typedef struct s_img		t_img;
+typedef struct s_map		t_map;
+typedef struct s_player		t_player;
+typedef struct s_cub3d		t_cub3d;
+
+// gc.c
+void	clear_gc(t_gc *gc);
+void	*add_gc(t_gc **gc, size_t nmemb, size_t size);
+
+#endif

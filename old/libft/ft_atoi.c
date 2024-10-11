@@ -1,27 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/21 14:54:39 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/09 16:34:25 by mel-habi         ###   ########.fr       */
+/*   Created: 2024/05/22 15:14:31 by mel-habi          #+#    #+#             */
+/*   Updated: 2024/09/28 20:02:06 by mel-habi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strcmp(const char *s1, const char *s2)
+int	ft_atoi(const char *nptr)
 {
-	size_t	i;
+	int	i;
+	int	s;
+	int	r;
 
 	i = 0;
-	while (s1[i] || s2[i])
+	s = 1;
+	r = 0;
+	while ((9 <= nptr[i] && nptr[i] <= 13) || nptr[i] == 32)
+		i++;
+	while (nptr[i] == '+' || nptr[i] == '-')
 	{
-		if (s1[i] != s2[i])
-			return (((unsigned char)s1[i] - (unsigned char)s2[i]));
+		if (i && (nptr[i - 1] == '+' || nptr[i - 1] == '-'))
+			return (0);
+		else if (nptr[i] == '-')
+			s *= -1;
 		i++;
 	}
-	return (0);
+	while ('0' <= nptr[i] && nptr[i] <= '9')
+	{
+		r = r * 10 + nptr[i] - 48;
+		i++;
+	}
+	return (s * r);
 }

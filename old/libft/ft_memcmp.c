@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/21 14:54:39 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/09 16:34:25 by mel-habi         ###   ########.fr       */
+/*   Created: 2024/05/22 14:26:01 by mel-habi          #+#    #+#             */
+/*   Updated: 2024/10/07 11:33:25 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strcmp(const char *s1, const char *s2)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
 	size_t	i;
+	t_byte	*cast_s1;
+	t_byte	*cast_s2;
 
 	i = 0;
-	while (s1[i] || s2[i])
+	cast_s1 = (t_byte *)s1;
+	cast_s2 = (t_byte *)s2;
+	while (i < n)
 	{
-		if (s1[i] != s2[i])
-			return (((unsigned char)s1[i] - (unsigned char)s2[i]));
+		if (cast_s1[i] != cast_s2[i])
+			return ((cast_s1[i] - cast_s2[i]));
 		i++;
 	}
 	return (0);

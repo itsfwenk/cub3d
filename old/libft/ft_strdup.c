@@ -1,30 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3D.c                                            :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/09 13:04:02 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/09 21:37:46 by mel-habi         ###   ########.fr       */
+/*   Created: 2024/05/22 11:10:19 by mel-habi          #+#    #+#             */
+/*   Updated: 2024/10/04 01:34:56 by mel-habi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3D.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+char	*ft_strdup(const char *s)
 {
-	t_cub3d	*cub3d;
+	size_t	len;
+	size_t	i;
+	char	*result;
 
-	cub3d = init_cub3d();
-	if (argc == 1 || argc > 2)
+	if (!s)
+		return (NULL);
+	len = ft_strlen(s);
+	result = (char *)ft_calloc(len + 1, sizeof(char));
+	if (result)
 	{
-		if (argc == 1)
-			ft_print_error("Please provide a path to a .cub map");
-		else
-			ft_print_error("Too many arguments");
-		exit_cub3d(cub3d, EXIT_FAILURE);
+		i = 0;
+		while (i < len)
+		{
+			result[i] = s[i];
+			i++;
+		}
+		result[i] = '\0';
 	}
-	cub3d_parser(cub3d, argv[1]);
-	return (exit_cub3d(cub3d, EXIT_SUCCESS));
+	return (result);
 }

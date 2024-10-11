@@ -1,30 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3D.c                                            :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/09 13:04:02 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/09 21:37:46 by mel-habi         ###   ########.fr       */
+/*   Created: 2024/05/22 17:19:30 by mel-habi          #+#    #+#             */
+/*   Updated: 2024/05/22 17:21:26 by mel-habi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3D.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	t_cub3d	*cub3d;
+	size_t	i;
+	t_byte	*cast_dest;
+	t_byte	*cast_src;
 
-	cub3d = init_cub3d();
-	if (argc == 1 || argc > 2)
+	i = 0;
+	cast_dest = (t_byte *)dest;
+	cast_src = (t_byte *)src;
+	if (dest || src)
 	{
-		if (argc == 1)
-			ft_print_error("Please provide a path to a .cub map");
+		if (dest > src)
+		{
+			while (n--)
+				cast_dest[n] = cast_src[n];
+		}
 		else
-			ft_print_error("Too many arguments");
-		exit_cub3d(cub3d, EXIT_FAILURE);
+		{
+			while (i < n)
+			{
+				cast_dest[i] = cast_src[i];
+				i++;
+			}
+		}
 	}
-	cub3d_parser(cub3d, argv[1]);
-	return (exit_cub3d(cub3d, EXIT_SUCCESS));
+	return (dest);
 }

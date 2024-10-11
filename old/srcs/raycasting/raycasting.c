@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   raycasting.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/21 14:54:39 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/09 16:34:25 by mel-habi         ###   ########.fr       */
+/*   Created: 2024/10/09 15:05:17 by fli               #+#    #+#             */
+/*   Updated: 2024/10/09 16:40:47 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "cub3D.h"
 
-int	ft_strcmp(const char *s1, const char *s2)
+int	ft_sqrt(int nb)
 {
-	size_t	i;
+	int	i;
 
-	i = 0;
-	while (s1[i] || s2[i])
+	if (nb <= 0)
+		return (0);
+	i = 1;
+	while (i <= nb / i)
 	{
-		if (s1[i] != s2[i])
-			return (((unsigned char)s1[i] - (unsigned char)s2[i]));
+		if ((nb / i) == i && (nb % i) == 0)
+			return (i);
 		i++;
 	}
 	return (0);
 }
+

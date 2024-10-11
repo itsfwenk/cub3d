@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 16:41:03 by fli               #+#    #+#             */
-/*   Updated: 2024/10/10 10:51:24 by fli              ###   ########.fr       */
+/*   Updated: 2024/10/10 10:35:28 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,17 +22,17 @@ void	create_img(t_cub3d *cub3d)
 	if (cub3d->img.img_ptr == NULL)
 		clear_gc(cub3d->gc);
 	cub3d->img.addr = mlx_get_data_addr(cub3d->img.img_ptr,
-			&cub3d->img.bits_per_pixel, &cub3d->img.line_len, &cub3d->img.endian);
+		&cub3d->img.bits_per_pixel, &cub3d->img.line_len, &cub3d->img.endian);
 }
 
-void	init_window(t_cub3d *cub3d)
+void	init_cub3d(t_cub3d *cub3d)
 {
 	cub3d->connection = mlx_init();
 	if (cub3d->connection == NULL)
-		exit_cub3d(cub3d, EXIT_FAILURE);
+		clear_gc(cub3d->gc);
 	cub3d->win = mlx_new_window(cub3d->connection, WIDTH, HEIGHT, "cub3D");
 	if (cub3d->win == NULL)
-		exit_cub3d(cub3d, EXIT_FAILURE);
+		clear_gc(cub3d->gc);
 	create_img(cub3d);
 }
 
