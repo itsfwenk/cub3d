@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 13:03:22 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/11 17:49:33 by fli              ###   ########.fr       */
+/*   Updated: 2024/10/12 16:35:09 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,14 +102,25 @@ typedef struct s_map
 
 typedef struct s_player
 {
-	double				x;
-	double				y;
+	int					x;
+	int					y;
 	double				inTileX;
 	double				inTileY;
 	double				dir_x;
 	double				dir_y;
 	double				angle;
 }	t_player;
+
+typedef struct s_raycaster
+{
+	int					tileX;
+	int					tileY;
+	double				startX;
+	double				startY;
+	double				rayAngle;
+	double				wallDist;
+	t_direction			tileFace;
+}	t_raycaster;
 
 typedef struct s_cub3d
 {
@@ -120,6 +131,7 @@ typedef struct s_cub3d
 	t_img				img;
 	t_player			*player;
 	t_map				*map;
+	t_raycaster			*raycaster;
 	t_gc				*gc;
 }	t_cub3d;
 

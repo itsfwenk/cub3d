@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 21:39:19 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/10 19:36:23 by fli              ###   ########.fr       */
+/*   Updated: 2024/10/12 16:36:33 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,10 @@ static bool	check_line(t_cub3d *cub3d, t_line *line, unsigned long x,
 				return (ft_print_error("A player is already put on this map"),
 					false);
 			*player_put = true;
-			cub3d->player->x = x + TILE_SIZE / 2;
-			cub3d->player->y = y + TILE_SIZE / 2;
+			cub3d->player->x = x;
+			cub3d->player->y = y;
+			cub3d->player->inTileX = 1 / 2;
+			cub3d->player->inTileY = 1 / 2;
 			cub3d->player->angle = get_direction(line->line[y]) * PI / 2;
 			line->line[y] = PLAYER;
 		}

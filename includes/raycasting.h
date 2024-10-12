@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 16:48:22 by fli               #+#    #+#             */
-/*   Updated: 2024/10/10 11:05:05 by fli              ###   ########.fr       */
+/*   Updated: 2024/10/12 16:40:44 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,8 @@ typedef struct s_cub3d		t_cub3d;
 // init_window.c
 void	create_img(t_cub3d *cub3d);
 void	init_window(t_cub3d *cub3d);
+
+// init_raycaster.c
+void	init_raycaster(t_cub3d *cub3d);
 
 #endif
