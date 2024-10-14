@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 13:03:22 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/14 13:36:55 by fli              ###   ########.fr       */
+/*   Updated: 2024/10/14 14:33:59 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@
 # define HEIGHT 1024
 # define TILE_SIZE 32
 # define FOV PI / 2
+# define BITS_PER_PX 32
+# define BYTES_PER_PX 4
 
 // Enums
 typedef enum e_direction	t_direction;
@@ -51,8 +53,8 @@ typedef enum e_direction
 
 typedef enum e_position
 {
-	FLOOR,
-	CEIL
+	CEIL,
+	FLOOR
 }	t_position;
 
 typedef enum e_side

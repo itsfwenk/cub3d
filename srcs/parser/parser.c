@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 15:46:29 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/10 02:17:17 by mel-habi         ###   ########.fr       */
+/*   Updated: 2024/10/14 14:34:39 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,10 @@ static bool	parse_line(t_cub3d *cub3d, char *line, int fd)
 			return (parse_simple_line(cub3d, splitted, fd, WEST));
 		else if (!ft_strcmp(splitted[0], "SO"))
 			return (parse_simple_line(cub3d, splitted, fd, SOUTH));
-		else if (!ft_strcmp(splitted[0], "F"))
-			return (parse_color_line(cub3d, splitted, fd, FLOOR));
 		else if (!ft_strcmp(splitted[0], "C"))
 			return (parse_color_line(cub3d, splitted, fd, CEIL));
+		else if (!ft_strcmp(splitted[0], "F"))
+			return (parse_color_line(cub3d, splitted, fd, FLOOR));
 		else
 			return (close(fd), free(line), free_str_tab(splitted),
 				unexpected_line_error(cub3d));
