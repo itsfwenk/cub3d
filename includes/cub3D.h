@@ -6,7 +6,7 @@
 /*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 13:03:22 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/10 20:42:56 by mel-habi         ###   ########.fr       */
+/*   Updated: 2024/10/14 18:13:56 by mel-habi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,8 @@ typedef enum e_direction
 
 typedef enum e_position
 {
-	FLOOR,
-	CEIL
+	CEIL,
+	FLOOR
 }	t_position;
 
 // Structures
@@ -102,6 +102,7 @@ typedef struct s_cub3d
 	void				*connection;
 	void				*win;
 	t_img				img;
+	t_img				textures[4];
 	t_player			*player;
 	t_map				*map;
 	t_gc				*gc;
