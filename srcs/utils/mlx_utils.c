@@ -6,7 +6,7 @@
 /*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 18:52:41 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/14 19:57:19 by mel-habi         ###   ########.fr       */
+/*   Updated: 2024/10/14 20:13:45 by mel-habi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	color_column(t_cub3d *cub3d, int x)
 	}
 	while (y < HEIGHT)
 	{
-		set_pixel_color(&cub3d->img, x, y, cub3d->map->colors[CEIL]);
+		set_pixel_color(&cub3d->img, x, y, cub3d->map->colors[FLOOR]);
 		y++;
 	}
 }
@@ -47,13 +47,21 @@ void	draw_img(t_cub3d *cub3d)
 	int	y;
 
 	x = 0;
-	(void)y;
 	while (x < WIDTH)
 	{
 		cub3d->raycaster->ray_angle = cub3d->player->angle + 45 - x
 			* FOV / WIDTH;
 		cub3d->raycaster->wall_dist = wall_dist(cub3d,
-				cub3d->raycaster->ray_angle);
+				cub3d->raycaster->ray_angle)
+			* cos(fabs(cub3d->raycaster->ray_angle - cub3d->player->angle));
+		cub3d->raycaster->wall_start = -(HEIGHT
+				/ cub3d->raycaster->wall_dist) / 2 + HEIGHT / 2;
+		if (cub3d->raycaster->wall_start < 0)
+			cub3d->raycaster->wall_start = 0;
+		cub3d->raycaster->wall_end = (HEIGHT / cub3d->raycaster->wall_dist)
+			/ 2 + HEIGHT / 2;
+		if (cub3d->raycaster->wall_end >= HEIGHT)
+			cub3d->raycaster->wall_end = HEIGHT - 1;
 		x++;
 	}
 }
