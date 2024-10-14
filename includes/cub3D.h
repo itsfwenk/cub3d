@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 13:03:22 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/12 16:35:09 by fli              ###   ########.fr       */
+/*   Updated: 2024/10/14 13:36:55 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,13 +113,15 @@ typedef struct s_player
 
 typedef struct s_raycaster
 {
-	int					tileX;
-	int					tileY;
-	double				startX;
-	double				startY;
-	double				rayAngle;
-	double				wallDist;
-	t_direction			tileFace;
+	int				tileX;
+	int				tileY;
+	int				wallStart;
+	int				wallEnd;
+	double			startX;
+	double			startY;
+	double			rayAngle;
+	double			wallDist;
+	t_direction		tileFace;
 }	t_raycaster;
 
 typedef struct s_cub3d

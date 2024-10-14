@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 15:05:17 by fli               #+#    #+#             */
-/*   Updated: 2024/10/14 13:09:06 by fli              ###   ########.fr       */
+/*   Updated: 2024/10/14 13:39:53 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,11 +120,13 @@ void	update_startXY(t_cub3d *cub3d, double vectorX, double vectorY, t_side side)
 		{
 			cub3d->raycaster->startX = 0;
 			cub3d->raycaster->tileX++;
+			cub3d->raycaster->tileFace = WEST;
 		}
 		else
 		{
 			cub3d->raycaster->startX = 1;
 			cub3d->raycaster->tileX--;
+			cub3d->raycaster->tileFace = EAST;
 		}
 		if (cub3d->raycaster->rayAngle == 0 || cub3d->raycaster->rayAngle == 180)
 			return ;
@@ -142,11 +144,13 @@ void	update_startXY(t_cub3d *cub3d, double vectorX, double vectorY, t_side side)
 		{
 			cub3d->raycaster->startY = 1;
 			cub3d->raycaster->tileY--;
+			cub3d->raycaster->tileFace = NORTH;
 		}
 		else
 		{
 			cub3d->raycaster->startY = 0;
 			cub3d->raycaster->tileY++;
+			cub3d->raycaster->tileFace = SOUTH;
 		}
 		if (cub3d->raycaster->rayAngle == 90 || cub3d->raycaster->rayAngle == 270)
 			return ;
@@ -199,25 +203,27 @@ double	wall_dist(t_cub3d *cub3d, double rayAngle)
 	return (cub3d->raycaster->wallDist);
 }
 
+void	draw_ceiling(t_cub3d *cub3d)
+{
+
+}
+
 void	draw_img(t_cub3d *cub3d)
 {
 	int		i;
-	int		wallStart;
-	int		wallEnd;
-	double	wallDist;
 
 	i = 0;
 	while (i < WIDTH)
 	{
 		cub3d->raycaster->rayAngle = cub3d->player->angle + (FOV / 2) - (i * (FOV / WIDTH));
-		wallDist = wall_dist(cub3d, cub3d->raycaster->rayAngle);
-		wallDist = wallDist / cos(fabs(cub3d->raycaster->rayAngle - cub3d->player->angle));
-		wallStart = -(HEIGHT / wallDist) / 2 + HEIGHT / 2;
-		if (wallStart < 0)
-			wallStart = 0;
-		wallEnd = (HEIGHT / wallDist) / 2 + HEIGHT / 2;
-		if (wallEnd >= HEIGHT)
-			wallEnd = HEIGHT - 1;
+		cub3d->raycaster->wallDist = wall_dist(cub3d, cub3d->raycaster->rayAngle);
+		cub3d->raycaster->wallDist = cub3d->raycaster->wallDist / cos(fabs(cub3d->raycaster->rayAngle - cub3d->player->angle));
+		cub3d->raycaster->wallStart = -(HEIGHT / cub3d->raycaster->wallDist) / 2 + HEIGHT / 2;
+		if (cub3d->raycaster->wallStart < 0)
+			cub3d->raycaster->wallStart = 0;
+		cub3d->raycaster->wallEnd = (HEIGHT / cub3d->raycaster->wallDist) / 2 + HEIGHT / 2;
+		if (cub3d->raycaster->wallEnd >= HEIGHT)
+			cub3d->raycaster->wallEnd = HEIGHT - 1;
 		i++;
 	}
 }
