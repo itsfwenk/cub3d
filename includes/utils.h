@@ -6,7 +6,7 @@
 /*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 14:05:19 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/10 17:43:06 by mel-habi         ###   ########.fr       */
+/*   Updated: 2024/10/14 19:19:19 by mel-habi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 // Enums
 typedef enum e_direction	t_direction;
 typedef enum e_position		t_position;
+typedef enum e_side			t_side;
+typedef enum e_time			t_time;
 
 // Structures
 typedef struct s_gc			t_gc;
@@ -25,6 +27,7 @@ typedef struct s_img		t_img;
 typedef struct s_line		t_line;
 typedef struct s_map		t_map;
 typedef struct s_player		t_player;
+typedef struct s_raycaster	t_raycaster;
 typedef struct s_cub3d		t_cub3d;
 
 // char_utils.c
@@ -41,6 +44,15 @@ void	*add_gc(t_gc **gc, size_t nmemb, size_t size);
 
 // init_utils.c
 t_cub3d	*init_cub3d(void);
+
+// math_utils.c
+double	adjacent_opposite(double position, double angle, t_side side);
+double	normalize_angle(double angle);
+double	hypotenuse_len(t_cub3d *cub3d, double ray_angle, double start_x,
+	double start_y);
+
+// mlx_utils.c
+void	set_pixel_color(t_img *img, int x, int y, unsigned int color);
 
 // print_utils.c
 void	ft_print_error(char *msg);
