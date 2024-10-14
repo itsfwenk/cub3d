@@ -6,7 +6,7 @@
 /*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 18:57:49 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/14 19:08:01 by mel-habi         ###   ########.fr       */
+/*   Updated: 2024/10/14 19:55:25 by mel-habi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,9 @@ double	adjacent_opposite(double position, double angle, t_side side)
 			return (position);
 		return (1 - position);
 	}
-	if (side == VERTICAL)
-	{
-		if (cos(angle) < 0)
-			return (position);
-		return (1 - position);
-	}
+	if (cos(angle) < 0)
+		return (position);
+	return (1 - position);
 }
 
 double	normalize_angle(double angle)
@@ -39,8 +36,7 @@ double	normalize_angle(double angle)
 	return (angle);
 }
 
-double	hypotenuse_len(t_cub3d *cub3d, double ray_angle, double start_x,
-	double start_y)
+double	hypotenuse_len(t_cub3d *cub3d, double ray_angle)
 {
 	double	vert_hypo;
 	double	hori_hypo;

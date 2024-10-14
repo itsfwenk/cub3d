@@ -6,7 +6,7 @@
 /*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 16:48:22 by fli               #+#    #+#             */
-/*   Updated: 2024/10/14 19:18:19 by mel-habi         ###   ########.fr       */
+/*   Updated: 2024/10/14 19:50:17 by mel-habi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,10 @@ void	init_raycaster(t_cub3d *cub3d);
 void	init_window(t_cub3d *cub3d);
 
 // raycasting.c
+void	update_start_xy(t_cub3d *cub3d, double vector_x, double vector_y,
+			t_side side);
+void	get_in_tile_coordinate(t_cub3d *cub3d, double position,
+			double ray_angle, t_side side);
+double	wall_dist(t_cub3d *cub3d, double ray_angle);
 
 #endif

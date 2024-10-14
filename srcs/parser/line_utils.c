@@ -6,13 +6,13 @@
 /*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 17:28:48 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/14 19:08:24 by mel-habi         ###   ########.fr       */
+/*   Updated: 2024/10/14 19:34:46 by mel-habi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
 
-static unsigned int	get_color(char **splitted_color)
+static unsigned long	get_color(char **splitted_color)
 {
 	unsigned long	r;
 	unsigned long	g;
@@ -27,7 +27,7 @@ static unsigned int	get_color(char **splitted_color)
 	b = ft_atoc(splitted_color[2]);
 	if (b == LONG_MAX)
 		return (LONG_MAX);
-	return ((unsigned int)(r << 16 | g << 8 | b));
+	return (r << 16 | g << 8 | b);
 }
 
 bool	parse_simple_line(t_cub3d *cub3d, char **splitted, int fd,

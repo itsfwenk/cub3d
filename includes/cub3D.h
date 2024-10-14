@@ -6,7 +6,7 @@
 /*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 13:03:22 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/14 19:10:16 by mel-habi         ###   ########.fr       */
+/*   Updated: 2024/10/14 19:34:27 by mel-habi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,7 @@ typedef struct s_map
 	unsigned long		height;
 	unsigned long		width;
 	char				*textures[4];
-	unsigned int		colors[2];
+	unsigned long		colors[2];
 }	t_map;
 
 typedef struct s_player
