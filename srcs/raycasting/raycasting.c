@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 15:05:17 by fli               #+#    #+#             */
-/*   Updated: 2024/10/12 16:52:37 by fli              ###   ########.fr       */
+/*   Updated: 2024/10/14 13:09:06 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -202,6 +202,8 @@ double	wall_dist(t_cub3d *cub3d, double rayAngle)
 void	draw_img(t_cub3d *cub3d)
 {
 	int		i;
+	int		wallStart;
+	int		wallEnd;
 	double	wallDist;
 
 	i = 0;
@@ -209,6 +211,13 @@ void	draw_img(t_cub3d *cub3d)
 	{
 		cub3d->raycaster->rayAngle = cub3d->player->angle + (FOV / 2) - (i * (FOV / WIDTH));
 		wallDist = wall_dist(cub3d, cub3d->raycaster->rayAngle);
+		wallDist = wallDist / cos(fabs(cub3d->raycaster->rayAngle - cub3d->player->angle));
+		wallStart = -(HEIGHT / wallDist) / 2 + HEIGHT / 2;
+		if (wallStart < 0)
+			wallStart = 0;
+		wallEnd = (HEIGHT / wallDist) / 2 + HEIGHT / 2;
+		if (wallEnd >= HEIGHT)
+			wallEnd = HEIGHT - 1;
 		i++;
 	}
 }
