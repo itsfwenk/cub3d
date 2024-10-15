@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 18:52:41 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/15 11:36:21 by fli              ###   ########.fr       */
+/*   Updated: 2024/10/15 11:37:51 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ unsigned int	get_pixel_color(t_img *img, int x, int y)
 	char	*dst;
 
 	dst = (img->addr) + (y * WIDTH * BYTES_PER_PX) + x * (BITS_PER_PX / 8);
-	return ((unsigned int)dst);
+	return (*(unsigned int *)dst);
 }
 
 void	color_column(t_cub3d *cub3d, int x)
