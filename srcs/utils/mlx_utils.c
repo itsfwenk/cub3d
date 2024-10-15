@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mlx_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 18:52:41 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/15 10:58:02 by mel-habi         ###   ########.fr       */
+/*   Updated: 2024/10/15 11:36:21 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,14 @@ void	set_pixel_color(t_img *img, int x, int y, unsigned long color)
 
 	dst = (img->addr) + (y * WIDTH * BYTES_PER_PX) + x * (BITS_PER_PX / 8);
 	*(unsigned int *)dst = (unsigned int)color;
+}
+
+unsigned int	get_pixel_color(t_img *img, int x, int y)
+{
+	char	*dst;
+
+	dst = (img->addr) + (y * WIDTH * BYTES_PER_PX) + x * (BITS_PER_PX / 8);
+	return ((unsigned int)dst);
 }
 
 void	color_column(t_cub3d *cub3d, int x)
