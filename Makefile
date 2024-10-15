@@ -6,7 +6,7 @@
 #    By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/09 12:46:00 by mel-habi          #+#    #+#              #
-#    Updated: 2024/10/14 19:21:32 by mel-habi         ###   ########.fr        #
+#    Updated: 2024/10/15 10:58:20 by mel-habi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ MLX				= mlx_linux
 
 PARSER_SRCS		= checkers.c line_utils.c map_checkers.c map_utils.c parser.c t_line.c
 RAYCASTING_SRCS	= init_raycaster.c init_window.c raycasting.c
-UTILS_SRCS		= char_utils.c free_utils.c gc.c init_utils.c math_utils.c mlx_utils.c print_utils.c
+UTILS_SRCS		= char_utils.c free_utils.c gc.c init_utils.c math_utils.c mlx_handlers.c mlx_utils.c print_utils.c
 MAIN_SRCS		= cub3D.c
 
 SOURCES			= $(addprefix srcs/parser/, $(PARSER_SRCS)) \

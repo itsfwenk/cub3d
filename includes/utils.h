@@ -6,7 +6,7 @@
 /*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 14:05:19 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/14 19:56:20 by mel-habi         ###   ########.fr       */
+/*   Updated: 2024/10/15 10:57:29 by mel-habi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,9 @@ t_cub3d	*init_cub3d(void);
 double	adjacent_opposite(double position, double angle, t_side side);
 double	normalize_angle(double angle);
 double	hypotenuse_len(t_cub3d *cub3d, double ray_angle);
+
+// mlx_handlers.c
+void	init_events(t_cub3d *cub3d);
 
 // mlx_utils.c
 void	set_pixel_color(t_img *img, int x, int y, unsigned long color);

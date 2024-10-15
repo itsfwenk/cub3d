@@ -6,7 +6,7 @@
 /*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 18:52:41 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/14 20:13:45 by mel-habi         ###   ########.fr       */
+/*   Updated: 2024/10/15 10:58:02 by mel-habi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ void	color_column(t_cub3d *cub3d, int x)
 void	draw_img(t_cub3d *cub3d)
 {
 	int	x;
-	int	y;
 
 	x = 0;
 	while (x < WIDTH)
