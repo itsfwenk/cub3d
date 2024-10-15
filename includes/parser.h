@@ -6,7 +6,7 @@
 /*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 13:31:05 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/10 02:49:36 by mel-habi         ###   ########.fr       */
+/*   Updated: 2024/10/14 19:14:27 by mel-habi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 // Enums
 typedef enum e_direction	t_direction;
 typedef enum e_position		t_position;
+typedef enum e_side			t_side;
+typedef enum e_time			t_time;
 
 // Structures
 typedef struct s_gc			t_gc;
@@ -23,10 +25,8 @@ typedef struct s_img		t_img;
 typedef struct s_line		t_line;
 typedef struct s_map		t_map;
 typedef struct s_player		t_player;
+typedef struct s_raycaster	t_raycaster;
 typedef struct s_cub3d		t_cub3d;
-
-// boundaries_checker.c
-bool			is_map_closed(t_cub3d *cub3d);
 
 // checker.c
 bool			is_correct_filename(char *filename, char *extension);

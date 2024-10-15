@@ -6,7 +6,7 @@
 /*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 22:01:08 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/10 02:16:24 by mel-habi         ###   ########.fr       */
+/*   Updated: 2024/10/10 17:06:34 by mel-habi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,13 @@ void	normalize_map(t_cub3d *cub3d)
 		while (line->line[i])
 		{
 			if (line->line[i] == SPACE)
-				normalized[i] = IGNORE;
+				normalized[i] = EMPTY;
 			else
 				normalized[i] = line->line[i];
 			i++;
 		}
 		while (i < cub3d->map->width)
-			normalized[i++] = IGNORE;
+			normalized[i++] = EMPTY;
 		free(line->line);
 		line->line = normalized;
 		line = line->next;

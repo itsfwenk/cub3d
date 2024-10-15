@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: fli <fli@student.42.fr>                    +#+  +:+       +#+         #
+#    By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/09 12:46:00 by mel-habi          #+#    #+#              #
-#    Updated: 2024/10/10 10:41:35 by fli              ###   ########.fr        #
+#    Updated: 2024/10/15 10:58:20 by mel-habi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,17 +14,18 @@ NAME 			= cub3D
 LIBFT			= libft
 MLX				= mlx_linux
 
-PARSER_SRCS		= boundaries_checker.c checkers.c line_utils.c map_checkers.c map_utils.c parser.c t_line.c
-UTILS_SRCS		= char_utils.c free_utils.c gc.c init_utils.c print_utils.c
-RAYCASTING_SRCS	= init_window.c raycasting.c
+PARSER_SRCS		= checkers.c line_utils.c map_checkers.c map_utils.c parser.c t_line.c
+RAYCASTING_SRCS	= init_raycaster.c init_window.c raycasting.c
+UTILS_SRCS		= char_utils.c free_utils.c gc.c init_utils.c math_utils.c mlx_handlers.c mlx_utils.c print_utils.c
 MAIN_SRCS		= cub3D.c
 
 SOURCES			= $(addprefix srcs/parser/, $(PARSER_SRCS)) \
+				  $(addprefix srcs/raycasting/, $(RAYCASTING_SRCS)) \
 				  $(addprefix srcs/utils/, $(UTILS_SRCS)) \
  				  $(addprefix srcs/, $(MAIN_SRCS))
 OBJECTS			= $(SOURCES:.c=.o)
 
-HEADERS_FILES	= cub3D.h parser.h utils.h
+HEADERS_FILES	= cub3D.h parser.h raycasting.h utils.h
 HEADERS			= $(addprefix includes/, $(HEADERS_FILES))
 FLAGS 			= -Wall -Wextra -Werror -g3
 LIBS			= -L$(LIBFT) -lft -I$(LIBFT) -L$(MLX) -l$(MLX) -L/usr/lib -I$(MLX) -lXext -lX11 -lm -lz

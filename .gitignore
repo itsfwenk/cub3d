@@ -54,4 +54,4 @@ dkms.conf
 # cub3D
 cub3D
 mlx_linux
-*.cub
+map.cub

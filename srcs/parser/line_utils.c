@@ -6,7 +6,7 @@
 /*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 17:28:48 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/09 19:50:07 by mel-habi         ###   ########.fr       */
+/*   Updated: 2024/10/14 19:34:46 by mel-habi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,6 @@ bool	parse_simple_line(t_cub3d *cub3d, char **splitted, int fd,
 {
 	char	*dup;
 
-	if (cub3d->map->textures[direction])
-		return (free_str_tab(splitted), false);
 	dup = ft_strtrim(splitted[1], " \n");
 	if (!dup)
 	{
@@ -55,8 +53,6 @@ bool	parse_color_line(t_cub3d *cub3d, char **splitted, int fd,
 {
 	char	**splitted_color;
 
-	if (cub3d->map->colors[position] != LONG_MAX)
-		return (free_str_tab(splitted), false);
 	splitted_color = ft_split(splitted[1], ',');
 	if (!splitted_color)
 	{

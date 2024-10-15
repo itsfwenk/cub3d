@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_checkers.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 21:39:19 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/12 16:36:33 by fli              ###   ########.fr       */
+/*   Updated: 2024/10/14 19:35:13 by mel-habi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static bool	check_line(t_cub3d *cub3d, t_line *line, unsigned long x,
 	y = 0;
 	while (y < cub3d->map->width)
 	{
-		if (!in_charset(line->line[y], "NSEW01#"))
+		if (!in_charset(line->line[y], "NSEW01"))
 			return (ft_print_error("There is one bad character on this map"),
 				false);
 		else if (in_charset(line->line[y], "NSEW"))
@@ -31,9 +31,7 @@ static bool	check_line(t_cub3d *cub3d, t_line *line, unsigned long x,
 			*player_put = true;
 			cub3d->player->x = x;
 			cub3d->player->y = y;
-			cub3d->player->inTileX = 1 / 2;
-			cub3d->player->inTileY = 1 / 2;
-			cub3d->player->angle = get_direction(line->line[y]) * PI / 2;
+			cub3d->player->angle = get_direction(line->line[y]) * 90;
 			line->line[y] = PLAYER;
 		}
 		y++;
@@ -64,12 +62,58 @@ static void	put_player(t_cub3d *cub3d)
 	}
 }
 
-void	check_map(t_cub3d *cub3d)
+static bool	flood_fill(t_cub3d *cub3d, unsigned long x, unsigned long y)
 {
-	put_player(cub3d);
-	if (!is_map_closed(cub3d))
+	t_map	*map;
+	char	**array;
+
+	map = cub3d->map;
+	array = map->array;
+	if (!in_charset(array[x][y], "P0"))
+		return (true);
+	else if (array[x][y] == EMPTY)
+		array[x][y] = FLOOD_FILL_MARKED;
+	if (!x || x == map->height - 1 || !y || y == map->width - 1)
+		return (false);
+	return (flood_fill(cub3d, x - 1, y)
+		&& flood_fill(cub3d, x + 1, y)
+		&& flood_fill(cub3d, x, y - 1)
+		&& flood_fill(cub3d, x, y + 1));
+}
+
+static void	remove_flood_fill_markers(char **array, unsigned long height,
+	unsigned long width)
+{
+	unsigned long	x;
+	unsigned long	y;
+
+	x = 0;
+	while (x < height)
 	{
-		ft_print_error("Map must be closed");
+		y = 0;
+		while (y < width)
+		{
+			if (array[x][y] == FLOOD_FILL_MARKED)
+				array[x][y] = EMPTY;
+			y++;
+		}
+		x++;
+	}
+}
+
+void	check_map(t_cub3d *cub3d)
+{	
+	t_player	*player;
+	t_map		*map;
+
+	put_player(cub3d);
+	player = cub3d->player;
+	if (!flood_fill(cub3d, player->x, player->y))
+	{
+		ft_print_error("Map must be closed/\
+the player can't go out of the map");
 		exit_cub3d(cub3d, EXIT_FAILURE);
 	}
+	map = cub3d->map;
+	remove_flood_fill_markers(map->array, map->height, map->width);
 }

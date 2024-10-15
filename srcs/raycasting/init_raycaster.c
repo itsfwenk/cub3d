@@ -5,70 +5,60 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/12 15:37:15 by fli               #+#    #+#             */
-/*   Updated: 2024/10/12 16:40:01 by fli              ###   ########.fr       */
+/*   Created: 2024/10/14 18:19:53 by mel-habi          #+#    #+#             */
+/*   Updated: 2024/10/15 19:49:12 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
 
-static void	init_dir(t_cub3d *cub3d)
+void	init_dir(t_cub3d *cub3d)
 {
 	if (cub3d->player->angle == 0)
 	{
 		cub3d->player->dir_x = 1;
 		cub3d->player->dir_y = 0;
+		cub3d->raycaster->plane_x = 0;
+		cub3d->raycaster->plane_y = 0.66;
 	}
-	if (cub3d->player->angle ==  90)
+	if (cub3d->player->angle == 90)
 	{
 		cub3d->player->dir_x = 0;
 		cub3d->player->dir_y = 1;
+		cub3d->raycaster->plane_x = 0.66;
+		cub3d->raycaster->plane_y = 0;
 	}
-	if (cub3d->player->angle ==  180)
+	if (cub3d->player->angle == 180)
 	{
 		cub3d->player->dir_x = -1;
 		cub3d->player->dir_y = 0;
+		cub3d->raycaster->plane_x = 0;
+		cub3d->raycaster->plane_y = 0.66;
 	}
-	if (cub3d->player->angle ==  270)
+	if (cub3d->player->angle == 270)
 	{
 		cub3d->player->dir_x = 0;
 		cub3d->player->dir_y = -1;
+		cub3d->raycaster->plane_x = 0.66;
+		cub3d->raycaster->plane_y = 0;
 	}
 }
 
-// void	init_tileXY(t_cub3d *cub3d, double rayAngle) // gives first tile to check if wall
-// {
-// 	if (cub3d->raycaster->wallDist < 0)
-// 	{
-// 		if (cos(rayAngle) > 0)
-// 			cub3d->raycaster->tileX++;
-// 		else if (cos(rayAngle) < 0)
-// 			cub3d->raycaster->tileX--;
-// 		cub3d->raycaster->wallDist = -cub3d->raycaster->wallDist;
-// 	}
-// 	else if (cub3d->raycaster->wallDist > 0)
-// 	{
-// 		if (sin(rayAngle) > 0)
-// 			cub3d->raycaster->tileY--;
-// 		else if (sin(rayAngle) < 0)
-// 			cub3d->raycaster->tileY++;
-// 	}
-// }
-
 void	init_raycaster(t_cub3d *cub3d)
 {
-	cub3d->raycaster->tileX = cub3d->player->x;
-	cub3d->raycaster->tileY = cub3d->player->y;
-	cub3d->raycaster->startX = cub3d->player->inTileX;
-	cub3d->raycaster->startY = cub3d->player->inTileY;
-	cub3d->raycaster->wallDist = hypotenuse_len(cub3d,
-		cub3d->raycaster->rayAngle, cub3d->player->inTileX,
-		cub3d->player->inTileY);
-	if (cub3d->raycaster->wallDist < 0)
+	cub3d->raycaster->tile_x = cub3d->player->x;
+	cub3d->raycaster->tile_y = cub3d->player->y;
+	cub3d->raycaster->start_x = cub3d->player->in_tile_x;
+	cub3d->raycaster->start_y = cub3d->player->in_tile_y;
+	cub3d->raycaster->wall_dist = hypotenuse_len(cub3d,
+			cub3d->raycaster->ray_angle);
+	if (cub3d->raycaster->wall_dist < 0)
 	{
-		cub3d->raycaster->wallDist = -cub3d->raycaster->wallDist;
-		get_inTile_coordinate(cub3d, cub3d->player->inTileX, cub3d->raycaster->rayAngle, VERTICAL);
+		cub3d->raycaster->wall_dist = -cub3d->raycaster->wall_dist;
+		get_in_tile_coordinate(cub3d, cub3d->player->in_tile_x,
+			cub3d->raycaster->ray_angle, VERTICAL);
 	}
 	else
-		get_inTile_coordinate(cub3d, cub3d->player->inTileY, cub3d->raycaster->rayAngle, HORIZONTAL);
+		get_in_tile_coordinate(cub3d, cub3d->player->in_tile_y,
+			cub3d->raycaster->ray_angle, HORIZONTAL);
 }

@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 13:03:22 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/14 14:33:59 by fli              ###   ########.fr       */
+/*   Updated: 2024/10/15 19:57:31 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,9 @@
 # include <fcntl.h>
 # include <limits.h>
 # include <math.h>
+# include <mlx.h>
+# include <X11/X.h>
+# include <X11/keysym.h>
 
 # include "libft.h"
 
@@ -25,23 +28,24 @@
 # include "raycasting.h"
 # include "utils.h"
 
-# define PI 3.14159265358979323846
-
 # define EMPTY '0'
 # define WALL '1'
-# define IGNORE '#'
 # define PLAYER 'P'
 # define SPACE ' '
+# define FLOOD_FILL_MARKED '#'
 # define WIDTH 1280
 # define HEIGHT 1024
-# define TILE_SIZE 32
-# define FOV PI / 2
+# define TILE_SIZE 64
+# define FOV 90
 # define BITS_PER_PX 32
 # define BYTES_PER_PX 4
+# define WIN_NAME "cub3D"
 
 // Enums
 typedef enum e_direction	t_direction;
 typedef enum e_position		t_position;
+typedef enum e_side			t_side;
+typedef enum e_time			t_time;
 
 typedef enum e_direction
 {
@@ -63,12 +67,19 @@ typedef enum e_side
 	VERTICAL
 }	t_side;
 
+typedef enum e_time
+{
+	OLDTIME,
+	CURTIME
+}	t_time;
+
 // Structures
 typedef struct s_gc			t_gc;
 typedef struct s_img		t_img;
 typedef struct s_line		t_line;
 typedef struct s_map		t_map;
 typedef struct s_player		t_player;
+typedef struct s_raycaster	t_raycaster;
 typedef struct s_cub3d		t_cub3d;
 
 typedef struct s_gc
@@ -106,8 +117,8 @@ typedef struct s_player
 {
 	int					x;
 	int					y;
-	double				inTileX;
-	double				inTileY;
+	double				in_tile_x;
+	double				in_tile_y;
 	double				dir_x;
 	double				dir_y;
 	double				angle;
@@ -115,24 +126,30 @@ typedef struct s_player
 
 typedef struct s_raycaster
 {
-	int				tileX;
-	int				tileY;
-	int				wallStart;
-	int				wallEnd;
-	double			startX;
-	double			startY;
-	double			rayAngle;
-	double			wallDist;
-	t_direction		tileFace;
+	int				tile_x;
+	int				tile_y;
+	int				wall_start;
+	int				wall_end;
+	double			start_x;
+	double			start_y;
+	double			plane_x;
+	double			plane_y;
+	double			ray_angle;
+	double			wall_dist;
+	double			side_dist_x;
+	double			side_dist_y;
+	double			delta_dist_x;
+	double			delta_dist_y;
+	t_direction		tile_face;
 }	t_raycaster;
 
 typedef struct s_cub3d
 {
 	void				*connection;
 	void				*win;
-	double				time;
-	double				oldtime;
+	double				time[2];
 	t_img				img;
+	t_img				textures[4];
 	t_player			*player;
 	t_map				*map;
 	t_raycaster			*raycaster;

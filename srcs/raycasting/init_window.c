@@ -5,45 +5,72 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/09 16:41:03 by fli               #+#    #+#             */
-/*   Updated: 2024/10/10 10:51:24 by fli              ###   ########.fr       */
+/*   Created: 2024/10/14 18:39:12 by mel-habi          #+#    #+#             */
+/*   Updated: 2024/10/15 19:33:41 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
 
-void	create_img(t_cub3d *cub3d)
+static void	init_textures(t_cub3d *cub3d)
 {
-	int	bit_per_px;
-	int	line_length;
-	int	endian;
+	int	i;
+	int	width;
+	int	height;
 
-	cub3d->img.img_ptr = mlx_new_image(cub3d->connection, WIDTH, HEIGHT);
-	if (cub3d->img.img_ptr == NULL)
-		clear_gc(cub3d->gc);
-	cub3d->img.addr = mlx_get_data_addr(cub3d->img.img_ptr,
-			&cub3d->img.bits_per_pixel, &cub3d->img.line_len, &cub3d->img.endian);
+	i = 0;
+	while (i < 4)
+	{
+		cub3d->textures[i].img_ptr = mlx_xpm_file_to_image(cub3d->connection,
+				cub3d->map->textures[i], &width, &height);
+		if (!cub3d->textures[i].img_ptr)
+		{
+			ft_print_error("Cannot load texture");
+			exit_cub3d(cub3d, EXIT_FAILURE);
+		}
+		else if (width != TILE_SIZE || height != TILE_SIZE)
+		{
+			ft_print_error("Bad texture size");
+			exit_cub3d(cub3d, EXIT_FAILURE);
+		}
+		cub3d->textures[i].addr = mlx_get_data_addr(cub3d->textures[i].img_ptr,
+				&cub3d->textures[i].bits_per_pixel,
+				&cub3d->textures[i].line_len, &cub3d->textures[i].endian);
+		i++;
+	}
+}
+
+static void	init_render(t_cub3d *cub3d)
+{
+	init_textures(cub3d);
+	init_dir(cub3d);
+	init_events(cub3d);
+	draw_img(cub3d);
+	mlx_loop(cub3d->connection);
 }
 
 void	init_window(t_cub3d *cub3d)
 {
 	cub3d->connection = mlx_init();
-	if (cub3d->connection == NULL)
+	if (!cub3d->connection)
+	{
+		ft_print_error("Cannot init MLX");
 		exit_cub3d(cub3d, EXIT_FAILURE);
-	cub3d->win = mlx_new_window(cub3d->connection, WIDTH, HEIGHT, "cub3D");
-	if (cub3d->win == NULL)
+	}
+	cub3d->win = mlx_new_window(cub3d->connection, WIDTH, HEIGHT, WIN_NAME);
+	if (!cub3d->win)
+	{
+		ft_print_error("Cannot init MLX window");
 		exit_cub3d(cub3d, EXIT_FAILURE);
-	create_img(cub3d);
+	}
+	cub3d->img.img_ptr = mlx_new_image(cub3d->connection, WIDTH, HEIGHT);
+	if (!cub3d->img.img_ptr)
+	{
+		ft_print_error("Cannot init MLX IMG PTR");
+		exit_cub3d(cub3d, EXIT_FAILURE);
+	}
+	cub3d->img.addr = mlx_get_data_addr(cub3d->img.img_ptr,
+			&cub3d->img.bits_per_pixel,
+			&cub3d->img.line_len, &cub3d->img.endian);
+	init_render(cub3d);
 }
-
-// int	main(int ac, char **av)
-// {
-// 	t_cub3d	cub3d;
-
-// 	init_cub3d(&cub3d);
-// 	// draw_fract(&f);
-// 	// mlx_hook(f.win, 17, 0, clean_exit, &f);
-// 	// mlx_key_hook(f.win, key_event, &f);
-// 	// mlx_mouse_hook(f.win, mouse_event, &f);
-// 	mlx_loop(cub3d.connection);
-// }
