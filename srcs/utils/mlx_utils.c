@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 18:52:41 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/15 11:37:51 by fli              ###   ########.fr       */
+/*   Updated: 2024/10/15 15:00:47 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,24 @@ unsigned int	get_pixel_color(t_img *img, int x, int y)
 	return (*(unsigned int *)dst);
 }
 
+void	draw_wall(t_cub3d *cub3d, int px_y)
+{
+	double			text_x;
+	double			text_y;
+	unsigned int	px_color;
+
+	if (cub3d->raycaster->tile_face == WEST
+		|| cub3d->raycaster->tile_face == EAST)
+		text_x = cub3d->raycaster->start_y;
+	else
+		text_x = cub3d->raycaster->start_x;
+	text_x = text_x / cub3d->raycaster->wall_dist;
+	text_y = (double) px_y / cub3d->raycaster->wall_dist;
+	px_color = get_pixel_color(cub3d->textures[cub3d->raycaster->tile_face],
+			text_x, text_y);
+	set_pixel_color(&cub3d->img, text_x, text_y, px_color);
+}
+
 void	color_column(t_cub3d *cub3d, int x)
 {
 	int	y;
@@ -40,6 +58,7 @@ void	color_column(t_cub3d *cub3d, int x)
 	}
 	while (y < cub3d->raycaster->wall_end)
 	{
+		draw_wall(cub3d, y);
 		y++;
 	}
 	while (y < HEIGHT)
@@ -69,6 +88,7 @@ void	draw_img(t_cub3d *cub3d)
 			/ 2 + HEIGHT / 2;
 		if (cub3d->raycaster->wall_end >= HEIGHT)
 			cub3d->raycaster->wall_end = HEIGHT - 1;
+		color_column(cub3d, x);
 		x++;
 	}
 }

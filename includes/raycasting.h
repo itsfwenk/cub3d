@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 16:48:22 by fli               #+#    #+#             */
-/*   Updated: 2024/10/14 19:50:17 by mel-habi         ###   ########.fr       */
+/*   Updated: 2024/10/15 14:59:15 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ typedef struct s_player		t_player;
 typedef struct s_raycaster	t_raycaster;
 typedef struct s_cub3d		t_cub3d;
 
-// int_raycaster.c
+// init_raycaster.c
 void	init_raycaster(t_cub3d *cub3d);
 
 // init_window.c
