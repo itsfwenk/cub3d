@@ -6,7 +6,7 @@
 /*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 18:39:12 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/15 11:30:08 by mel-habi         ###   ########.fr       */
+/*   Updated: 2024/10/15 15:14:43 by mel-habi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,16 @@ static void	init_textures(t_cub3d *cub3d)
 	}
 }
 
+static void	init_render(t_cub3d *cub3d)
+{
+	init_textures(cub3d);
+	init_dir(cub3d);
+	init_raycaster(cub3d);
+	init_events(cub3d);
+	draw_img(cub3d);
+	mlx_loop(cub3d->connection);
+}
+
 void	init_window(t_cub3d *cub3d)
 {
 	cub3d->connection = mlx_init();
@@ -63,8 +73,5 @@ void	init_window(t_cub3d *cub3d)
 	cub3d->img.addr = mlx_get_data_addr(cub3d->img.img_ptr,
 			&cub3d->img.bits_per_pixel,
 			&cub3d->img.line_len, &cub3d->img.endian);
-	init_textures(cub3d);
-	init_raycaster(cub3d);
-	init_events(cub3d);
-	mlx_loop(cub3d->connection);
+	init_render(cub3d);
 }

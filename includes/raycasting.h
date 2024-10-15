@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 16:48:22 by fli               #+#    #+#             */
-/*   Updated: 2024/10/15 14:59:15 by fli              ###   ########.fr       */
+/*   Updated: 2024/10/15 15:12:05 by mel-habi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ typedef struct s_cub3d		t_cub3d;
 
 // init_raycaster.c
 void	init_raycaster(t_cub3d *cub3d);
+void	init_dir(t_cub3d *cub3d);
 
 // init_window.c
 void	init_window(t_cub3d *cub3d);
