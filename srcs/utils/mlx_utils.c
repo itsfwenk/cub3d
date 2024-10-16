@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 18:52:41 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/16 20:00:19 by fli              ###   ########.fr       */
+/*   Updated: 2024/10/16 20:04:19 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -319,7 +319,8 @@ inline void	cb_draw_wall(t_cub3d *cub3d)
 	{
 		rc->tex_y = (int)rc->tex_pos % TILE_SIZE;
 		rc->tex_pos += rc->tex_step;
-		color = tex->data[(tex->pos.y * tex->line_size + tex->pos.x)];
+		color = rc->data[(rc->tex_y * tex->line_size + tex->pos.x)];
+		tex->data[(tex->pos.y * tex->line_size + tex->pos.x)];
 		cb_put_pixel(&ctx->img, rt->vec, color, 1.0f);
 		rt->vec.y++;
 	}
