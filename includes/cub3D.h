@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 13:03:22 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/16 19:42:16 by fli              ###   ########.fr       */
+/*   Updated: 2024/10/16 20:23:59 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@
 # define PLAYER 'P'
 # define SPACE ' '
 # define FLOOD_FILL_MARKED '#'
-# define WIDTH 1680
-# define HEIGHT 720
+# define WIDTH 50
+# define HEIGHT 50
 # define TILE_SIZE 64
 # define WIN_NAME "cub3D"
 

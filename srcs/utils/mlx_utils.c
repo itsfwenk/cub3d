@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 18:52:41 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/16 20:04:19 by fli              ###   ########.fr       */
+/*   Updated: 2024/10/16 20:16:20 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -205,7 +205,7 @@ void	check_hit(t_cub3d *cub3d)
 			rc->tile_y += rc->step_y;
 			rc->side = 1;
 		}
-		if (rc->tile_x > map->width || rc->tile_y > map->height)
+		if (rc->tile_x > (int)map->width || rc->tile_y > (int)map->height)
 			rc->hit = 1;
 		else if (map->array[rc->tile_y][rc->tile_x] == '1')
 			rc->hit = 1;
@@ -270,7 +270,7 @@ void	tex_data(t_cub3d *cub3d)
 	rc->line_size = cub3d->textures[rc->tile_face].line_len / 4;
 }
 
-inline void	cb_put_pixel(t_cub3d *cub3d, int color, float shading)
+static void	cb_put_pixel(t_cub3d *cub3d, int color, float shading)
 {
 	int	pixel;
 	int	*buffer;
@@ -286,7 +286,7 @@ inline void	cb_put_pixel(t_cub3d *cub3d, int color, float shading)
 		buffer[pixel] = color;
 }
 
-void	cb_draw_ceilling_floor(t_cub3d *cub3d, int flag)
+static void	cb_draw_ceilling_floor(t_cub3d *cub3d, int flag)
 {
 	t_raycaster	*rc;
 
@@ -307,7 +307,7 @@ void	cb_draw_ceilling_floor(t_cub3d *cub3d, int flag)
 	}
 }
 
-inline void	cb_draw_wall(t_cub3d *cub3d)
+static void	cb_draw_wall(t_cub3d *cub3d)
 {
 	int		color;
 	t_raycaster	*rc;
@@ -319,10 +319,9 @@ inline void	cb_draw_wall(t_cub3d *cub3d)
 	{
 		rc->tex_y = (int)rc->tex_pos % TILE_SIZE;
 		rc->tex_pos += rc->tex_step;
-		color = rc->data[(rc->tex_y * tex->line_size + tex->pos.x)];
-		tex->data[(tex->pos.y * tex->line_size + tex->pos.x)];
-		cb_put_pixel(&ctx->img, rt->vec, color, 1.0f);
-		rt->vec.y++;
+		color = rc->data[(rc->tex_y * rc->line_size + rc->tex_y)];
+		cb_put_pixel(cub3d, color, 1.0f);
+		rc->wd_y++;
 	}
 }
 
@@ -342,6 +341,9 @@ void	draw_img(t_cub3d *cub3d)
 		draw_data(cub3d);
 		tex_data(cub3d);
 		cb_draw_ceilling_floor(cub3d, 0);
+		cb_draw_wall(cub3d);
+		cb_draw_ceilling_floor(cub3d, 1);
+		rc->wd_x++;
 	}
 }
 
