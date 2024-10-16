@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 18:51:44 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/15 19:43:24 by fli              ###   ########.fr       */
+/*   Updated: 2024/10/16 13:33:39 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@
 // 	if (cub3d->raycaster->ray_angle == 90 || cub3d->raycaster->ray_angle == 270)
 // 		return ;
 // 	else if (cos(cub3d->raycaster->ray_angle) > 0)
-// 		cub3d->raycaster->start_x = fabs(cub3d->raycaster->start_x + vector_x);
+// 		cub3d->raycaster->start_x = fabs(cub3d->raycaster-> + vector_x);
 // 	else if (cos(cub3d->raycaster->ray_angle) < 0)
 // 		cub3d->raycaster->start_x = fabs(cub3d->raycaster->start_x - vector_x);
 // }

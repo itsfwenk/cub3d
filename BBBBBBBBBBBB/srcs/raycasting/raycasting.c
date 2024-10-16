@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 15:05:17 by fli               #+#    #+#             */
-/*   Updated: 2024/10/14 14:34:51 by fli              ###   ########.fr       */
+/*   Updated: 2024/10/16 13:34:30 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -183,25 +183,25 @@ void	get_inTile_coordinate(t_cub3d *cub3d, double position, double rayAngle, t_s
 
 }
 
-double	wall_dist(t_cub3d *cub3d, double rayAngle)
-{
-	double	sideDist;
+// double	wall_dist(t_cub3d *cub3d, double rayAngle)
+// {
+// 	double	sideDist;
 
-	init_raycaster(cub3d);
-	while (cub3d->map->array[cub3d->raycaster->tileY][cub3d->raycaster->tileX] != '1')
-	{
-		sideDist = hypotenuse_len(cub3d, rayAngle, cub3d->raycaster->startX, cub3d->raycaster->startY);
-		if (sideDist < 0)
-		{
-			sideDist = -sideDist;
-			get_inTile_coordinate(cub3d, cub3d->player->inTileX, cub3d->raycaster->rayAngle, VERTICAL);
-		}
-		else
-			get_inTile_coordinate(cub3d, cub3d->player->inTileY, cub3d->raycaster->rayAngle, HORIZONTAL);
-		cub3d->raycaster->wallDist = cub3d->raycaster->wallDist + sideDist;
-	}
-	return (cub3d->raycaster->wallDist);
-}
+// 	init_raycaster(cub3d);
+// 	while (cub3d->map->array[cub3d->raycaster->tileY][cub3d->raycaster->tileX] != '1')
+// 	{
+// 		sideDist = hypotenuse_len(cub3d, rayAngle, cub3d->raycaster->startX, cub3d->raycaster->startY);
+// 		if (sideDist < 0)
+// 		{
+// 			sideDist = -sideDist;
+// 			get_inTile_coordinate(cub3d, cub3d->player->inTileX, cub3d->raycaster->rayAngle, VERTICAL);
+// 		}
+// 		else
+// 			get_inTile_coordinate(cub3d, cub3d->player->inTileY, cub3d->raycaster->rayAngle, HORIZONTAL);
+// 		cub3d->raycaster->wallDist = cub3d->raycaster->wallDist + sideDist;
+// 	}
+// 	return (cub3d->raycaster->wallDist);
+// }
 
 static void	set_pixel_color(t_cub3d *cub3d, int x, int y, int color)
 {
