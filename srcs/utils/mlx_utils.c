@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mlx_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 18:52:41 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/17 14:23:31 by mel-habi         ###   ########.fr       */
+/*   Updated: 2024/10/17 18:27:11 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,9 @@ void	draw_img(t_cub3d *cub3d)
 	rc = cub3d->raycaster;
 	rc->wd_x = 0;
 	rc->wd_y = 0;
+	double save = cub3d->player->x;
+	cub3d->player->x = cub3d->player->y;
+	cub3d->player->y = save;
 	while (rc->wd_x < WIDTH)
 	{
 		init_raycaster(cub3d);
