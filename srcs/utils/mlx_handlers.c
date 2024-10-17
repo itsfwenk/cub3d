@@ -6,7 +6,7 @@
 /*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 10:53:52 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/17 19:39:39 by mel-habi         ###   ########.fr       */
+/*   Updated: 2024/10/17 19:48:34 by mel-habi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,9 @@ static int	handle_key(int key, t_cub3d *cub3d)
 	else if (key == XK_S || key == XK_s)
 		y_movement(map, player, DOWN);
 	else if (key == XK_Left)
-		camera_movement(map, player, C_LEFT);
+		camera_movement(player, C_LEFT);
 	else if (key == XK_Right)
-		camera_movement(map, player, C_RIGHT);
+		camera_movement(player, C_RIGHT);
 	else
 		return (EXIT_SUCCESS);
 	draw_img(cub3d);

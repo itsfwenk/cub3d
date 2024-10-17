@@ -6,7 +6,7 @@
 /*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 14:05:19 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/17 19:40:28 by mel-habi         ###   ########.fr       */
+/*   Updated: 2024/10/17 19:48:18 by mel-habi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,7 @@ void			draw_img(t_cub3d *cub3d);
 // movement_handlers.c
 void			x_movement(char **map, t_player *player, t_movement movement);
 void			y_movement(char **map, t_player *player, t_movement movement);
-void			camera_movement(char **map, t_player *player,
-					t_movement movement);
+void			camera_movement(t_player *player, t_movement movement);
 
 // print_utils.c
 void			ft_print_error(char *msg);

@@ -6,7 +6,7 @@
 /*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 13:03:22 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/17 19:24:11 by mel-habi         ###   ########.fr       */
+/*   Updated: 2024/10/17 20:07:03 by mel-habi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@
 # define TILE_SIZE 64
 # define PI 3.14159265358979323846
 
-# define ROTATE_FORCE 2.0f
-# define MOVEMENT_FORCE 3.0f
+# define ROTATE_FORCE 0.01f
+# define MOVEMENT_FORCE 0.03f
 
 # define WIN_NAME "cub3D"
 
@@ -130,8 +130,6 @@ typedef struct s_player
 {
 	double				x;
 	double				y;
-	double				in_tile_x;
-	double				in_tile_y;
 	double				dir_x;
 	double				dir_y;
 	double				angle;
