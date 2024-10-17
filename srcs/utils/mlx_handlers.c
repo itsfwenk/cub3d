@@ -6,7 +6,7 @@
 /*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 10:53:52 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/17 19:48:34 by mel-habi         ###   ########.fr       */
+/*   Updated: 2024/10/17 20:58:34 by mel-habi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,21 +20,21 @@ static int	handle_close(t_cub3d *cub3d)
 
 static int	handle_key(int key, t_cub3d *cub3d)
 {
-	char		**map;
+	t_map		*map;
 	t_player	*player;
 
-	map = cub3d->map->array;
+	map = cub3d->map;
 	player = cub3d->player;
 	if (key == XK_Escape)
 		handle_close(cub3d);
 	else if (key == XK_A || key == XK_a)
-		x_movement(map, player, LEFT);
+		x_movement(map, map->array, player, LEFT);
 	else if (key == XK_D || key == XK_d)
-		x_movement(map, player, RIGHT);
+		x_movement(map, map->array, player, RIGHT);
 	else if (key == XK_W || key == XK_w)
-		y_movement(map, player, UP);
+		y_movement(map, map->array, player, UP);
 	else if (key == XK_S || key == XK_s)
-		y_movement(map, player, DOWN);
+		y_movement(map, map->array, player, DOWN);
 	else if (key == XK_Left)
 		camera_movement(player, C_LEFT);
 	else if (key == XK_Right)
