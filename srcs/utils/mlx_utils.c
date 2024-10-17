@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mlx_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 18:52:41 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/17 12:03:59 by fli              ###   ########.fr       */
+/*   Updated: 2024/10/17 14:23:31 by mel-habi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ unsigned int	get_pixel_color(t_img *img, int x, int y)
 	return (*(unsigned int *)dst);
 }
 
-void	draw_wall(t_cub3d *cub3d, int px_x, int px_y)
+void	draw_wall(t_cub3d *cub3d, int px_x, int px_y, int first_wall_y)
 {
 	double			step;
 	double			text_pos;
@@ -47,9 +47,9 @@ void	draw_wall(t_cub3d *cub3d, int px_x, int px_y)
 		cub3d->raycaster->tex_x = TILE_SIZE - cub3d->raycaster->tex_x - 1;
 	if (cub3d->raycaster->side == 1 && cub3d->raycaster->ray_dir_y < 0)
 		cub3d->raycaster->tex_x = TILE_SIZE - cub3d->raycaster->tex_x - 1;
-	step = 1.0 * TILE_SIZE / cub3d->raycaster->line_height;
+	step = (px_y - first_wall_y) * TILE_SIZE / cub3d->raycaster->line_height;
 	text_pos = (cub3d->raycaster->wall_start - HEIGHT / 2
-			+ cub3d->raycaster->line_height / 2) * step;
+			+ cub3d->raycaster->line_height / 2) * step * !px_x + step * !!px_x;
 	cub3d->raycaster->tex_y = (int)text_pos & (TILE_SIZE - 1);
 	px_color = get_pixel_color(&cub3d->textures[cub3d->raycaster->tile_face],
 			cub3d->raycaster->tex_x, cub3d->raycaster->tex_y);
@@ -59,6 +59,7 @@ void	draw_wall(t_cub3d *cub3d, int px_x, int px_y)
 void	color_column(t_cub3d *cub3d, int x)
 {
 	int	y;
+	int	first_wall_y;
 
 	y = 0;
 	while (y < cub3d->raycaster->wall_start)
@@ -66,9 +67,10 @@ void	color_column(t_cub3d *cub3d, int x)
 		set_pixel_color(&cub3d->img, x, y, cub3d->map->colors[CEIL]);
 		y++;
 	}
+	first_wall_y = y;
 	while (y < cub3d->raycaster->wall_end)
 	{
-		draw_wall(cub3d, x, y);
+		draw_wall(cub3d, x, y, first_wall_y);
 		y++;
 	}
 	while (y < HEIGHT)
