@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 13:03:22 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/17 11:51:23 by fli              ###   ########.fr       */
+/*   Updated: 2024/10/17 13:22:27 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,11 +137,9 @@ typedef struct s_raycaster
 	int				hit;
 	int				tex_x;
 	int				tex_y;
-	int			line_size;
-	int			*data;
+	int				line_size;
+	int				*data;
 	double			camera_x;
-	double			start_x;
-	double			start_y;
 	double			plane_x;
 	double			plane_y;
 	double			ray_angle;
