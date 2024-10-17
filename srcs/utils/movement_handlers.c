@@ -39,19 +39,19 @@ void	y_movement(char **array, t_player *player, t_movement movement)
 {
 	if (movement == UP)
 	{
-		if (array[(int)player->y][(int)(player->x + player->dir_x
+		if (array[(int)player->y][(int)(player->x - player->dir_x
 			* MOVEMENT_FORCE)] != WALL)
-			player->x += player->dir_x * MOVEMENT_FORCE;
-		if (array[(int)(player->y + player->dir_y
+			player->x -= player->dir_x * MOVEMENT_FORCE;
+		if (array[(int)(player->y - player->dir_y
 				* MOVEMENT_FORCE)][(int)(player->x)] != WALL)
 			player->y -= player->dir_y * MOVEMENT_FORCE;
 	}
 	else
 	{
-		if (array[(int)player->y][(int)(player->x - player->dir_x
+		if (array[(int)player->y][(int)(player->x + player->dir_x
 			* MOVEMENT_FORCE)] != WALL)
-			player->x -= player->dir_x * MOVEMENT_FORCE;
-		if (array[(int)(player->y - player->dir_y
+			player->x += player->dir_x * MOVEMENT_FORCE;
+		if (array[(int)(player->y + player->dir_y
 				* MOVEMENT_FORCE)][(int)(player->x)] != WALL)
 			player->y += player->dir_y * MOVEMENT_FORCE;
 	}
