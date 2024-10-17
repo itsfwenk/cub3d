@@ -56,10 +56,8 @@ void			color_column(t_cub3d *cub3d, int x);
 void			draw_img(t_cub3d *cub3d);
 
 // movement_handlers.c
-void			x_movement(t_map *map,
-					char **array, t_player *player, t_movement movement);
-void			y_movement(t_map *map,
-					char **array, t_player *player, t_movement movement);
+void			x_movement(char **array, t_player *player, t_movement movement);
+void			y_movement(char **array, t_player *player, t_movement movement);
 void			camera_movement(t_player *player, t_movement movement);
 
 // print_utils.c

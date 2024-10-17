@@ -12,26 +12,48 @@
 
 #include "cub3D.h"
 
-void	x_movement(t_map *map, char **array, t_player *player,
-	t_movement movement)
+void	x_movement(char **array, t_player *player, t_movement movement)
 {
-	if (movement == RIGHT)
+	if (movement == LEFT)
 	{
+		if (array[(int)player->y][(int)(player->x - player->dir_y
+			* MOVEMENT_FORCE)] != WALL)
+			player->x -= player->dir_y * MOVEMENT_FORCE;
+		if (array[(int)(player->y + player->dir_x
+				* MOVEMENT_FORCE)][(int)(player->x)] != WALL)
+			player->y += player->dir_x * MOVEMENT_FORCE;
 	}
 	else
 	{
+		if (array[(int)player->y][(int)(player->x + player->dir_y
+			* MOVEMENT_FORCE)] != WALL)
+			player->x += player->dir_y * MOVEMENT_FORCE;
+		if (array[(int)(player->y - player->dir_x
+				* MOVEMENT_FORCE)][(int)(player->x)] != WALL)
+			player->y -= player->dir_x * MOVEMENT_FORCE;
 	}
 	return ;
 }
 
-void	y_movement(t_map *map, char **array, t_player *player,
-	t_movement movement)
+void	y_movement(char **array, t_player *player, t_movement movement)
 {
 	if (movement == UP)
 	{
+		if (array[(int)player->y][(int)(player->x + player->dir_x
+			* MOVEMENT_FORCE)] != WALL)
+			player->x += player->dir_x * MOVEMENT_FORCE;
+		if (array[(int)(player->y + player->dir_y
+				* MOVEMENT_FORCE)][(int)(player->x)] != WALL)
+			player->y -= player->dir_y * MOVEMENT_FORCE;
 	}
 	else
 	{
+		if (array[(int)player->y][(int)(player->x - player->dir_x
+			* MOVEMENT_FORCE)] != WALL)
+			player->x -= player->dir_x * MOVEMENT_FORCE;
+		if (array[(int)(player->y - player->dir_y
+				* MOVEMENT_FORCE)][(int)(player->x)] != WALL)
+			player->y += player->dir_y * MOVEMENT_FORCE;
 	}
 	return ;
 }

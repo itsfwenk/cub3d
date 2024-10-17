@@ -20,25 +20,20 @@ static int	handle_close(t_cub3d *cub3d)
 
 static int	handle_key(int key, t_cub3d *cub3d)
 {
-	t_map		*map;
-	t_player	*player;
-
-	map = cub3d->map;
-	player = cub3d->player;
 	if (key == XK_Escape)
 		handle_close(cub3d);
 	else if (key == XK_A || key == XK_a)
-		x_movement(map, map->array, player, LEFT);
+		x_movement(cub3d->map->array, cub3d->player, LEFT);
 	else if (key == XK_D || key == XK_d)
-		x_movement(map, map->array, player, RIGHT);
+		x_movement(cub3d->map->array, cub3d->player, RIGHT);
 	else if (key == XK_W || key == XK_w)
-		y_movement(map, map->array, player, UP);
+		y_movement(cub3d->map->array, cub3d->player, UP);
 	else if (key == XK_S || key == XK_s)
-		y_movement(map, map->array, player, DOWN);
+		y_movement(cub3d->map->array, cub3d->player, DOWN);
 	else if (key == XK_Left)
-		camera_movement(player, C_LEFT);
+		camera_movement(cub3d->player, C_LEFT);
 	else if (key == XK_Right)
-		camera_movement(player, C_RIGHT);
+		camera_movement(cub3d->player, C_RIGHT);
 	else
 		return (EXIT_SUCCESS);
 	draw_img(cub3d);
