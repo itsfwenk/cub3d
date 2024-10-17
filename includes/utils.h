@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 14:05:19 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/15 11:35:44 by fli              ###   ########.fr       */
+/*   Updated: 2024/10/17 18:54:11 by mel-habi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,6 @@ void			*add_gc(t_gc **gc, size_t nmemb, size_t size);
 
 // init_utils.c
 t_cub3d			*init_cub3d(void);
-
-// math_utils.c
-double			adjacent_opposite(double position, double angle, t_side side);
-double			normalize_angle(double angle);
-double			hypotenuse_len(t_cub3d *cub3d, double ray_angle);
 
 // mlx_handlers.c
 void			init_events(t_cub3d *cub3d);

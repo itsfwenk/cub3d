@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 13:03:22 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/17 15:49:00 by fli              ###   ########.fr       */
+/*   Updated: 2024/10/17 18:54:52 by mel-habi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,15 +134,11 @@ typedef struct s_raycaster
 	int				step_y;
 	int				side;
 	int				line_height;
-	int				hit;
 	int				tex_x;
 	int				tex_y;
-	int				line_size;
-	int				*data;
 	double			camera_x;
 	double			plane_x;
 	double			plane_y;
-	double			ray_angle;
 	double			wall_dist;
 	double			side_dist_x;
 	double			side_dist_y;
@@ -152,9 +148,6 @@ typedef struct s_raycaster
 	double			ray_dir_x;
 	double			ray_dir_y;
 	double			wall_x;
-	double			tex_step;
-	double			tex_pos;
-
 	t_direction		tile_face;
 }	t_raycaster;
 
