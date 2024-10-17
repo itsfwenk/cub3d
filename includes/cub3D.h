@@ -6,7 +6,7 @@
 /*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 13:03:22 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/17 18:54:52 by mel-habi         ###   ########.fr       */
+/*   Updated: 2024/10/17 19:12:38 by mel-habi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,21 @@
 # define WIN_NAME "cub3D"
 
 // Enums
+typedef enum e_movement		t_movement;
 typedef enum e_direction	t_direction;
 typedef enum e_position		t_position;
 typedef enum e_side			t_side;
 typedef enum e_time			t_time;
+
+typedef enum e_movement
+{
+	UP,
+	DOWN,
+	LEFT,
+	RIGHT,
+	C_LEFT,
+	C_RIGHT
+}	t_movement;
 
 typedef enum e_direction
 {
@@ -113,8 +124,8 @@ typedef struct s_map
 
 typedef struct s_player
 {
-	double					x;
-	double					y;
+	double				x;
+	double				y;
 	double				in_tile_x;
 	double				in_tile_y;
 	double				dir_x;

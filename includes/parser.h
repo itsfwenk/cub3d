@@ -6,7 +6,7 @@
 /*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 13:31:05 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/14 19:14:27 by mel-habi         ###   ########.fr       */
+/*   Updated: 2024/10/17 19:06:26 by mel-habi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PARSER_H
 
 // Enums
+typedef enum e_movement		t_movement;
 typedef enum e_direction	t_direction;
 typedef enum e_position		t_position;
 typedef enum e_side			t_side;

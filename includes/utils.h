@@ -6,7 +6,7 @@
 /*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 14:05:19 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/17 18:54:11 by mel-habi         ###   ########.fr       */
+/*   Updated: 2024/10/17 19:12:49 by mel-habi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdlib.h>
 
 // Enums
+typedef enum e_movement		t_movement;
 typedef enum e_direction	t_direction;
 typedef enum e_position		t_position;
 typedef enum e_side			t_side;
@@ -53,6 +54,11 @@ void			set_pixel_color(t_img *img, int x, int y, unsigned long color);
 unsigned int	get_pixel_color(t_img *img, int x, int y);
 void			color_column(t_cub3d *cub3d, int x);
 void			draw_img(t_cub3d *cub3d);
+
+// movement_handlers.c
+void			x_movement(t_cub3d *cub3d, t_movement movement);
+void			y_movement(t_cub3d *cub3d, t_movement movement);
+void			camera_movement(t_cub3d *cub3d, t_movement movement);
 
 // print_utils.c
 void			ft_print_error(char *msg);
