@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 18:19:53 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/16 17:42:07 by fli              ###   ########.fr       */
+/*   Updated: 2024/10/17 11:12:46 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,29 +18,29 @@ void	init_dir(t_cub3d *cub3d)
 	{
 		cub3d->player->dir_x = 1;
 		cub3d->player->dir_y = 0;
-		cub3d->raycaster->plane_x = 0;
-		cub3d->raycaster->plane_y = -0.66;
+		cub3d->raycaster->plane_x = 0.0f;
+		cub3d->raycaster->plane_y = -0.66f;
 	}
 	if (cub3d->player->angle == 90)
 	{
 		cub3d->player->dir_x = 0;
 		cub3d->player->dir_y = 1;
-		cub3d->raycaster->plane_x = -0.66;
-		cub3d->raycaster->plane_y = 0;
+		cub3d->raycaster->plane_x = -0.66f;
+		cub3d->raycaster->plane_y = 0.0f;
 	}
 	if (cub3d->player->angle == 180)
 	{
 		cub3d->player->dir_x = -1;
 		cub3d->player->dir_y = 0;
-		cub3d->raycaster->plane_x = 0;
-		cub3d->raycaster->plane_y = 0.66;
+		cub3d->raycaster->plane_x = 0.0f;
+		cub3d->raycaster->plane_y = 0.66f;
 	}
 	if (cub3d->player->angle == 270)
 	{
 		cub3d->player->dir_x = 0;
 		cub3d->player->dir_y = -1;
-		cub3d->raycaster->plane_x = 0.66;
-		cub3d->raycaster->plane_y = 0;
+		cub3d->raycaster->plane_x = 0.66f;
+		cub3d->raycaster->plane_y = 0.0f;
 	}
 }
 

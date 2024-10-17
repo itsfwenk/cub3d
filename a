@@ -1,0 +1,1370 @@
+18c18
+< distance = 1.841604
+---
+> distance = 1.841603
+75c75
+< distance = 1.939243
+---
+> distance = 1.939242
+94c94
+< distance = 1.975572
+---
+> distance = 1.975571
+96,98c96,98
+< distance = 1.979518
+< distance = 1.981500
+< distance = 1.983488
+---
+> distance = 1.979517
+> distance = 1.981499
+> distance = 1.983487
+145c145
+< distance = 2.084201
+---
+> distance = 2.084200
+181c181
+< distance = 2.172241
+---
+> distance = 2.172240
+232c232
+< distance = 2.316794
+---
+> distance = 2.316793
+256c256
+< distance = 2.394420
+---
+> distance = 2.394419
+304c304
+< distance = 2.572398
+---
+> distance = 2.572397
+362c362
+< distance = 2.839000
+---
+> distance = 2.838999
+453c453
+< distance = 3.429268
+---
+> distance = 3.429267
+497c497
+< distance = 3.832549
+---
+> distance = 3.832550
+520c520
+< distance = 4.089045
+---
+> distance = 4.089046
+524c524
+< distance = 4.137574
+---
+> distance = 4.137575
+534c534
+< distance = 4.264593
+---
+> distance = 4.264594
+546c546
+< distance = 4.428706
+---
+> distance = 4.428707
+563c563
+< distance = 4.686097
+---
+> distance = 4.686098
+569c569
+< distance = 4.784808
+---
+> distance = 4.784809
+580c580
+< distance = 4.977829
+---
+> distance = 4.977830
+588c588
+< distance = 5.128972
+---
+> distance = 5.128973
+601c601
+< distance = 5.396492
+---
+> distance = 5.396493
+606c606
+< distance = 5.507408
+---
+> distance = 5.507409
+609c609
+< distance = 5.576291
+---
+> distance = 5.576292
+614c614
+< distance = 5.695208
+---
+> distance = 5.695209
+616c616
+< distance = 5.744278
+---
+> distance = 5.744279
+621c621
+< distance = 5.870916
+---
+> distance = 5.870917
+629c629
+< distance = 6.086146
+---
+> distance = 6.086147
+640c640
+< distance = 6.410454
+---
+> distance = 6.410455
+644,646c644,646
+< distance = 6.537479
+< distance = 6.570055
+< distance = 6.602969
+---
+> distance = 6.537480
+> distance = 6.570056
+> distance = 6.602970
+648c648
+< distance = 6.669832
+---
+> distance = 6.669833
+661,662c661,662
+< distance = 7.141071
+< distance = 7.180185
+---
+> distance = 7.141072
+> distance = 7.180186
+664,668c664,668
+< distance = 7.259752
+< distance = 7.300220
+< distance = 7.341155
+< distance = 7.382565
+< distance = 7.424458
+---
+> distance = 7.259753
+> distance = 7.300221
+> distance = 7.341156
+> distance = 7.382566
+> distance = 7.424459
+671,672c671,672
+< distance = 7.553121
+< distance = 7.597033
+---
+> distance = 7.553122
+> distance = 7.597034
+677c677
+< distance = 7.824695
+---
+> distance = 7.824696
+679,682c679,682
+< distance = 7.919728
+< distance = 7.968137
+< distance = 8.017156
+< distance = 8.066796
+---
+> distance = 7.919729
+> distance = 7.968138
+> distance = 8.017157
+> distance = 8.066797
+685,686c685,686
+< distance = 8.219565
+< distance = 8.271812
+---
+> distance = 8.219566
+> distance = 8.271813
+688c688
+< distance = 8.378370
+---
+> distance = 8.378371
+692,694c692,694
+< distance = 8.600130
+< distance = 8.657456
+< distance = 8.715567
+---
+> distance = 8.600131
+> distance = 8.657457
+> distance = 8.715568
+696,700c696,700
+< distance = 8.834210
+< distance = 8.894775
+< distance = 8.956193
+< distance = 9.018481
+< distance = 9.081658
+---
+> distance = 8.834211
+> distance = 8.894776
+> distance = 8.956194
+> distance = 9.018482
+> distance = 9.081659
+703c703
+< distance = 9.276717
+---
+> distance = 9.276718
+707,708c707,708
+< distance = 9.550462
+< distance = 9.621486
+---
+> distance = 9.550463
+> distance = 9.621487
+710,970c710
+< distance = 9.766804
+< distance = 9.841149
+< distance = 9.916652
+< distance = 9.993341
+< distance = 10.071244
+< distance = 10.150389
+< distance = 10.230807
+< distance = 10.312529
+< distance = 10.395585
+< distance = 10.480010
+< distance = 10.565836
+< distance = 10.653099
+< distance = 10.741835
+< distance = 10.832082
+< distance = 10.923878
+< distance = 11.017264
+< distance = 11.112280
+< distance = 11.208971
+< distance = 11.307379
+< distance = 11.407552
+< distance = 11.509536
+< distance = 11.613382
+< distance = 11.719140
+< distance = 11.826864
+< distance = 11.936609
+< distance = 12.048432
+< distance = 12.162392
+< distance = 12.278551
+< distance = 12.396974
+< distance = 12.517726
+< distance = 12.640876
+< distance = 12.766498
+< distance = 12.894665
+< distance = 13.025456
+< distance = 13.158952
+< distance = 13.295237
+< distance = 13.434399
+< distance = 13.576530
+< distance = 13.721727
+< distance = 13.870088
+< distance = 14.021718
+< distance = 14.176727
+< distance = 14.335228
+< distance = 14.497340
+< distance = 14.663188
+< distance = 14.832902
+< distance = 15.006618
+< distance = 15.184479
+< distance = 15.366636
+< distance = 15.553245
+< distance = 15.744472
+< distance = 15.940488
+< distance = 16.141478
+< distance = 16.347630
+< distance = 16.559148
+< distance = 16.776242
+< distance = 16.999136
+< distance = 17.228064
+< distance = 17.463275
+< distance = 17.705031
+< distance = 17.953607
+< distance = 18.209297
+< distance = 18.472410
+< distance = 18.743273
+< distance = 19.022233
+< distance = 19.309658
+< distance = 19.605939
+< distance = 19.911491
+< distance = 20.226755
+< distance = 20.552202
+< distance = 20.888332
+< distance = 21.235680
+< distance = 21.594815
+< distance = 21.966348
+< distance = 22.350930
+< distance = 22.749262
+< distance = 23.162093
+< distance = 23.590228
+< distance = 24.034535
+< distance = 24.495945
+< distance = 24.975464
+< distance = 25.474181
+< distance = 25.993269
+< distance = 26.534002
+< distance = 27.097762
+< distance = 27.686050
+< distance = 28.300501
+< distance = 28.942900
+< distance = 29.615197
+< distance = 30.319526
+< distance = 31.058232
+< distance = 31.833892
+< distance = 32.649350
+< distance = 33.507748
+< distance = 34.412567
+< distance = 35.367675
+< distance = 36.377384
+< distance = 37.446510
+< distance = 38.580455
+< distance = 39.785297
+< distance = 41.067895
+< distance = 42.436027
+< distance = 43.898539
+< distance = 45.465544
+< distance = 47.148653
+< distance = 48.961262
+< distance = 50.918911
+< distance = 53.039731
+< distance = 55.345003
+< distance = 57.859882
+< distance = 60.614310
+< distance = 63.644220
+< distance = 66.993110
+< distance = 70.714142
+< distance = 74.872988
+< distance = 79.551740
+< distance = 84.854378
+< distance = 90.914591
+< distance = 97.907205
+< distance = 106.065320
+< distance = 115.706801
+< distance = 127.276656
+< distance = 141.417677
+< distance = 159.094052
+< distance = 181.820932
+< distance = 212.123569
+< distance = 254.547419
+< distance = 318.183390
+< distance = 424.243603
+< distance = 636.364422
+< distance = 1272.727666
+< distance = 1000000000000000019884624838656.000000
+< distance = 1272.727666
+< distance = 636.364422
+< distance = 424.243603
+< distance = 318.183390
+< distance = 254.547419
+< distance = 212.123569
+< distance = 181.820932
+< distance = 159.094052
+< distance = 141.417677
+< distance = 127.276656
+< distance = 115.706801
+< distance = 106.065320
+< distance = 97.907205
+< distance = 90.914591
+< distance = 84.854378
+< distance = 79.551740
+< distance = 74.872988
+< distance = 70.714142
+< distance = 66.993110
+< distance = 63.644220
+< distance = 60.614310
+< distance = 57.859882
+< distance = 55.345003
+< distance = 53.039731
+< distance = 50.918911
+< distance = 48.961262
+< distance = 47.148653
+< distance = 45.465544
+< distance = 43.898539
+< distance = 42.436027
+< distance = 41.067895
+< distance = 39.785297
+< distance = 38.580455
+< distance = 37.446510
+< distance = 36.377384
+< distance = 35.367675
+< distance = 34.412567
+< distance = 33.507748
+< distance = 32.649350
+< distance = 31.833892
+< distance = 31.058232
+< distance = 30.319526
+< distance = 29.615197
+< distance = 28.942900
+< distance = 28.300501
+< distance = 27.686050
+< distance = 27.097762
+< distance = 26.534002
+< distance = 25.993269
+< distance = 25.474181
+< distance = 24.975464
+< distance = 24.495945
+< distance = 24.034535
+< distance = 23.590228
+< distance = 23.162093
+< distance = 22.749262
+< distance = 22.350930
+< distance = 21.966348
+< distance = 21.594815
+< distance = 21.235680
+< distance = 20.888332
+< distance = 20.552202
+< distance = 20.226755
+< distance = 19.911491
+< distance = 19.605939
+< distance = 19.309658
+< distance = 19.022233
+< distance = 18.743273
+< distance = 18.472410
+< distance = 18.209297
+< distance = 17.953607
+< distance = 17.705031
+< distance = 17.463275
+< distance = 17.228064
+< distance = 16.999136
+< distance = 16.776242
+< distance = 16.559148
+< distance = 16.347630
+< distance = 16.141478
+< distance = 15.940488
+< distance = 15.744472
+< distance = 15.553245
+< distance = 15.366636
+< distance = 15.184479
+< distance = 15.006618
+< distance = 14.832902
+< distance = 14.663188
+< distance = 14.497340
+< distance = 14.335228
+< distance = 14.176727
+< distance = 14.021718
+< distance = 13.870088
+< distance = 13.721727
+< distance = 13.576530
+< distance = 13.434399
+< distance = 13.295237
+< distance = 13.158952
+< distance = 13.025456
+< distance = 12.894665
+< distance = 12.766498
+< distance = 12.640876
+< distance = 12.517726
+< distance = 12.396974
+< distance = 12.278551
+< distance = 12.162392
+< distance = 12.048432
+< distance = 11.936609
+< distance = 11.826864
+< distance = 11.719140
+< distance = 11.613382
+< distance = 11.509536
+< distance = 11.407552
+< distance = 11.307379
+< distance = 11.208971
+< distance = 11.112280
+< distance = 11.017264
+< distance = 10.923878
+< distance = 10.832082
+< distance = 10.741835
+< distance = 10.653099
+< distance = 10.565836
+< distance = 10.480010
+< distance = 10.395585
+< distance = 10.312529
+< distance = 10.230807
+< distance = 10.150389
+< distance = 10.071244
+< distance = 9.993341
+< distance = 9.916652
+---
+> distance = 9.766805
+972,1010c712,1010
+< distance = 9.766804
+< distance = 9.693592
+< distance = 9.621486
+< distance = 9.550462
+< distance = 9.480497
+< distance = 9.411566
+< distance = 9.343647
+< distance = 9.276717
+< distance = 9.210757
+< distance = 9.145744
+< distance = 9.081658
+< distance = 9.018481
+< distance = 8.956193
+< distance = 8.894775
+< distance = 8.834210
+< distance = 8.774480
+< distance = 8.715567
+< distance = 8.657456
+< distance = 8.600130
+< distance = 8.543574
+< distance = 8.487772
+< distance = 8.432709
+< distance = 8.378370
+< distance = 8.324743
+< distance = 8.271812
+< distance = 8.219565
+< distance = 8.167989
+< distance = 8.117070
+< distance = 8.066796
+< distance = 8.017156
+< distance = 7.968137
+< distance = 7.919728
+< distance = 7.871918
+< distance = 7.824695
+< distance = 7.778050
+< distance = 7.731971
+< distance = 7.686449
+< distance = 7.641473
+< distance = 7.597033
+---
+> distance = 9.916653
+> distance = 9.993342
+> distance = 10.071245
+> distance = 10.150390
+> distance = 10.230808
+> distance = 10.312530
+> distance = 10.395586
+> distance = 10.480011
+> distance = 10.565837
+> distance = 10.653100
+> distance = 10.741836
+> distance = 10.832083
+> distance = 10.923879
+> distance = 11.017265
+> distance = 11.112281
+> distance = 11.208972
+> distance = 11.307380
+> distance = 11.407553
+> distance = 11.509537
+> distance = 11.613383
+> distance = 11.719141
+> distance = 11.826865
+> distance = 11.936610
+> distance = 12.048433
+> distance = 12.162393
+> distance = 12.278553
+> distance = 12.396975
+> distance = 12.517727
+> distance = 12.640878
+> distance = 12.766499
+> distance = 12.894667
+> distance = 13.025458
+> distance = 13.158953
+> distance = 13.295238
+> distance = 13.434400
+> distance = 13.576532
+> distance = 13.721728
+> distance = 13.870090
+> distance = 14.021720
+> distance = 14.176729
+> distance = 14.335230
+> distance = 14.497342
+> distance = 14.663190
+> distance = 14.832904
+> distance = 15.006620
+> distance = 15.184481
+> distance = 15.366638
+> distance = 15.553247
+> distance = 15.744474
+> distance = 15.940491
+> distance = 16.141480
+> distance = 16.347633
+> distance = 16.559151
+> distance = 16.776245
+> distance = 16.999138
+> distance = 17.228067
+> distance = 17.463278
+> distance = 17.705034
+> distance = 17.953611
+> distance = 18.209301
+> distance = 18.472413
+> distance = 18.743276
+> distance = 19.022236
+> distance = 19.309661
+> distance = 19.605942
+> distance = 19.911495
+> distance = 20.226759
+> distance = 20.552206
+> distance = 20.888336
+> distance = 21.235684
+> distance = 21.594820
+> distance = 21.966352
+> distance = 22.350935
+> distance = 22.749267
+> distance = 23.162098
+> distance = 23.590234
+> distance = 24.034540
+> distance = 24.495951
+> distance = 24.975471
+> distance = 25.474187
+> distance = 25.993276
+> distance = 26.534009
+> distance = 27.097769
+> distance = 27.686058
+> distance = 28.300510
+> distance = 28.942909
+> distance = 29.615206
+> distance = 30.319536
+> distance = 31.058242
+> distance = 31.833903
+> distance = 32.649362
+> distance = 33.507760
+> distance = 34.412580
+> distance = 35.367689
+> distance = 36.377398
+> distance = 37.446525
+> distance = 38.580471
+> distance = 39.785314
+> distance = 41.067914
+> distance = 42.436046
+> distance = 43.898560
+> distance = 45.465567
+> distance = 47.148678
+> distance = 48.961289
+> distance = 50.918940
+> distance = 53.039762
+> distance = 55.345038
+> distance = 57.859919
+> distance = 60.614351
+> distance = 63.644266
+> distance = 66.993161
+> distance = 70.714199
+> distance = 74.873052
+> distance = 79.551812
+> distance = 84.854460
+> distance = 90.914686
+> distance = 97.907315
+> distance = 106.065450
+> distance = 115.706956
+> distance = 127.276844
+> distance = 141.417910
+> distance = 159.094347
+> distance = 181.821319
+> distance = 212.124097
+> distance = 254.548181
+> distance = 318.184584
+> distance = 424.245732
+> distance = 636.369226
+> distance = 1272.746932
+> distance = 83858283.006684
+> distance = 1272.708299
+> distance = 636.359568
+> distance = 424.241440
+> distance = 318.182170
+> distance = 254.546636
+> distance = 212.123024
+> distance = 181.820530
+> distance = 159.093744
+> distance = 141.417433
+> distance = 127.276458
+> distance = 115.706636
+> distance = 106.065182
+> distance = 97.907087
+> distance = 90.914489
+> distance = 84.854288
+> distance = 79.551661
+> distance = 74.872919
+> distance = 70.714079
+> distance = 66.993054
+> distance = 63.644169
+> distance = 60.614264
+> distance = 57.859840
+> distance = 55.344965
+> distance = 53.039695
+> distance = 50.918878
+> distance = 48.961232
+> distance = 47.148625
+> distance = 45.465518
+> distance = 43.898514
+> distance = 42.436003
+> distance = 41.067874
+> distance = 39.785276
+> distance = 38.580436
+> distance = 37.446492
+> distance = 36.377367
+> distance = 35.367659
+> distance = 34.412552
+> distance = 33.507734
+> distance = 32.649336
+> distance = 31.833879
+> distance = 31.058219
+> distance = 30.319514
+> distance = 29.615185
+> distance = 28.942889
+> distance = 28.300491
+> distance = 27.686039
+> distance = 27.097752
+> distance = 26.533993
+> distance = 25.993260
+> distance = 25.474172
+> distance = 24.975456
+> distance = 24.495936
+> distance = 24.034527
+> distance = 23.590221
+> distance = 23.162086
+> distance = 22.749255
+> distance = 22.350923
+> distance = 21.966341
+> distance = 21.594808
+> distance = 21.235673
+> distance = 20.888326
+> distance = 20.552196
+> distance = 20.226749
+> distance = 19.911485
+> distance = 19.605933
+> distance = 19.309653
+> distance = 19.022228
+> distance = 18.743268
+> distance = 18.472405
+> distance = 18.209293
+> distance = 17.953603
+> distance = 17.705026
+> distance = 17.463271
+> distance = 17.228060
+> distance = 16.999132
+> distance = 16.776238
+> distance = 16.559144
+> distance = 16.347627
+> distance = 16.141474
+> distance = 15.940485
+> distance = 15.744468
+> distance = 15.553242
+> distance = 15.366633
+> distance = 15.184476
+> distance = 15.006614
+> distance = 14.832898
+> distance = 14.663185
+> distance = 14.497337
+> distance = 14.335225
+> distance = 14.176724
+> distance = 14.021716
+> distance = 13.870085
+> distance = 13.721724
+> distance = 13.576527
+> distance = 13.434396
+> distance = 13.295234
+> distance = 13.158949
+> distance = 13.025454
+> distance = 12.894663
+> distance = 12.766496
+> distance = 12.640874
+> distance = 12.517723
+> distance = 12.396971
+> distance = 12.278549
+> distance = 12.162390
+> distance = 12.048430
+> distance = 11.936607
+> distance = 11.826862
+> distance = 11.719138
+> distance = 11.613380
+> distance = 11.509534
+> distance = 11.407550
+> distance = 11.307377
+> distance = 11.208969
+> distance = 11.112279
+> distance = 11.017262
+> distance = 10.923877
+> distance = 10.832080
+> distance = 10.741834
+> distance = 10.653097
+> distance = 10.565834
+> distance = 10.480008
+> distance = 10.395584
+> distance = 10.312527
+> distance = 10.230806
+> distance = 10.150388
+> distance = 10.071242
+> distance = 9.993339
+> distance = 9.916650
+> distance = 9.841147
+> distance = 9.766803
+> distance = 9.693590
+> distance = 9.621485
+> distance = 9.550461
+> distance = 9.480495
+> distance = 9.411564
+> distance = 9.343645
+> distance = 9.276716
+> distance = 9.210755
+> distance = 9.145742
+> distance = 9.081657
+> distance = 9.018480
+> distance = 8.956192
+> distance = 8.894774
+> distance = 8.834209
+> distance = 8.774479
+> distance = 8.715566
+> distance = 8.657455
+> distance = 8.600129
+> distance = 8.543573
+> distance = 8.487770
+> distance = 8.432707
+> distance = 8.378369
+> distance = 8.324742
+> distance = 8.271811
+> distance = 8.219564
+> distance = 8.167988
+> distance = 8.117069
+> distance = 8.066795
+> distance = 8.017155
+> distance = 7.968136
+> distance = 7.919727
+> distance = 7.871917
+> distance = 7.824694
+> distance = 7.778049
+> distance = 7.731970
+> distance = 7.686448
+> distance = 7.641472
+> distance = 7.597032
+1012,1033c1012,1033
+< distance = 7.509728
+< distance = 7.466843
+< distance = 7.424458
+< distance = 7.382565
+< distance = 7.341155
+< distance = 7.300220
+< distance = 7.259752
+< distance = 7.219743
+< distance = 7.180185
+< distance = 7.141071
+< distance = 7.102394
+< distance = 7.064145
+< distance = 7.026319
+< distance = 6.988908
+< distance = 6.951906
+< distance = 6.915305
+< distance = 6.879100
+< distance = 6.843285
+< distance = 6.807852
+< distance = 6.772796
+< distance = 6.738112
+< distance = 6.703792
+---
+> distance = 7.509727
+> distance = 7.466842
+> distance = 7.424457
+> distance = 7.382564
+> distance = 7.341154
+> distance = 7.300219
+> distance = 7.259751
+> distance = 7.219742
+> distance = 7.180184
+> distance = 7.141070
+> distance = 7.102393
+> distance = 7.064144
+> distance = 7.026318
+> distance = 6.988907
+> distance = 6.951905
+> distance = 6.915304
+> distance = 6.879099
+> distance = 6.843284
+> distance = 6.807851
+> distance = 6.772795
+> distance = 6.738111
+> distance = 6.703791
+1035c1035
+< distance = 6.636227
+---
+> distance = 6.636226
+1039,1041c1039,1041
+< distance = 6.505236
+< distance = 6.473321
+< distance = 6.441729
+---
+> distance = 6.505235
+> distance = 6.473320
+> distance = 6.441728
+1043,1052c1043,1052
+< distance = 6.379494
+< distance = 6.348842
+< distance = 6.318494
+< distance = 6.288446
+< distance = 6.258693
+< distance = 6.229232
+< distance = 6.200057
+< distance = 6.171165
+< distance = 6.142552
+< distance = 6.114214
+---
+> distance = 6.379493
+> distance = 6.348841
+> distance = 6.318493
+> distance = 6.288445
+> distance = 6.258692
+> distance = 6.229231
+> distance = 6.200056
+> distance = 6.171164
+> distance = 6.142551
+> distance = 6.114213
+1054c1054
+< distance = 6.058346
+---
+> distance = 6.058345
+1056,1058c1056,1058
+< distance = 6.003532
+< distance = 5.976511
+< distance = 5.949742
+---
+> distance = 6.003531
+> distance = 5.976510
+> distance = 5.949741
+1062,1065c1062,1065
+< distance = 5.845124
+< distance = 5.819567
+< distance = 5.794242
+< distance = 5.769147
+---
+> distance = 5.845123
+> distance = 5.819566
+> distance = 5.794241
+> distance = 5.769146
+1070,1072c1070,1072
+< distance = 5.647009
+< distance = 5.623228
+< distance = 5.599657
+---
+> distance = 5.647008
+> distance = 5.623227
+> distance = 5.599656
+1075c1075
+< distance = 5.530170
+---
+> distance = 5.530169
+1077,1078c1077,1078
+< distance = 5.484843
+< distance = 5.462471
+---
+> distance = 5.484842
+> distance = 5.462470
+1082,1089c1082,1089
+< distance = 5.374871
+< distance = 5.353431
+< distance = 5.332171
+< distance = 5.311088
+< distance = 5.290180
+< distance = 5.269445
+< distance = 5.248881
+< distance = 5.228486
+---
+> distance = 5.374870
+> distance = 5.353430
+> distance = 5.332170
+> distance = 5.311087
+> distance = 5.290179
+> distance = 5.269444
+> distance = 5.248880
+> distance = 5.228485
+1091c1091
+< distance = 5.188194
+---
+> distance = 5.188193
+1095c1095
+< distance = 5.109549
+---
+> distance = 5.109548
+1098c1098
+< distance = 5.052202
+---
+> distance = 5.052201
+1100,1101c1100,1101
+< distance = 5.014723
+< distance = 4.996204
+---
+> distance = 5.014722
+> distance = 4.996203
+1104,1105c1104,1105
+< distance = 4.941509
+< distance = 4.923559
+---
+> distance = 4.941508
+> distance = 4.923558
+1111,1112c1111,1112
+< distance = 4.818709
+< distance = 4.801695
+---
+> distance = 4.818708
+> distance = 4.801694
+1114,1118c1114,1118
+< distance = 4.768049
+< distance = 4.751414
+< distance = 4.734903
+< distance = 4.718514
+< distance = 4.702246
+---
+> distance = 4.768048
+> distance = 4.751413
+> distance = 4.734902
+> distance = 4.718513
+> distance = 4.702245
+1120,1121c1120,1121
+< distance = 4.670068
+< distance = 4.654155
+---
+> distance = 4.670067
+> distance = 4.654154
+1123,1124c1123,1124
+< distance = 4.622676
+< distance = 4.607107
+---
+> distance = 4.622675
+> distance = 4.607106
+1126,1128c1126,1128
+< distance = 4.576305
+< distance = 4.561069
+< distance = 4.545942
+---
+> distance = 4.576304
+> distance = 4.561068
+> distance = 4.545941
+1131c1131
+< distance = 4.501202
+---
+> distance = 4.501201
+1137c1137
+< distance = 4.414509
+---
+> distance = 4.414508
+1140c1140
+< distance = 4.372500
+---
+> distance = 4.372499
+1154,1156c1154,1156
+< distance = 4.187381
+< distance = 4.174807
+< distance = 4.162315
+---
+> distance = 4.187380
+> distance = 4.174806
+> distance = 4.162314
+1161c1161
+< distance = 4.101061
+---
+> distance = 4.101060
+1168c1168
+< distance = 4.018544
+---
+> distance = 4.018543
+1171,1172c1171,1172
+< distance = 3.984284
+< distance = 3.973006
+---
+> distance = 3.984283
+> distance = 3.973005
+1177c1177
+< distance = 3.917656
+---
+> distance = 3.917655
+1182c1182
+< distance = 3.863981
+---
+> distance = 3.863980
+1189c1189
+< distance = 3.791513
+---
+> distance = 3.791512
+1192c1192
+< distance = 3.761370
+---
+> distance = 3.761369
+1195,1196c1195,1196
+< distance = 3.731756
+< distance = 3.722000
+---
+> distance = 3.731755
+> distance = 3.721999
+1202c1202
+< distance = 3.664639
+---
+> distance = 3.664638
+1208c1208
+< distance = 3.609222
+---
+> distance = 3.609221
+1211,1212c1211,1212
+< distance = 3.582213
+< distance = 3.573311
+---
+> distance = 3.582212
+> distance = 3.573310
+1215c1215
+< distance = 3.546901
+---
+> distance = 3.546900
+1217c1217
+< distance = 3.529538
+---
+> distance = 3.529537
+1219c1219
+< distance = 3.512366
+---
+> distance = 3.512365
+1221c1221
+< distance = 3.495382
+---
+> distance = 3.495381
+1223,1224c1223,1224
+< distance = 3.478583
+< distance = 3.470252
+---
+> distance = 3.478582
+> distance = 3.470251
+1229c1229
+< distance = 3.429268
+---
+> distance = 3.429267
+1233c1233
+< distance = 3.397265
+---
+> distance = 3.397264
+1238c1238
+< distance = 3.358207
+---
+> distance = 3.358206
+1240c1240
+< distance = 3.342870
+---
+> distance = 3.342869
+1246,1248c1246,1248
+< distance = 3.297808
+< distance = 3.290433
+< distance = 3.283096
+---
+> distance = 3.297807
+> distance = 3.290432
+> distance = 3.283095
+1255c1255
+< distance = 3.232775
+---
+> distance = 3.232774
+1262c1262
+< distance = 3.184206
+---
+> distance = 3.184205
+1271c1271
+< distance = 3.124196
+---
+> distance = 3.124195
+1274,1277c1274,1277
+< distance = 3.104775
+< distance = 3.098364
+< distance = 3.091984
+< distance = 3.085635
+---
+> distance = 3.104774
+> distance = 3.098363
+> distance = 3.091983
+> distance = 3.085634
+1280,1281c1280,1281
+< distance = 3.066770
+< distance = 3.060542
+---
+> distance = 3.066769
+> distance = 3.060541
+1285c1285
+< distance = 3.035925
+---
+> distance = 3.035924
+1288c1288
+< distance = 3.017767
+---
+> distance = 3.017766
+1296c1296
+< distance = 2.970580
+---
+> distance = 2.970579
+1301c1301
+< distance = 2.941968
+---
+> distance = 2.941967
+1309c1309
+< distance = 2.897533
+---
+> distance = 2.897532
+1314c1314
+< distance = 2.870569
+---
+> distance = 2.870568
+1316c1316
+< distance = 2.859952
+---
+> distance = 2.859951
+1319,1320c1319,1320
+< distance = 2.844203
+< distance = 2.839000
+---
+> distance = 2.844202
+> distance = 2.838999
+1331c1331
+< distance = 2.783254
+---
+> distance = 2.783253
+1333c1333
+< distance = 2.773403
+---
+> distance = 2.773402
+1335c1335
+< distance = 2.763637
+---
+> distance = 2.763636
+1337,1338c1337,1338
+< distance = 2.753955
+< distance = 2.749145
+---
+> distance = 2.753954
+> distance = 2.749144
+1343c1343
+< distance = 2.725402
+---
+> distance = 2.725401
+1362c1362
+< distance = 2.639610
+---
+> distance = 2.639609
+1364,1365c1364,1365
+< distance = 2.630967
+< distance = 2.626672
+---
+> distance = 2.630966
+> distance = 2.626671
+1368c1368
+< distance = 2.613892
+---
+> distance = 2.613891
+1378c1378
+< distance = 2.572398
+---
+> distance = 2.572397
+1385c1385
+< distance = 2.544327
+---
+> distance = 2.544326
+1395c1395
+< distance = 2.505550
+---
+> distance = 2.505549
+1412c1412
+< distance = 2.442989
+---
+> distance = 2.442988
+1426c1426
+< distance = 2.394420
+---
+> distance = 2.394419
+1431,1432c1431,1432
+< distance = 2.377680
+< distance = 2.374369
+---
+> distance = 2.377679
+> distance = 2.374368
+1443,1444c1443,1444
+< distance = 2.338738
+< distance = 2.335569
+---
+> distance = 2.338737
+> distance = 2.335568
+1449,1451c1449,1451
+< distance = 2.319895
+< distance = 2.316794
+< distance = 2.313704
+---
+> distance = 2.319894
+> distance = 2.316793
+> distance = 2.313703
+1456c1456
+< distance = 2.298419
+---
+> distance = 2.298418
+1465c1465
+< distance = 2.271581
+---
+> distance = 2.271580
+1473c1473
+< distance = 2.248428
+---
+> distance = 2.248427
+1475c1475
+< distance = 2.242740
+---
+> distance = 2.242739
+1482c1482
+< distance = 2.223139
+---
+> distance = 2.223138
+1484c1484
+< distance = 2.217625
+---
+> distance = 2.217624
+1497c1497
+< distance = 2.182686
+---
+> distance = 2.182685
+1501c1501
+< distance = 2.172241
+---
+> distance = 2.172240
+1505c1505
+< distance = 2.161935
+---
+> distance = 2.161934
+1514c1514
+< distance = 2.139242
+---
+> distance = 2.139241
+1521c1521
+< distance = 2.122052
+---
+> distance = 2.122051
+1530c1530
+< distance = 2.100520
+---
+> distance = 2.100519
+1537c1537
+< distance = 2.084201
+---
+> distance = 2.084200
+1541c1541
+< distance = 2.075039
+---
+> distance = 2.075038
+1562c1562
+< distance = 2.028798
+---
+> distance = 2.028797
+1565c1565
+< distance = 2.022437
+---
+> distance = 2.022436
+1583,1588c1583,1588
+< distance = 1.985482
+< distance = 1.983488
+< distance = 1.981500
+< distance = 1.979518
+< distance = 1.977542
+< distance = 1.975572
+---
+> distance = 1.985481
+> distance = 1.983487
+> distance = 1.981499
+> distance = 1.979517
+> distance = 1.977541
+> distance = 1.975571
+1592c1592
+< distance = 1.967751
+---
+> distance = 1.967750
+1603c1603
+< distance = 1.946721
+---
+> distance = 1.946720
+1607c1607
+< distance = 1.939243
+---
+> distance = 1.939242
+1609c1609
+< distance = 1.935537
+---
+> distance = 1.935536
+1619c1619
+< distance = 1.917331
+---
+> distance = 1.917330
+1664c1664
+< distance = 1.841604
+---
+> distance = 1.841603
+1666c1666
+< distance = 1.838457
+---
+> distance = 1.838456
