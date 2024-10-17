@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 13:03:22 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/14 19:34:27 by mel-habi         ###   ########.fr       */
+/*   Updated: 2024/10/17 11:51:23 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,10 @@
 # define PLAYER 'P'
 # define SPACE ' '
 # define FLOOD_FILL_MARKED '#'
-# define WIDTH 1280
-# define HEIGHT 1024
+# define WIDTH 1680
+# define HEIGHT 720
 # define TILE_SIZE 64
-# define FOV 90
-# define BITS_PER_PX 32
-# define BYTES_PER_PX 4
+# define PI 3.14159265358979323846
 # define WIN_NAME "cub3D"
 
 // Enums
@@ -115,8 +113,8 @@ typedef struct s_map
 
 typedef struct s_player
 {
-	int					x;
-	int					y;
+	double					x;
+	double					y;
 	double				in_tile_x;
 	double				in_tile_y;
 	double				dir_x;
@@ -126,15 +124,40 @@ typedef struct s_player
 
 typedef struct s_raycaster
 {
-	int					tile_x;
-	int					tile_y;
-	int					wall_start;
-	int					wall_end;
-	double				start_x;
-	double				start_y;
-	double				ray_angle;
-	double				wall_dist;
-	t_direction			tile_face;
+	int				wd_x;
+	int				wd_y;
+	int				tile_x;
+	int				tile_y;
+	int				wall_start;
+	int				wall_end;
+	int				step_x;
+	int				step_y;
+	int				side;
+	int				line_height;
+	int				hit;
+	int				tex_x;
+	int				tex_y;
+	int			line_size;
+	int			*data;
+	double			camera_x;
+	double			start_x;
+	double			start_y;
+	double			plane_x;
+	double			plane_y;
+	double			ray_angle;
+	double			wall_dist;
+	double			side_dist_x;
+	double			side_dist_y;
+	double			delta_dist_x;
+	double			delta_dist_y;
+	double			perp_wall_dist;
+	double			ray_dir_x;
+	double			ray_dir_y;
+	double			wall_x;
+	double			tex_step;
+	double			tex_pos;
+
+	t_direction		tile_face;
 }	t_raycaster;
 
 typedef struct s_cub3d

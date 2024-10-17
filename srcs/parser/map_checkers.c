@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_checkers.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 21:39:19 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/14 19:35:13 by mel-habi         ###   ########.fr       */
+/*   Updated: 2024/10/17 11:18:48 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ static bool	check_line(t_cub3d *cub3d, t_line *line, unsigned long x,
 				return (ft_print_error("A player is already put on this map"),
 					false);
 			*player_put = true;
-			cub3d->player->x = x;
-			cub3d->player->y = y;
+			cub3d->player->x = x + 0.5;
+			cub3d->player->y = y + 0.5;
 			cub3d->player->angle = get_direction(line->line[y]) * 90;
 			line->line[y] = PLAYER;
 		}
@@ -102,7 +102,7 @@ static void	remove_flood_fill_markers(char **array, unsigned long height,
 }
 
 void	check_map(t_cub3d *cub3d)
-{	
+{
 	t_player	*player;
 	t_map		*map;
 

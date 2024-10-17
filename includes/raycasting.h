@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 16:48:22 by fli               #+#    #+#             */
-/*   Updated: 2024/10/15 15:12:05 by mel-habi         ###   ########.fr       */
+/*   Updated: 2024/10/17 12:05:52 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,9 @@ void	init_dir(t_cub3d *cub3d);
 void	init_window(t_cub3d *cub3d);
 
 // raycasting.c
-void	update_start_xy(t_cub3d *cub3d, double vector_x, double vector_y,
-			t_side side);
-void	get_in_tile_coordinate(t_cub3d *cub3d, double position,
-			double ray_angle, t_side side);
-double	wall_dist(t_cub3d *cub3d, double ray_angle);
+void	init_step_sidedist(t_cub3d *cub3d, double ray_dir_x, double ray_dir_y);
+void	raycaster(t_cub3d *cub3d, double ray_dir_x, double ray_dir_y);
+void	init_raycaster(t_cub3d *cub3d);
+void	calc_perp_dist(t_cub3d *cub3d);
 
 #endif

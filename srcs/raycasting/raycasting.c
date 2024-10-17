@@ -3,110 +3,110 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 18:51:44 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/14 19:56:48 by mel-habi         ###   ########.fr       */
+/*   Updated: 2024/10/17 12:03:55 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
 
-static void	vertical_update(t_cub3d *cub3d, double vector_y)
+void	init_step_sidedist(t_cub3d *cub3d, double ray_dir_x, double ray_dir_y)
 {
-	if (cos(cub3d->raycaster->ray_angle) > 0)
+	if (ray_dir_x < 0)
 	{
-		cub3d->raycaster->start_x = 0;
-		cub3d->raycaster->tile_x++;
-		cub3d->raycaster->tile_face = WEST;
+		cub3d->raycaster->step_x = -1;
+		cub3d->raycaster->side_dist_x = (cub3d->player->x
+				- (double)cub3d->raycaster->tile_x)
+			* cub3d->raycaster->delta_dist_x;
 	}
 	else
 	{
-		cub3d->raycaster->start_x = 1;
-		cub3d->raycaster->tile_x--;
-		cub3d->raycaster->tile_face = EAST;
+		cub3d->raycaster->step_x = 1;
+		cub3d->raycaster->side_dist_x = ((double)cub3d->raycaster->tile_x
+				+ 1.0 - cub3d->player->x) * cub3d->raycaster->delta_dist_x;
 	}
-	if (cub3d->raycaster->ray_angle == 0 || cub3d->raycaster->ray_angle == 180)
-		return ;
-	else if (sin(cub3d->raycaster->ray_angle) > 0)
-		cub3d->raycaster->start_y = fabs(cub3d->raycaster->start_y - vector_y);
-	else if (sin(cub3d->raycaster->ray_angle) < 0)
-		cub3d->raycaster->start_y = fabs(cub3d->raycaster->start_y + vector_y);
-}
-
-static void	horizontal_update(t_cub3d *cub3d, double vector_x)
-{
-	if (sin(cub3d->raycaster->ray_angle) > 0)
+	if (ray_dir_y < 0)
 	{
-		cub3d->raycaster->start_y = 1;
-		cub3d->raycaster->tile_y--;
-		cub3d->raycaster->tile_face = NORTH;
+		cub3d->raycaster->step_y = -1;
+		cub3d->raycaster->side_dist_y = (cub3d->player->y
+				- cub3d->raycaster->tile_y) * cub3d->raycaster->delta_dist_y;
 	}
 	else
 	{
-		cub3d->raycaster->start_y = 0;
-		cub3d->raycaster->tile_y++;
-		cub3d->raycaster->tile_face = SOUTH;
+		cub3d->raycaster->step_y = 1;
+		cub3d->raycaster->side_dist_y = (cub3d->raycaster->tile_y
+				+ 1.0 - cub3d->player->y) * cub3d->raycaster->delta_dist_y;
 	}
-	if (cub3d->raycaster->ray_angle == 90 || cub3d->raycaster->ray_angle == 270)
-		return ;
-	else if (cos(cub3d->raycaster->ray_angle) > 0)
-		cub3d->raycaster->start_x = fabs(cub3d->raycaster->start_x + vector_x);
-	else if (cos(cub3d->raycaster->ray_angle) < 0)
-		cub3d->raycaster->start_x = fabs(cub3d->raycaster->start_x - vector_x);
 }
 
-void	update_start_xy(t_cub3d *cub3d, double vector_x, double vector_y,
-	t_side side)
+void	raycaster(t_cub3d *cub3d, double ray_dir_x, double ray_dir_y)
 {
-	if (side == VERTICAL)
-	{
-		vertical_update(cub3d, vector_y);
-		return ;
-	}
-	horizontal_update(cub3d, vector_x);
-}
+	t_map		*map;
+	t_raycaster	*rc;
 
-void	get_in_tile_coordinate(t_cub3d *cub3d, double position,
-	double ray_angle, t_side side)
-{
-	double	hypotenuse;
-	double	adjacent;
-	double	opposite;
-
-	hypotenuse = hypotenuse_len(cub3d, ray_angle);
-	if (side == VERTICAL)
+	map = cub3d->map;
+	rc = cub3d->raycaster;
+	init_step_sidedist(cub3d, ray_dir_x, ray_dir_y);
+	while (map->array[rc->tile_y][rc->tile_x] != WALL)
 	{
-		adjacent = adjacent_opposite(position, ray_angle, side);
-		opposite = sqrt(pow(hypotenuse, 2) - pow(adjacent, 2));
-	}
-	else
-	{
-		opposite = adjacent_opposite(position, ray_angle, side);
-		adjacent = sqrt(pow(hypotenuse, 2) - pow(opposite, 2));
-	}
-	update_start_xy(cub3d, adjacent, opposite, side);
-}
-
-double	wall_dist(t_cub3d *cub3d, double ray_angle)
-{
-	double	side_dist;
-
-	init_raycaster(cub3d);
-	while (cub3d->map->array[cub3d->raycaster->tile_y][cub3d->raycaster->tile_x]
-		!= WALL)
-	{
-		side_dist = hypotenuse_len(cub3d, ray_angle);
-		if (side_dist < 0)
+		if (rc->side_dist_x < rc->side_dist_y)
 		{
-			side_dist = -side_dist;
-			get_in_tile_coordinate(cub3d, cub3d->player->in_tile_x,
-				cub3d->raycaster->ray_angle, VERTICAL);
+			rc->side_dist_x += rc->delta_dist_x;
+			rc->tile_x += rc->step_x;
+			rc->side = 0;
 		}
 		else
-			get_in_tile_coordinate(cub3d, cub3d->player->in_tile_y,
-				cub3d->raycaster->ray_angle, HORIZONTAL);
-		cub3d->raycaster->wall_dist = cub3d->raycaster->wall_dist + side_dist;
+		{
+			rc->side_dist_y += rc->delta_dist_y;
+			rc->tile_y += rc->step_y;
+			rc->side = 1;
+		}
+		if (rc->tile_y > (int)map->height || rc->tile_x > (int)map->width)
+			break ;
 	}
-	return (cub3d->raycaster->wall_dist);
+}
+
+void	init_raycaster(t_cub3d *cub3d)
+{
+	t_raycaster	*rc;
+
+	rc = cub3d->raycaster;
+	rc->camera_x = 2 * (double)rc->wd_x / (double)WIDTH - 1;
+	rc->ray_dir_x = cub3d->player->dir_x + rc->plane_x * rc->camera_x;
+	rc->ray_dir_y = cub3d->player->dir_y + rc->plane_y * rc->camera_x;
+	rc->tile_x = (int)(cub3d->player->x);
+	rc->tile_y = (int)(cub3d->player->y);
+	if (rc->ray_dir_x != 0)
+		rc->delta_dist_x = fabs(1 / rc->ray_dir_x);
+	else
+		rc->delta_dist_x = 1e30;
+	if (rc->ray_dir_y != 0)
+		rc->delta_dist_y = fabs(1 / rc->ray_dir_y);
+	else
+		rc->delta_dist_y = 1e30;
+}
+
+void	calc_perp_dist(t_cub3d *cub3d)
+{
+	t_raycaster	*rc;
+
+	rc = cub3d->raycaster;
+	if (rc->side == 0)
+	{
+		if (rc->ray_dir_x > 0)
+			rc->tile_face = EAST;
+		else
+			rc->tile_face = WEST;
+		rc->perp_wall_dist = (rc->side_dist_x - rc->delta_dist_x);
+	}
+	else
+	{
+		if (rc->ray_dir_y > 0)
+			rc->tile_face = SOUTH;
+		else
+			rc->tile_face = NORTH;
+		rc->perp_wall_dist = (rc->side_dist_y - rc->delta_dist_y);
+	}
 }

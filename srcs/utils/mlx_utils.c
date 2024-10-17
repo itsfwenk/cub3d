@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mlx_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 18:52:41 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/15 15:31:18 by mel-habi         ###   ########.fr       */
+/*   Updated: 2024/10/17 12:03:59 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,22 +28,32 @@ unsigned int	get_pixel_color(t_img *img, int x, int y)
 	return (*(unsigned int *)dst);
 }
 
-void	draw_wall(t_cub3d *cub3d, int px_y)
+void	draw_wall(t_cub3d *cub3d, int px_x, int px_y)
 {
-	double			text_x;
-	double			text_y;
+	double			step;
+	double			text_pos;
+	double			wall_x;
 	unsigned int	px_color;
 
-	if (cub3d->raycaster->tile_face == WEST
-		|| cub3d->raycaster->tile_face == EAST)
-		text_x = cub3d->raycaster->start_y;
+	if (cub3d->raycaster->side == 0)
+		wall_x = cub3d->player->y
+			+ cub3d->raycaster->perp_wall_dist * cub3d->raycaster->ray_dir_y;
 	else
-		text_x = cub3d->raycaster->start_x;
-	text_x = text_x / cub3d->raycaster->wall_dist;
-	text_y = (double) px_y / cub3d->raycaster->wall_dist;
+		wall_x = cub3d->player->x + cub3d->raycaster->perp_wall_dist
+			* cub3d->raycaster->ray_dir_x;
+	wall_x -= floor(wall_x);
+	cub3d->raycaster->tex_x = (int)(wall_x * (double)TILE_SIZE);
+	if (cub3d->raycaster->side == 0 && cub3d->raycaster->ray_dir_x > 0)
+		cub3d->raycaster->tex_x = TILE_SIZE - cub3d->raycaster->tex_x - 1;
+	if (cub3d->raycaster->side == 1 && cub3d->raycaster->ray_dir_y < 0)
+		cub3d->raycaster->tex_x = TILE_SIZE - cub3d->raycaster->tex_x - 1;
+	step = 1.0 * TILE_SIZE / cub3d->raycaster->line_height;
+	text_pos = (cub3d->raycaster->wall_start - HEIGHT / 2
+			+ cub3d->raycaster->line_height / 2) * step;
+	cub3d->raycaster->tex_y = (int)text_pos & (TILE_SIZE - 1);
 	px_color = get_pixel_color(&cub3d->textures[cub3d->raycaster->tile_face],
-			text_x, text_y);
-	set_pixel_color(&cub3d->img, text_x, text_y, px_color);
+			cub3d->raycaster->tex_x, cub3d->raycaster->tex_y);
+	set_pixel_color(&cub3d->img, px_x, px_y, px_color);
 }
 
 void	color_column(t_cub3d *cub3d, int x)
@@ -58,7 +68,7 @@ void	color_column(t_cub3d *cub3d, int x)
 	}
 	while (y < cub3d->raycaster->wall_end)
 	{
-		draw_wall(cub3d, y);
+		draw_wall(cub3d, x, y);
 		y++;
 	}
 	while (y < HEIGHT)
@@ -70,26 +80,25 @@ void	color_column(t_cub3d *cub3d, int x)
 
 void	draw_img(t_cub3d *cub3d)
 {
-	int	x;
+	t_raycaster	*rc;
 
-	x = 0;
-	while (x < WIDTH)
+	rc = cub3d->raycaster;
+	rc->wd_x = 0;
+	rc->wd_y = 0;
+	while (rc->wd_x < WIDTH)
 	{
-		cub3d->raycaster->ray_angle = cub3d->player->angle + 45 - x
-			* FOV / WIDTH;
-		cub3d->raycaster->wall_dist = wall_dist(cub3d,
-				cub3d->raycaster->ray_angle)
-			* cos(fabs(cub3d->raycaster->ray_angle - cub3d->player->angle));
-		cub3d->raycaster->wall_start = -(HEIGHT
-				/ cub3d->raycaster->wall_dist) / 2 + HEIGHT / 2;
-		if (cub3d->raycaster->wall_start < 0)
-			cub3d->raycaster->wall_start = 0;
-		cub3d->raycaster->wall_end = (HEIGHT / cub3d->raycaster->wall_dist)
-			/ 2 + HEIGHT / 2;
-		if (cub3d->raycaster->wall_end >= HEIGHT)
-			cub3d->raycaster->wall_end = HEIGHT - 1;
-		color_column(cub3d, x);
-		x++;
+		init_raycaster(cub3d);
+		raycaster(cub3d, rc->ray_dir_x, rc->ray_dir_y);
+		calc_perp_dist(cub3d);
+		rc->line_height = (int)(HEIGHT / rc->perp_wall_dist);
+		rc->wall_start = -rc->line_height / 2 + HEIGHT / 2;
+		if (rc->wall_start < 0)
+			rc->wall_start = 0;
+		rc->wall_end = rc->line_height / 2 + HEIGHT / 2;
+		if (rc->wall_end >= HEIGHT)
+			rc->wall_end = HEIGHT - 1;
+		color_column(cub3d, rc->wd_x);
+		rc->wd_x++;
 	}
 	mlx_put_image_to_window(cub3d->connection, cub3d->win,
 		cub3d->img.img_ptr, 0, 0);
