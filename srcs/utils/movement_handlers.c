@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 19:03:12 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/18 18:19:02 by fli              ###   ########.fr       */
+/*   Updated: 2024/10/18 18:20:10 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	x_movement(char **array, t_player *player, t_movement movement)
 			player->x -= player->dir_y * MOVEMENT_FORCE;
 		if (array[(int)(player->y + player->dir_x
 				* MOVEMENT_FORCE)][(int)(player->x)] != WALL)
-			player->y += (-1) * player->dir_x * MOVEMENT_FORCE;
+			player->y -= player->dir_x * MOVEMENT_FORCE;
 	}
 	else if (movement == RIGHT)
 	{
@@ -30,7 +30,7 @@ void	x_movement(char **array, t_player *player, t_movement movement)
 			player->x += player->dir_y * MOVEMENT_FORCE;
 		if (array[(int)(player->y - player->dir_x
 				* MOVEMENT_FORCE)][(int)(player->x)] != WALL)
-			player->y -= (-1) * player->dir_x * MOVEMENT_FORCE;
+			player->y += player->dir_x * MOVEMENT_FORCE;
 	}
 	return ;
 }
