@@ -58,18 +58,25 @@ void	y_movement(char **array, t_player *player, t_movement movement)
 	return ;
 }
 
-void	camera_movement(t_player *player, t_movement movement)
+void	camera_movement(t_player *player, t_raycaster *raycaster,
+	t_movement movement)
 {
 	int		coeff;
 	double	old_dir_x;
+	double	old_plane_x;
 
 	coeff = -1;
 	if (movement == C_LEFT)
 		coeff = 1;
 	old_dir_x = player->dir_x;
+	old_plane_x = raycaster->plane_x;
 	player->dir_x = player->dir_x * cos(coeff * ROTATE_FORCE)
 		- player->dir_y * sin(coeff * ROTATE_FORCE);
 	player->dir_y = old_dir_x * sin(coeff * ROTATE_FORCE)
 		+ player->dir_y * cos(coeff * ROTATE_FORCE);
+	raycaster->plane_x = raycaster->plane_x * cos(coeff * ROTATE_FORCE)
+		- raycaster->plane_y * sin(coeff * ROTATE_FORCE);
+	raycaster->plane_y = old_plane_x * sin(coeff * ROTATE_FORCE)
+		+ raycaster->plane_y * cos(coeff * ROTATE_FORCE);
 	return ;
 }

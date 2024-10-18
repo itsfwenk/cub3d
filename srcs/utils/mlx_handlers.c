@@ -31,9 +31,9 @@ static int	handle_key(int key, t_cub3d *cub3d)
 	else if (key == XK_S || key == XK_s)
 		y_movement(cub3d->map->array, cub3d->player, DOWN);
 	else if (key == XK_Left)
-		camera_movement(cub3d->player, C_LEFT);
+		camera_movement(cub3d->player, cub3d->raycaster, C_LEFT);
 	else if (key == XK_Right)
-		camera_movement(cub3d->player, C_RIGHT);
+		camera_movement(cub3d->player, cub3d->raycaster, C_RIGHT);
 	else
 		return (EXIT_SUCCESS);
 	draw_img(cub3d);

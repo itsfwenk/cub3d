@@ -58,7 +58,8 @@ void			draw_img(t_cub3d *cub3d);
 // movement_handlers.c
 void			x_movement(char **array, t_player *player, t_movement movement);
 void			y_movement(char **array, t_player *player, t_movement movement);
-void			camera_movement(t_player *player, t_movement movement);
+void			camera_movement(t_player *player, t_raycaster *raycaster,
+					t_movement movement);
 
 // print_utils.c
 void			ft_print_error(char *msg);
