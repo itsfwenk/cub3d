@@ -6,7 +6,7 @@
 /*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 13:03:22 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/19 01:01:39 by mel-habi         ###   ########.fr       */
+/*   Updated: 2024/10/19 01:24:41 by mel-habi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@
 # define TILE_SIZE 64
 # define PI 3.14159265358979323846
 
-# define ROTATE_FORCE 0.2f
+# define ROTATE_FORCE 0.05f
 # define MOVEMENT_FORCE 0.3f
 
 # define WIN_NAME "cub3D"
