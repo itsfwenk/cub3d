@@ -60,7 +60,7 @@ bool	parse_simple_line(t_cub3d *cub3d, char **splitted, int fd,
 {
 	char	*dup;
 
-	if (splitted[2])
+	if (splitted[2] && splitted[2][0] != '\n')
 	{
 		free_str_tab(splitted);
 		return (false);
