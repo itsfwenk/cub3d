@@ -6,7 +6,7 @@
 /*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 13:03:22 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/17 20:07:03 by mel-habi         ###   ########.fr       */
+/*   Updated: 2024/10/18 13:46:31 by mel-habi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -169,6 +169,7 @@ typedef struct s_cub3d
 	void				*connection;
 	void				*win;
 	double				time[2];
+	char				*p_line;
 	t_img				img;
 	t_img				textures[4];
 	t_player			*player;

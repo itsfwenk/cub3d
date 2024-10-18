@@ -6,7 +6,7 @@
 /*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 15:11:49 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/15 10:49:23 by mel-habi         ###   ########.fr       */
+/*   Updated: 2024/10/18 13:49:57 by mel-habi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,8 @@ int	exit_cub3d(t_cub3d *cub3d, int exit_code)
 	}
 	if (cub3d->map->array)
 		free(cub3d->map->array);
+	if (cub3d->p_line)
+		free(cub3d->p_line);
 	mlx_free(cub3d);
 	clear_lines(cub3d->map->lines);
 	clear_gc(cub3d->gc);

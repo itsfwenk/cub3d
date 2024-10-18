@@ -6,7 +6,7 @@
 /*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 15:46:29 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/14 18:13:10 by mel-habi         ###   ########.fr       */
+/*   Updated: 2024/10/18 13:49:20 by mel-habi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ static bool	parse_line(t_cub3d *cub3d, char *line, int fd)
 
 	splitted = ft_split(line, SPACE);
 	if (!splitted)
-		return (free(line), close(fd), exit_cub3d(cub3d, EXIT_FAILURE), false);
-	else if (!splitted[0] || !splitted[1] || splitted[2])
+		return (close(fd), exit_cub3d(cub3d, EXIT_FAILURE), false);
+	else if (!splitted[0] || !splitted[1])
 		return (free_str_tab(splitted), false);
 	if (!ft_strcmp(splitted[0], "EA") && !cub3d->map->textures[EAST])
 		return (parse_simple_line(cub3d, splitted, fd, EAST));
@@ -36,7 +36,6 @@ static bool	parse_line(t_cub3d *cub3d, char *line, int fd)
 		&& cub3d->map->colors[FLOOR] == LONG_MAX)
 		return (parse_color_line(cub3d, splitted, fd, FLOOR));
 	close(fd);
-	free(line);
 	free_str_tab(splitted);
 	return (unexpected_line_error(cub3d));
 }
@@ -44,17 +43,17 @@ static bool	parse_line(t_cub3d *cub3d, char *line, int fd)
 static void	parse_parameters(t_cub3d *cub3d, int fd)
 {
 	int		set_param;
-	char	*line;
 
 	set_param = 0;
 	while (set_param != 6)
 	{
-		line = get_next_line(fd);
-		if (!line)
+		cub3d->p_line = get_next_line(fd);
+		if (!cub3d->p_line)
 			break ;
-		else if (parse_line(cub3d, line, fd))
+		else if (parse_line(cub3d, cub3d->p_line, fd))
 			set_param++;
-		free(line);
+		free(cub3d->p_line);
+		cub3d->p_line = NULL;
 	}
 	if (set_param != 6)
 	{
