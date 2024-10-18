@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 14:05:19 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/18 17:43:10 by fli              ###   ########.fr       */
+/*   Updated: 2024/10/19 01:00:03 by mel-habi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,10 +59,12 @@ void			color_column(t_cub3d *cub3d, int x);
 void			draw_img(t_cub3d *cub3d);
 
 // movement_handlers.c
-void			x_movement(char **array, t_player *player, t_movement movement);
-void			y_movement(char **array, t_player *player, t_movement movement);
-void			camera_movement(t_player *player, t_raycaster *raycaster,
+void			x_movement(t_cub3d *cub3d, char **array, t_player *player,
 					t_movement movement);
+void			y_movement(t_cub3d *cub3d, char **array, t_player *player,
+					t_movement movement);
+void			camera_movement(t_cub3d *cub3d, t_player *player,
+					t_raycaster *raycaster, t_movement movement);
 
 // print_utils.c
 void			ft_print_error(char *msg);

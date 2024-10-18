@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   movement_handlers.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 19:03:12 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/18 18:20:10 by fli              ###   ########.fr       */
+/*   Updated: 2024/10/19 00:59:17 by mel-habi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
 
-void	x_movement(char **array, t_player *player, t_movement movement)
+void	x_movement(t_cub3d *cub3d, char **array, t_player *player,
+	t_movement movement)
 {
 	if (movement == LEFT)
 	{
@@ -32,10 +33,12 @@ void	x_movement(char **array, t_player *player, t_movement movement)
 				* MOVEMENT_FORCE)][(int)(player->x)] != WALL)
 			player->y += player->dir_x * MOVEMENT_FORCE;
 	}
+	draw_img(cub3d);
 	return ;
 }
 
-void	y_movement(char **array, t_player *player, t_movement movement)
+void	y_movement(t_cub3d *cub3d, char **array, t_player *player,
+	t_movement movement)
 {
 	if (movement == DOWN)
 	{
@@ -55,11 +58,12 @@ void	y_movement(char **array, t_player *player, t_movement movement)
 				* MOVEMENT_FORCE)][(int)(player->x)] != WALL)
 			player->y -= player->dir_y * MOVEMENT_FORCE;
 	}
+	draw_img(cub3d);
 	return ;
 }
 
-void	camera_movement(t_player *player, t_raycaster *raycaster,
-	t_movement movement)
+void	camera_movement(t_cub3d *cub3d, t_player *player,
+	t_raycaster *raycaster, t_movement movement)
 {
 	int		coeff;
 	double	old_dir_x;
@@ -78,5 +82,6 @@ void	camera_movement(t_player *player, t_raycaster *raycaster,
 		- raycaster->plane_x * sin(coeff * ROTATE_FORCE);
 	raycaster->plane_x = old_plane_y * sin(coeff * ROTATE_FORCE)
 		+ raycaster->plane_x * cos(coeff * ROTATE_FORCE);
+	draw_img(cub3d);
 	return ;
 }

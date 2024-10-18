@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mlx_handlers.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 10:53:52 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/18 17:43:06 by fli              ###   ########.fr       */
+/*   Updated: 2024/10/19 00:58:00 by mel-habi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,20 +23,17 @@ static int	handle_key(int key, t_cub3d *cub3d)
 	if (key == XK_Escape)
 		handle_close(cub3d);
 	else if (key == XK_A || key == XK_a)
-		x_movement(cub3d->map->array, cub3d->player, LEFT);
+		x_movement(cub3d, cub3d->map->array, cub3d->player, LEFT);
 	else if (key == XK_D || key == XK_d)
-		x_movement(cub3d->map->array, cub3d->player, RIGHT);
+		x_movement(cub3d, cub3d->map->array, cub3d->player, RIGHT);
 	else if (key == XK_W || key == XK_w)
-		y_movement(cub3d->map->array, cub3d->player, UP);
+		y_movement(cub3d, cub3d->map->array, cub3d->player, UP);
 	else if (key == XK_S || key == XK_s)
-		y_movement(cub3d->map->array, cub3d->player, DOWN);
+		y_movement(cub3d, cub3d->map->array, cub3d->player, DOWN);
 	else if (key == XK_Left)
-		camera_movement(cub3d->player, cub3d->raycaster, C_LEFT);
+		camera_movement(cub3d, cub3d->player, cub3d->raycaster, C_LEFT);
 	else if (key == XK_Right)
-		camera_movement(cub3d->player, cub3d->raycaster, C_RIGHT);
-	else
-		return (EXIT_SUCCESS);
-	draw_img(cub3d);
+		camera_movement(cub3d, cub3d->player, cub3d->raycaster, C_RIGHT);
 	return (EXIT_SUCCESS);
 }
 
