@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 19:03:12 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/18 13:58:48 by fli              ###   ########.fr       */
+/*   Updated: 2024/10/18 18:19:02 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,39 +21,39 @@ void	x_movement(char **array, t_player *player, t_movement movement)
 			player->x -= player->dir_y * MOVEMENT_FORCE;
 		if (array[(int)(player->y + player->dir_x
 				* MOVEMENT_FORCE)][(int)(player->x)] != WALL)
-			player->y += player->dir_x * MOVEMENT_FORCE;
+			player->y += (-1) * player->dir_x * MOVEMENT_FORCE;
 	}
-	else
+	else if (movement == RIGHT)
 	{
 		if (array[(int)player->y][(int)(player->x + player->dir_y
 			* MOVEMENT_FORCE)] != WALL)
 			player->x += player->dir_y * MOVEMENT_FORCE;
 		if (array[(int)(player->y - player->dir_x
 				* MOVEMENT_FORCE)][(int)(player->x)] != WALL)
-			player->y -= player->dir_x * MOVEMENT_FORCE;
+			player->y -= (-1) * player->dir_x * MOVEMENT_FORCE;
 	}
 	return ;
 }
 
 void	y_movement(char **array, t_player *player, t_movement movement)
 {
-	if (movement == UP)
+	if (movement == DOWN)
 	{
 		if (array[(int)player->y][(int)(player->x - player->dir_x
 			* MOVEMENT_FORCE)] != WALL)
 			player->x -= player->dir_x * MOVEMENT_FORCE;
-		if (array[(int)(player->y - player->dir_y
-				* MOVEMENT_FORCE)][(int)(player->x)] != WALL)
-			player->y -= player->dir_y * MOVEMENT_FORCE;
+		if (array[(int)((player->y + player->dir_y
+					* MOVEMENT_FORCE))][(int)(player->x)] != WALL)
+			player->y += player->dir_y * MOVEMENT_FORCE;
 	}
-	else
+	else if (movement == UP)
 	{
 		if (array[(int)player->y][(int)(player->x + player->dir_x
 			* MOVEMENT_FORCE)] != WALL)
 			player->x += player->dir_x * MOVEMENT_FORCE;
-		if (array[(int)(player->y + player->dir_y
+		if (array[(int)(player->y - player->dir_y
 				* MOVEMENT_FORCE)][(int)(player->x)] != WALL)
-			player->y += player->dir_y * MOVEMENT_FORCE;
+			player->y -= player->dir_y * MOVEMENT_FORCE;
 	}
 	return ;
 }
