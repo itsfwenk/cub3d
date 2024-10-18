@@ -108,7 +108,7 @@ void	check_map(t_cub3d *cub3d)
 
 	put_player(cub3d);
 	player = cub3d->player;
-	if (!flood_fill(cub3d, player->x, player->y))
+	if (!flood_fill(cub3d, player->y, player->x))
 	{
 		ft_print_error("Map must be closed/\
 the player can't go out of the map");
