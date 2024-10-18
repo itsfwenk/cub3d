@@ -6,37 +6,50 @@
 /*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 18:19:53 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/19 01:39:52 by mel-habi         ###   ########.fr       */
+/*   Updated: 2024/10/19 01:57:49 by mel-habi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
 
-void	init_dir(t_cub3d *cub3d)
+static void	init_plane(t_cub3d *cub3d)
 {
 	double		radiant;
 
+	radiant = cub3d->player->angle * PI / 180.0f;
+	if (cub3d->player->angle == 0 || cub3d->player->angle == 180)
+	{
+		cub3d->raycaster->plane_x = 0.66f * sin(radiant);
+		cub3d->raycaster->plane_y = -0.66f * cos(radiant);
+	}
+	else
+	{
+		cub3d->raycaster->plane_x = -0.66f * sin(radiant);
+		cub3d->raycaster->plane_y = 0.66f * cos(radiant);
+	}
+}
+
+void	init_dir(t_cub3d *cub3d)
+{
 	if (cub3d->player->angle == 0)
 	{
 		cub3d->player->dir_x = 1;
 		cub3d->player->dir_y = 0;
 	}
-	if (cub3d->player->angle == 90)
+	else if (cub3d->player->angle == 90)
 	{
 		cub3d->player->dir_x = 0;
 		cub3d->player->dir_y = 1;
 	}
-	if (cub3d->player->angle == 180)
+	else if (cub3d->player->angle == 180)
 	{
 		cub3d->player->dir_x = -1;
 		cub3d->player->dir_y = 0;
 	}
-	if (cub3d->player->angle == 270)
+	else if (cub3d->player->angle == 270)
 	{
 		cub3d->player->dir_x = 0;
 		cub3d->player->dir_y = -1;
 	}
-	radiant = cub3d->player->angle * PI / 180.0f;
-	cub3d->raycaster->plane_x = -0.66f * sin(radiant);
-	cub3d->raycaster->plane_y = 0.66f * cos(radiant);
+	init_plane(cub3d);
 }
