@@ -6,7 +6,7 @@
 /*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 18:19:53 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/19 01:57:49 by mel-habi         ###   ########.fr       */
+/*   Updated: 2024/10/19 01:58:44 by mel-habi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	init_plane(t_cub3d *cub3d)
 		cub3d->raycaster->plane_x = 0.66f * sin(radiant);
 		cub3d->raycaster->plane_y = -0.66f * cos(radiant);
 	}
-	else
+	else if (cub3d->player->angle == 90 || cub3d->player->angle == 270)
 	{
 		cub3d->raycaster->plane_x = -0.66f * sin(radiant);
 		cub3d->raycaster->plane_y = 0.66f * cos(radiant);
