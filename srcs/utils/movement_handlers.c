@@ -6,7 +6,7 @@
 /*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 19:03:12 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/19 01:15:39 by mel-habi         ###   ########.fr       */
+/*   Updated: 2024/10/19 01:18:30 by mel-habi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,9 +69,9 @@ void	camera_movement(t_cub3d *cub3d, t_player *player,
 	double	old_dir_x;
 	double	old_plane_y;
 
-	coeff = -1;
-	if (movement == C_LEFT)
-		coeff = 1;
+	coeff = 1;
+	if (movement == C_RIGHT)
+		coeff = -1;
 	old_dir_x = player->dir_x;
 	old_plane_y = raycaster->plane_y;
 	player->dir_x = player->dir_x * cos(coeff * ROTATE_FORCE)
