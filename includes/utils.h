@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 14:05:19 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/17 20:59:03 by mel-habi         ###   ########.fr       */
+/*   Updated: 2024/10/18 10:20:13 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,9 @@ bool			in_charset(char c, char *charset);
 char			**free_str_tab(char	**tab);
 bool			unexpected_line_error(t_cub3d *cub3d);
 int				exit_cub3d(t_cub3d *cub3d, int exit_code);
+
+// ft_time.c
+suseconds_t		get_time_seconds(void);
 
 // gc.c
 void			clear_gc(t_gc *gc);

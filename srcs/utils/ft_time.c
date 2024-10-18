@@ -1,30 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_utils.c                                       :+:      :+:    :+:   */
+/*   ft_time.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/09 18:07:53 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/18 10:26:54 by fli              ###   ########.fr       */
+/*   Created: 2024/10/18 10:12:15 by fli               #+#    #+#             */
+/*   Updated: 2024/10/18 10:20:50 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
 
-t_cub3d	*init_cub3d(void)
+suseconds_t	get_time_seconds(void)
 {
-	t_gc	*gc;
-	t_cub3d	*cub3d;
+	struct timeval	tp;
+	suseconds_t		current_time;
 
-	gc = NULL;
-	cub3d = add_gc(&gc, 1, sizeof(t_cub3d));
-	cub3d->player = add_gc(&gc, 1, sizeof(t_player));
-	cub3d->map = add_gc(&gc, 1, sizeof(t_map));
-	cub3d->raycaster = add_gc(&gc, 1, sizeof(t_raycaster));
-	cub3d->timedata = add_gc(&gc, 1, sizeof(t_timedata));
-	cub3d->map->colors[0] = LONG_MAX;
-	cub3d->map->colors[1] = LONG_MAX;
-	cub3d->gc = gc;
-	return (cub3d);
+	gettimeofday(&tp, NULL);
+	current_time = ((tp.tv_sec * 1000000) + tp.tv_usec) / 1000000;
+	return (current_time);
 }

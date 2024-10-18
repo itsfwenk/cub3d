@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 18:52:41 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/17 18:44:04 by fli              ###   ########.fr       */
+/*   Updated: 2024/10/18 14:02:52 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,4 +104,7 @@ void	draw_img(t_cub3d *cub3d)
 	}
 	mlx_put_image_to_window(cub3d->connection, cub3d->win,
 		cub3d->img.img_ptr, 0, 0);
+	cub3d->timedata->old_time = cub3d->timedata->time;
+	cub3d->timedata->time = get_time_seconds();
+	// printf("old_time = %ld time = %ld\n", cub3d->timedata->old_time, cub3d->timedata->time);
 }

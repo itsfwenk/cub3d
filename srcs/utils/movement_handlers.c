@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   movement_handlers.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 19:03:12 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/17 21:15:00 by mel-habi         ###   ########.fr       */
+/*   Updated: 2024/10/18 13:58:48 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,20 +63,20 @@ void	camera_movement(t_player *player, t_raycaster *raycaster,
 {
 	int		coeff;
 	double	old_dir_x;
-	double	old_plane_x;
+	double	old_plane_y;
 
 	coeff = -1;
 	if (movement == C_LEFT)
 		coeff = 1;
 	old_dir_x = player->dir_x;
-	old_plane_x = raycaster->plane_x;
+	old_plane_y = raycaster->plane_y;
 	player->dir_x = player->dir_x * cos(coeff * ROTATE_FORCE)
 		- player->dir_y * sin(coeff * ROTATE_FORCE);
 	player->dir_y = old_dir_x * sin(coeff * ROTATE_FORCE)
 		+ player->dir_y * cos(coeff * ROTATE_FORCE);
-	raycaster->plane_x = raycaster->plane_x * cos(coeff * ROTATE_FORCE)
-		- raycaster->plane_y * sin(coeff * ROTATE_FORCE);
-	raycaster->plane_y = old_plane_x * sin(coeff * ROTATE_FORCE)
-		+ raycaster->plane_y * cos(coeff * ROTATE_FORCE);
+	raycaster->plane_y = raycaster->plane_y * cos(coeff * ROTATE_FORCE)
+		- raycaster->plane_x * sin(coeff * ROTATE_FORCE);
+	raycaster->plane_x = old_plane_y * sin(coeff * ROTATE_FORCE)
+		+ raycaster->plane_x * cos(coeff * ROTATE_FORCE);
 	return ;
 }

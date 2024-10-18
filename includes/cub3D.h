@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 13:03:22 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/18 13:46:31 by mel-habi         ###   ########.fr       */
+/*   Updated: 2024/10/18 14:04:10 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # include <mlx.h>
 # include <X11/X.h>
 # include <X11/keysym.h>
+# include <sys/time.h>
 
 # include "libft.h"
 
@@ -164,6 +165,12 @@ typedef struct s_raycaster
 	t_direction		tile_face;
 }	t_raycaster;
 
+typedef struct s_timedata
+{
+	suseconds_t	time;
+	suseconds_t	old_time;
+}	t_timedata;
+
 typedef struct s_cub3d
 {
 	void				*connection;
@@ -176,6 +183,7 @@ typedef struct s_cub3d
 	t_map				*map;
 	t_raycaster			*raycaster;
 	t_gc				*gc;
+	t_timedata			*timedata;
 }	t_cub3d;
 
 #endif

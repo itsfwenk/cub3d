@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 18:39:12 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/16 17:22:30 by fli              ###   ########.fr       */
+/*   Updated: 2024/10/18 11:24:15 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ static void	init_textures(t_cub3d *cub3d)
 
 static void	init_render(t_cub3d *cub3d)
 {
+	cub3d->timedata->time = get_time_seconds();
 	init_textures(cub3d);
 	init_dir(cub3d);
 	init_events(cub3d);
