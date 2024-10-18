@@ -6,7 +6,7 @@
 /*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 19:03:12 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/19 00:59:17 by mel-habi         ###   ########.fr       */
+/*   Updated: 2024/10/19 01:15:39 by mel-habi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	x_movement(t_cub3d *cub3d, char **array, t_player *player,
 		if (array[(int)player->y][(int)(player->x - player->dir_y
 			* MOVEMENT_FORCE)] != WALL)
 			player->x -= player->dir_y * MOVEMENT_FORCE;
-		if (array[(int)(player->y + player->dir_x
+		if (array[(int)(player->y - player->dir_x
 				* MOVEMENT_FORCE)][(int)(player->x)] != WALL)
 			player->y -= player->dir_x * MOVEMENT_FORCE;
 	}
@@ -29,7 +29,7 @@ void	x_movement(t_cub3d *cub3d, char **array, t_player *player,
 		if (array[(int)player->y][(int)(player->x + player->dir_y
 			* MOVEMENT_FORCE)] != WALL)
 			player->x += player->dir_y * MOVEMENT_FORCE;
-		if (array[(int)(player->y - player->dir_x
+		if (array[(int)(player->y + player->dir_x
 				* MOVEMENT_FORCE)][(int)(player->x)] != WALL)
 			player->y += player->dir_x * MOVEMENT_FORCE;
 	}
