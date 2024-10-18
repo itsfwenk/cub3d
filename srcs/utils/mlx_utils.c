@@ -49,8 +49,8 @@ void	draw_wall(t_cub3d *cub3d, int px_x, int px_y, int first_wall_y)
 		cub3d->raycaster->tex_x = TILE_SIZE - cub3d->raycaster->tex_x - 1;
 	step = (double)TILE_SIZE / cub3d->raycaster->line_height;
 	text_pos = (cub3d->raycaster->wall_start - HEIGHT / 2
-			+ cub3d->raycaster->line_height / 2) * step;
-	text_pos += (px_y - first_wall_y) * step;
+			+ cub3d->raycaster->line_height / 2
+			+ (px_y - first_wall_y)) * step;
 	cub3d->raycaster->tex_y = (int)text_pos % TILE_SIZE;
 	px_color = get_pixel_color(&cub3d->textures[cub3d->raycaster->tile_face],
 			cub3d->raycaster->tex_x, cub3d->raycaster->tex_y);
