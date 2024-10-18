@@ -39,8 +39,8 @@
 # define TILE_SIZE 64
 # define PI 3.14159265358979323846
 
-# define ROTATE_FORCE 0.01f
-# define MOVEMENT_FORCE 0.03f
+# define ROTATE_FORCE 0.2f
+# define MOVEMENT_FORCE 0.3f
 
 # define WIN_NAME "cub3D"
 
