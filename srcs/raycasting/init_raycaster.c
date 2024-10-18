@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_raycaster.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 18:19:53 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/17 18:33:57 by fli              ###   ########.fr       */
+/*   Updated: 2024/10/19 01:39:52 by mel-habi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	init_dir(t_cub3d *cub3d)
 {
-	float		radiant;
+	double		radiant;
 
 	if (cub3d->player->angle == 0)
 	{
