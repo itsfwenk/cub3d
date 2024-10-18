@@ -63,20 +63,19 @@ void	color_column(t_cub3d *cub3d, int x)
 	int	first_wall_y;
 
 	y = 0;
-	while (y < cub3d->raycaster->wall_start)
-	{
-		set_pixel_color(&cub3d->img, x, y, cub3d->map->colors[CEIL]);
-		y++;
-	}
-	first_wall_y = y;
-	while (y < cub3d->raycaster->wall_end)
-	{
-		draw_wall(cub3d, x, y, first_wall_y);
-		y++;
-	}
+	first_wall_y = 0;
 	while (y < HEIGHT)
 	{
-		set_pixel_color(&cub3d->img, x, y, cub3d->map->colors[FLOOR]);
+		if (y < cub3d->raycaster->wall_start)
+			set_pixel_color(&cub3d->img, x, y, cub3d->map->colors[CEIL]);
+		else if (y < cub3d->raycaster->wall_end)
+		{
+			if (!first_wall_y)
+				first_wall_y = y;
+			draw_wall(cub3d, x, y, first_wall_y);
+		}
+		else
+			set_pixel_color(&cub3d->img, x, y, cub3d->map->colors[FLOOR]);
 		y++;
 	}
 }
