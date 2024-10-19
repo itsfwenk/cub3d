@@ -6,7 +6,7 @@
 /*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 18:51:44 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/19 14:13:05 by mel-habi         ###   ########.fr       */
+/*   Updated: 2024/10/19 15:28:59 by mel-habi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,17 +97,17 @@ void	calc_perp_dist(t_cub3d *cub3d)
 	if (rc->side == HORIZONTAL)
 	{
 		if (rc->ray_dir_x > 0)
-			rc->tile_face = EAST;
-		else
 			rc->tile_face = WEST;
+		else
+			rc->tile_face = EAST;
 		rc->perp_wall_dist = (rc->side_dist_x - rc->delta_dist_x);
 	}
 	else
 	{
 		if (rc->ray_dir_y > 0)
-			rc->tile_face = SOUTH;
-		else
 			rc->tile_face = NORTH;
+		else
+			rc->tile_face = SOUTH;
 		rc->perp_wall_dist = (rc->side_dist_y - rc->delta_dist_y);
 	}
 }
