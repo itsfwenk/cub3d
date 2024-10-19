@@ -6,7 +6,7 @@
 /*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 10:53:52 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/19 00:58:00 by mel-habi         ###   ########.fr       */
+/*   Updated: 2024/10/19 02:48:22 by mel-habi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,29 @@ static int	handle_key(int key, t_cub3d *cub3d)
 	return (EXIT_SUCCESS);
 }
 
+static int	handle_mouse(int key, int x, int y, t_cub3d *cub3d)
+{
+	(void)y;
+	if (key == Button1)
+	{
+		if (x <= WIDTH / 2)
+			camera_movement(cub3d, cub3d->player, cub3d->raycaster, C_LEFT);
+		else
+			camera_movement(cub3d, cub3d->player, cub3d->raycaster, C_RIGHT);
+	}
+	return (EXIT_SUCCESS);
+}
+
 void	init_events(t_cub3d *cub3d)
 {
 	mlx_hook(cub3d->win, KeyPress, KeyPressMask,
 		handle_key, cub3d);
 	mlx_hook(cub3d->win, KeyRelease, KeyReleaseMask,
 		handle_key, cub3d);
+	mlx_hook(cub3d->win, ButtonPress, ButtonPressMask,
+		handle_mouse, cub3d);
+	mlx_hook(cub3d->win, ButtonRelease, ButtonReleaseMask,
+		handle_mouse, cub3d);
 	mlx_hook(cub3d->win, DestroyNotify, StructureNotifyMask,
 		handle_close, cub3d);
 }
