@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 18:51:44 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/18 13:40:05 by fli              ###   ########.fr       */
+/*   Updated: 2024/10/19 14:13:05 by mel-habi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,13 +55,13 @@ void	raycaster(t_cub3d *cub3d, double ray_dir_x, double ray_dir_y)
 		{
 			rc->side_dist_x += rc->delta_dist_x;
 			rc->tile_x += rc->step_x;
-			rc->side = 0;
+			rc->side = HORIZONTAL;
 		}
 		else
 		{
 			rc->side_dist_y += rc->delta_dist_y;
 			rc->tile_y += rc->step_y;
-			rc->side = 1;
+			rc->side = VERTICAL;
 		}
 		if (rc->tile_y > (int)map->height || rc->tile_x > (int)map->width)
 			break ;
@@ -86,7 +86,6 @@ void	init_raycaster(t_cub3d *cub3d)
 		rc->delta_dist_y = fabs(1 / rc->ray_dir_y);
 	else
 		rc->delta_dist_y = 1e30;
-	rc->wall_dist = 0;
 	rc->tile_face = 0;
 }
 
@@ -95,7 +94,7 @@ void	calc_perp_dist(t_cub3d *cub3d)
 	t_raycaster	*rc;
 
 	rc = cub3d->raycaster;
-	if (rc->side == 0)
+	if (rc->side == HORIZONTAL)
 	{
 		if (rc->ray_dir_x > 0)
 			rc->tile_face = EAST;

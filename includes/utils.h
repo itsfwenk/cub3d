@@ -6,7 +6,7 @@
 /*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 14:05:19 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/19 01:00:03 by mel-habi         ###   ########.fr       */
+/*   Updated: 2024/10/19 14:05:40 by mel-habi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ typedef enum e_movement		t_movement;
 typedef enum e_direction	t_direction;
 typedef enum e_position		t_position;
 typedef enum e_side			t_side;
-typedef enum e_time			t_time;
 
 // Structures
 typedef struct s_gc			t_gc;
@@ -38,9 +37,6 @@ bool			in_charset(char c, char *charset);
 char			**free_str_tab(char	**tab);
 bool			unexpected_line_error(t_cub3d *cub3d);
 int				exit_cub3d(t_cub3d *cub3d, int exit_code);
-
-// ft_time.c
-suseconds_t		get_time_seconds(void);
 
 // gc.c
 void			clear_gc(t_gc *gc);

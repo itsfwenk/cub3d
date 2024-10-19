@@ -6,7 +6,7 @@
 /*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 13:03:22 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/19 01:24:41 by mel-habi         ###   ########.fr       */
+/*   Updated: 2024/10/19 14:13:44 by mel-habi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@
 # define TILE_SIZE 64
 # define PI 3.14159265358979323846
 
-# define ROTATE_FORCE 0.05f
-# define MOVEMENT_FORCE 0.3f
+# define ROTATE_FORCE 0.07f
+# define MOVEMENT_FORCE 0.1f
 
 # define WIN_NAME "cub3D"
 
@@ -49,7 +49,6 @@ typedef enum e_movement		t_movement;
 typedef enum e_direction	t_direction;
 typedef enum e_position		t_position;
 typedef enum e_side			t_side;
-typedef enum e_time			t_time;
 
 typedef enum e_movement
 {
@@ -80,12 +79,6 @@ typedef enum e_side
 	HORIZONTAL,
 	VERTICAL
 }	t_side;
-
-typedef enum e_time
-{
-	OLDTIME,
-	CURTIME
-}	t_time;
 
 // Structures
 typedef struct s_gc			t_gc;
@@ -139,21 +132,18 @@ typedef struct s_player
 typedef struct s_raycaster
 {
 	int				wd_x;
-	int				wd_y;
 	int				tile_x;
 	int				tile_y;
 	int				wall_start;
 	int				wall_end;
 	int				step_x;
 	int				step_y;
-	int				side;
 	int				line_height;
 	int				tex_x;
 	int				tex_y;
 	double			camera_x;
 	double			plane_x;
 	double			plane_y;
-	double			wall_dist;
 	double			side_dist_x;
 	double			side_dist_y;
 	double			delta_dist_x;
@@ -161,21 +151,14 @@ typedef struct s_raycaster
 	double			perp_wall_dist;
 	double			ray_dir_x;
 	double			ray_dir_y;
-	double			wall_x;
+	t_side			side;
 	t_direction		tile_face;
 }	t_raycaster;
-
-typedef struct s_timedata
-{
-	suseconds_t	time;
-	suseconds_t	old_time;
-}	t_timedata;
 
 typedef struct s_cub3d
 {
 	void				*connection;
 	void				*win;
-	double				time[2];
 	char				*p_line;
 	t_img				img;
 	t_img				textures[4];
@@ -183,7 +166,6 @@ typedef struct s_cub3d
 	t_map				*map;
 	t_raycaster			*raycaster;
 	t_gc				*gc;
-	t_timedata			*timedata;
 }	t_cub3d;
 
 #endif

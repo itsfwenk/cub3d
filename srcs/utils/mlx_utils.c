@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mlx_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: mel-habi <mel-habi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 18:52:41 by mel-habi          #+#    #+#             */
-/*   Updated: 2024/10/18 18:17:57 by fli              ###   ########.fr       */
+/*   Updated: 2024/10/19 14:14:04 by mel-habi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	draw_wall(t_cub3d *cub3d, int px_x, int px_y, int first_wall_y)
 	double			wall_x;
 	unsigned int	px_color;
 
-	if (cub3d->raycaster->side == 0)
+	if (cub3d->raycaster->side == HORIZONTAL)
 		wall_x = cub3d->player->y
 			+ cub3d->raycaster->perp_wall_dist * cub3d->raycaster->ray_dir_y;
 	else
@@ -43,9 +43,9 @@ void	draw_wall(t_cub3d *cub3d, int px_x, int px_y, int first_wall_y)
 			* cub3d->raycaster->ray_dir_x;
 	wall_x -= floor(wall_x);
 	cub3d->raycaster->tex_x = (int)(wall_x * (double)TILE_SIZE);
-	if (cub3d->raycaster->side == 0 && cub3d->raycaster->ray_dir_x > 0)
+	if (cub3d->raycaster->side == HORIZONTAL && cub3d->raycaster->ray_dir_x > 0)
 		cub3d->raycaster->tex_x = TILE_SIZE - cub3d->raycaster->tex_x - 1;
-	if (cub3d->raycaster->side == 1 && cub3d->raycaster->ray_dir_y < 0)
+	if (cub3d->raycaster->side == VERTICAL && cub3d->raycaster->ray_dir_y < 0)
 		cub3d->raycaster->tex_x = TILE_SIZE - cub3d->raycaster->tex_x - 1;
 	step = (double)TILE_SIZE / cub3d->raycaster->line_height;
 	text_pos = (cub3d->raycaster->wall_start - HEIGHT / 2
@@ -86,7 +86,6 @@ void	draw_img(t_cub3d *cub3d)
 
 	rc = cub3d->raycaster;
 	rc->wd_x = 0;
-	rc->wd_y = 0;
 	while (rc->wd_x < WIDTH)
 	{
 		init_raycaster(cub3d);
@@ -104,6 +103,4 @@ void	draw_img(t_cub3d *cub3d)
 	}
 	mlx_put_image_to_window(cub3d->connection, cub3d->win,
 		cub3d->img.img_ptr, 0, 0);
-	cub3d->timedata->old_time = cub3d->timedata->time;
-	cub3d->timedata->time = get_time_seconds();
 }
